@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="GB2312"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+
+	<!-- Spring的Java Mail，在这里配置SMTP服务器、用户名、密码等 -->
+	<bean id="javaMailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="${mail.host}" />
+		<property name="username" value="${mail.username}" />
+		<property name="password" value="${mail.password}" />
+		<property name="defaultEncoding" value="UTF-8"></property>
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.smtp.auth">${mail.smtp.auth}</prop>
+				<prop key="mail.smtp.timeout">${mail.smtp.timeout}</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<!-- 简单的邮件发送配置，不使用任何邮件模板和邮件bean配置 -->
+	<bean id="simpleMailSender" class="net.juweitang.tms.common.mail.sender.impl.SpringJavaMailSender">
+		<property name="javaMailSender" ref="javaMailSender" />
+	</bean>
+	<!-- 简单的Velocity模板邮件发送配置 -->
+	<bean id="velocityMailSender" class="net.juweitang.tms.common.mail.sender.impl.SpringJavaMailSender">
+		<property name="javaMailSender" ref="javaMailSender" />
+		<property name="mailRender" ref="simpleMailRender" />
+	</bean>
+	<!-- Velocity Layout/Screen模板邮件发送配置 -->
+	<bean id="velocityLayoutMailSender" class="net.juweitang.tms.common.mail.sender.impl.SpringJavaMailSender">
+		<property name="javaMailSender" ref="javaMailSender" />
+		<property name="mailRender" ref="simpleMailRender2" />
+	</bean>
+	
+	<!-- 简单的邮件渲染配置，使用Velocity邮件模板解析，不使用邮件bean配置 -->
+	<bean id="simpleMailRender" class="net.juweitang.tms.common.mail.render.impl.SimpleMailRender">
+		<property name="templateResolver" ref="velocityMailTemplateResolver" />
+	</bean>
+	<!-- 简单的邮件渲染配置，使用Velocity Layout/Screen模板解析，不使用邮件bean配置 -->
+	<bean id="simpleMailRender2" class="net.juweitang.tms.common.mail.render.impl.SimpleMailRender">
+		<property name="templateResolver" ref="velocityLayoutMailTemplateResolver" />
+	</bean>
+	
+	<!-- Velocity邮件模板解析配置 -->
+	<bean id="velocityMailTemplateResolver" class="net.juweitang.tms.common.mail.template.velocity.VelocityMailTemplateResolver">
+		<property name="velocityEngine" ref="velocityEngine" />
+		<property name="globalAttributes">
+			<map>
+				<entry key="appServer" value-ref="mailAppServerBroker"></entry>
+				<entry key="imageServer" value-ref="mailImageServerBroker"></entry>
+			</map>
+		</property>
+	</bean>
+	<!-- Velocity Layout/Screen模板解析配置 ,工程应该在velocityMailTemplateResolver和velocityLayoutMailTemplateResolver中选择一种实现　-->
+	<bean id="velocityLayoutMailTemplateResolver" class="net.juweitang.tms.common.mail.template.velocity.VelocityLayoutMailTemplateResolver">
+		<property name="velocityEngine" ref="velocityEngine" />
+	</bean>
+	
+	<!-- Velocity模板解析引擎配置，可以在此处指定存放邮件模板的路径 -->
+	<bean id="velocityEngine" class="org.springframework.ui.velocity.VelocityEngineFactoryBean">
+		<property name="resourceLoaderPath" value="/WEB-INF/mail" /><!-- 单个路径 -->
+		<!-- <property name="resourceLoaderPath" value="/WEB-INF/mail1,/WEB-INF/mail2"> --><!-- 多个路径 -->
+		<property name="velocityProperties">
+			<props>
+				<prop key="input.encoding">${file.encoding}</prop>
+			</props>
+		</property>
+		<property name="configLocation" value="WEB-INF/conf/mail.velocity.properties"></property>
+	</bean>
+
+
+	<!-- URLBrokers for mail -->
+	<bean id="mailAppServerBroker" class="net.juweitang.tms.common.web.url.URLBroker">
+		<property name="encoding" value="${web.encoding}"></property>
+		<property name="config">
+			<bean class="net.juweitang.tms.common.web.url.URLConfig">
+				<property name="host" value="${app.server.host}"></property>
+				<property name="port" value="${app.server.port}"></property>
+				<property name="followContextPath" value="true"></property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="mailImageServerBroker" class="net.juweitang.tms.common.web.url.StampURLBroker">
+		<property name="encoding" value="${web.encoding}"></property>
+		<property name="config">
+			<bean class="net.juweitang.tms.common.web.url.URLConfig">
+				<property name="host" value="${image.server.host}"></property>
+				<property name="port" value="${image.server.port}"></property>
+				<property name="followContextPath" value="true"></property>
+			</bean>
+		</property>
+		<property name="stamp" value="${web.stamp}"></property>
+	</bean>
+	<bean class="net.juweitang.tms.common.web.url.CommonInitHelper">
+		<property name="contextPath" value=""></property>
+		<property name="brokers">
+			<list>
+				<ref bean="mailAppServerBroker"/>
+				<ref bean="mailImageServerBroker"/>
+			</list>
+		</property>
+	</bean>
+</beans>
