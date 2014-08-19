@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>net.juweitang.framework</groupId>
@@ -7,6 +8,9 @@
   <name>tms-framework</name>
   <modules>
   	<module>tms-framework-mvc</module>
+    <module>tms-framework-io</module>
+    <module>tms-framework-util</module>
+    <module>tms-framework-common</module>
   </modules>
   <properties>
   	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
