@@ -17,31 +17,31 @@
 	</bean>
 	
 	<!-- 简单的邮件发送配置，不使用任何邮件模板和邮件bean配置 -->
-	<bean id="simpleMailSender" class="net.juweitang.tms.common.mail.sender.impl.SpringJavaMailSender">
+	<bean id="simpleMailSender" class="org.tmsframework.mvc.mail.sender.impl.SpringJavaMailSender">
 		<property name="javaMailSender" ref="javaMailSender" />
 	</bean>
 	<!-- 简单的Velocity模板邮件发送配置 -->
-	<bean id="velocityMailSender" class="net.juweitang.tms.common.mail.sender.impl.SpringJavaMailSender">
+	<bean id="velocityMailSender" class="org.tmsframework.mvc.mail.sender.impl.SpringJavaMailSender">
 		<property name="javaMailSender" ref="javaMailSender" />
 		<property name="mailRender" ref="simpleMailRender" />
 	</bean>
 	<!-- Velocity Layout/Screen模板邮件发送配置 -->
-	<bean id="velocityLayoutMailSender" class="net.juweitang.tms.common.mail.sender.impl.SpringJavaMailSender">
+	<bean id="velocityLayoutMailSender" class="org.tmsframework.mvc.mail.sender.impl.SpringJavaMailSender">
 		<property name="javaMailSender" ref="javaMailSender" />
 		<property name="mailRender" ref="simpleMailRender2" />
 	</bean>
 	
 	<!-- 简单的邮件渲染配置，使用Velocity邮件模板解析，不使用邮件bean配置 -->
-	<bean id="simpleMailRender" class="net.juweitang.tms.common.mail.render.impl.SimpleMailRender">
+	<bean id="simpleMailRender" class="org.tmsframework.mvc.mail.render.impl.SimpleMailRender">
 		<property name="templateResolver" ref="velocityMailTemplateResolver" />
 	</bean>
 	<!-- 简单的邮件渲染配置，使用Velocity Layout/Screen模板解析，不使用邮件bean配置 -->
-	<bean id="simpleMailRender2" class="net.juweitang.tms.common.mail.render.impl.SimpleMailRender">
+	<bean id="simpleMailRender2" class="org.tmsframework.mvc.mail.render.impl.SimpleMailRender">
 		<property name="templateResolver" ref="velocityLayoutMailTemplateResolver" />
 	</bean>
 	
 	<!-- Velocity邮件模板解析配置 -->
-	<bean id="velocityMailTemplateResolver" class="net.juweitang.tms.common.mail.template.velocity.VelocityMailTemplateResolver">
+	<bean id="velocityMailTemplateResolver" class="org.tmsframework.mvc.mail.template.velocity.VelocityMailTemplateResolver">
 		<property name="velocityEngine" ref="velocityEngine" />
 		<property name="globalAttributes">
 			<map>
@@ -51,7 +51,7 @@
 		</property>
 	</bean>
 	<!-- Velocity Layout/Screen模板解析配置 ,工程应该在velocityMailTemplateResolver和velocityLayoutMailTemplateResolver中选择一种实现　-->
-	<bean id="velocityLayoutMailTemplateResolver" class="net.juweitang.tms.common.mail.template.velocity.VelocityLayoutMailTemplateResolver">
+	<bean id="velocityLayoutMailTemplateResolver" class="org.tmsframework.mvc.mail.template.velocity.VelocityLayoutMailTemplateResolver">
 		<property name="velocityEngine" ref="velocityEngine" />
 	</bean>
 	
@@ -69,20 +69,20 @@
 
 
 	<!-- URLBrokers for mail -->
-	<bean id="mailAppServerBroker" class="net.juweitang.tms.common.web.url.URLBroker">
+	<bean id="mailAppServerBroker" class="org.tmsframework.mvc.web.url.URLBroker">
 		<property name="encoding" value="${web.encoding}"></property>
 		<property name="config">
-			<bean class="net.juweitang.tms.common.web.url.URLConfig">
+			<bean class="org.tmsframework.mvc.web.url.URLConfig">
 				<property name="host" value="${app.server.host}"></property>
 				<property name="port" value="${app.server.port}"></property>
 				<property name="followContextPath" value="true"></property>
 			</bean>
 		</property>
 	</bean>
-	<bean id="mailImageServerBroker" class="net.juweitang.tms.common.web.url.StampURLBroker">
+	<bean id="mailImageServerBroker" class="org.tmsframework.mvc.web.url.StampURLBroker">
 		<property name="encoding" value="${web.encoding}"></property>
 		<property name="config">
-			<bean class="net.juweitang.tms.common.web.url.URLConfig">
+			<bean class="org.tmsframework.mvc.web.url.URLConfig">
 				<property name="host" value="${image.server.host}"></property>
 				<property name="port" value="${image.server.port}"></property>
 				<property name="followContextPath" value="true"></property>
@@ -90,7 +90,7 @@
 		</property>
 		<property name="stamp" value="${web.stamp}"></property>
 	</bean>
-	<bean class="net.juweitang.tms.common.web.url.CommonInitHelper">
+	<bean class="org.tmsframework.mvc.web.url.CommonInitHelper">
 		<property name="contextPath" value=""></property>
 		<property name="brokers">
 			<list>

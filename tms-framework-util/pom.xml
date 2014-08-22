@@ -7,7 +7,6 @@
     <artifactId>tms-framework</artifactId>
     <version>0.0.1</version>
   </parent>
-  <groupId>net.juweitang.framework</groupId>
   <artifactId>tms-framework-util</artifactId>
   <version>0.0.1</version>
   <name>tms-framework-util</name>
@@ -22,5 +21,26 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+    <dependency>  
+        <groupId>dom4j</groupId>  
+        <artifactId>dom4j</artifactId>  
+        <version>1.6.1</version>  
+    </dependency>  
+    <dependency>
+	<groupId>xerces</groupId>
+	<artifactId>xercesImpl</artifactId>
+  <version>2.9.1</version>
+</dependency>
+<dependency>
+	<groupId>nekohtml</groupId>
+	<artifactId>nekohtml</artifactId>
+	<version>1.9.6.2</version>
+</dependency>
+<dependency>
+			<groupId>org.im4java</groupId>
+			<artifactId>im4java</artifactId>
+			<version>1.2.0</version>
+			<optional>true</optional>
+		</dependency>
   </dependencies>
 </project>

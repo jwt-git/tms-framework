@@ -7,9 +7,7 @@
     <artifactId>tms-framework</artifactId>
     <version>0.0.1</version>
   </parent>
-  <groupId>net.juweitang.framework</groupId>
   <artifactId>tms-framework-io</artifactId>
-  <version>0.0.1</version>
   <name>tms-framework-io</name>
   <url>http://maven.apache.org</url>
   <properties>
@@ -22,5 +20,10 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+		<groupId>javax.servlet</groupId>
+		<artifactId>servlet-api</artifactId>
+		<version>2.5</version>
+	</dependency>
   </dependencies>
 </project>
