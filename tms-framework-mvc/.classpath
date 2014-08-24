@@ -25,7 +25,5 @@
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
-	<classpathentry combineaccessrules="false" kind="src" path="/tms-framework-common"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/tms-framework-util"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

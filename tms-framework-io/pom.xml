@@ -25,5 +25,11 @@
 		<artifactId>servlet-api</artifactId>
 		<version>2.5</version>
 	</dependency>
+    <dependency>
+    	<groupId>net.juweitang.framework</groupId>
+    	<artifactId>tms-framework-util</artifactId>
+    	<version>0.0.2</version>
+    	<scope>runtime</scope>
+    </dependency>
   </dependencies>
 </project>

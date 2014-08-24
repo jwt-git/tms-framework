@@ -273,6 +273,18 @@
 			<version>${javamail.version}</version>
 			<scope>provided</scope>
 		</dependency>
+		<dependency>
+			<groupId>net.juweitang.framework</groupId>
+			<artifactId>tms-framework-util</artifactId>
+			<version>0.0.2</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>net.juweitang.framework</groupId>
+			<artifactId>tms-framework-common</artifactId>
+			<version>0.0.2</version>
+			<scope>runtime</scope>
+		</dependency>
 	</dependencies>
 
 	<properties>
