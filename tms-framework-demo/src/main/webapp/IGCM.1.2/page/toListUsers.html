@@ -1,0 +1,212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>恒生网络-系统管理平台</title>
+<link href="../styles/basic.css" rel="stylesheet" type="text/css" />
+<link href="../styles/admin.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../scripts/layer.js"></script>
+<script language="javascript" type="text/javascript" src="../scripts/My97DatePicker/WdatePicker.js"></script>
+</head>
+<body>
+<div class="main">
+  <!-- 搜索模块 -->
+  <div class="searchBox">
+    <h3><span>搜索用户</span></h3>
+    <table>
+      <tr>
+        <th>会员账户：</th>
+        <td><input type="text" class="inp" /></td>
+        <th>会员id：</th>
+        <td><input type="text" class="inp" /></td>
+        <th>注册时间：</th>
+        <td><input type="text" class="inp inp-w70" onclick="WdatePicker()"  />
+          -
+          <input type="text" class="inp inp-w70"  onclick="WdatePicker()" /></td>
+      </tr>
+      <tr>
+        <th>姓名：</th>
+        <td><input type="text" class="inp" /></td>
+        <th>手机号码：</th>
+        <td><input type="text" class="inp" /></td>
+        <th>&nbsp;</th>
+        <td><button type="submit" class="btn">搜 索</button></td>
+      </tr>
+    </table>
+  </div>
+  <!-- 搜索模块 END -->
+  <!-- 列表模块 -->
+  <div class="listBox">
+    <h3><span>会员列表</span></h3>
+    <table >
+      <tr>
+        <th>会员id</th>
+        <th>会员账户</th>
+        <th>姓名</th>
+        <th>手机号码</th>
+        <th>注册时间</th>
+        <th>账户状态</th>
+        <th>操作功能区</th>
+        <th>功能跳转区</th>
+      </tr>
+      <tr>
+        <td>54159</td>
+        <td>user@163.com</td>
+        <td>张三</td>
+        <td>15969562353</td>
+        <td>2010-03-16</td>
+        <td>正常</td>
+        <td><a href="#" onclick="loading();">冻结</a> <a href="#" onclick="loading();">重置密码</a></td>
+        <td><a href="form-user.html">查看</a> <a href="#">删除</a> <a href="userwlList.html">日志</a></td>
+      </tr>
+      <tr class="bg">
+        <td>54159</td>
+        <td>user@163.com</td>
+        <td>张三</td>
+        <td>15969562353</td>
+        <td>2010-03-16</td>
+        <td>冻结</td>
+        <td><a href="#" onclick="loading();">解冻</a> <a href="#" onclick="loading();">重置密码</a></td>
+        <td><a href="form-user.html">查看</a> <a href="#">删除</a> <a href="userwlList.html">日志</a></td>
+      </tr>
+      <tr>
+        <td>54159</td>
+        <td>user@163.com</td>
+        <td>张三</td>
+        <td>15969562353</td>
+        <td>2010-03-16</td>
+        <td>冻结</td>
+        <td><a href="#" onclick="loading();">解冻</a> <a href="#" onclick="loading();">重置密码</a></td>
+        <td><a href="form-user.html">查看</a> <a href="#">删除</a> <a href="userwlList.html">日志</a></td>
+      </tr>
+      <tr class="bg">
+        <td>54159</td>
+        <td>user@163.com</td>
+        <td>张三</td>
+        <td>15969562353</td>
+        <td>2010-03-16</td>
+        <td>冻结</td>
+        <td><a href="#" onclick="loading();">解冻</a> <a href="#" onclick="loading();">重置密码</a></td>
+        <td><a href="form-user.html">查看</a> <a href="#">删除</a> <a href="userwlList.html">日志</a></td>
+      </tr>
+      <tr>
+        <td>54159</td>
+        <td>user@163.com</td>
+        <td>张三</td>
+        <td>15969562353</td>
+        <td>2010-03-16</td>
+        <td>正常</td>
+        <td><a href="#" onclick="loading();">冻结</a> <a href="#" onclick="loading();">重置密码</a></td>
+        <td><a href="form-user.html">查看</a> <a href="#">删除</a> <a href="userwlList.html">日志</a></td>
+      </tr>
+      <tr class="bg">
+        <td>54159</td>
+        <td>user@163.com</td>
+        <td>张三</td>
+        <td>15969562353</td>
+        <td>2010-03-16</td>
+        <td>冻结</td>
+        <td><a href="#" onclick="loading();">解冻</a> <a href="#" onclick="loading();">重置密码</a></td>
+        <td><a href="form-user.html">查看</a> <a href="#">删除</a> <a href="userwlList.html">日志</a></td>
+      </tr>
+      <tr>
+        <td>54159</td>
+        <td>user@163.com</td>
+        <td>张三</td>
+        <td>15969562353</td>
+        <td>2010-03-16</td>
+        <td>冻结</td>
+        <td><a href="#" onclick="loading();">解冻</a> <a href="#" onclick="loading();">重置密码</a></td>
+        <td><a href="form-user.html">查看</a> <a href="#">删除</a> <a href="userwlList.html">日志</a></td>
+      </tr>
+      <tr class="bg">
+        <td>54159</td>
+        <td>user@163.com</td>
+        <td>张三</td>
+        <td>15969562353</td>
+        <td>2010-03-16</td>
+        <td>冻结</td>
+        <td><a href="#" onclick="loading();">解冻</a> <a href="#" onclick="loading();">重置密码</a></td>
+        <td><a href="form-user.html">查看</a> <a href="#">删除</a> <a href="userwlList.html">日志</a></td>
+      </tr>
+      <tr>
+        <td>54159</td>
+        <td>user@163.com</td>
+        <td>张三</td>
+        <td>15969562353</td>
+        <td>2010-03-16</td>
+        <td>冻结</td>
+        <td><a href="#" onclick="loading();">解冻</a> <a href="#" onclick="loading();">重置密码</a></td>
+        <td><a href="form-user.html">查看</a> <a href="#">删除</a> <a href="userwlList.html">日志</a></td>
+      </tr>
+      <tr class="bg">
+        <td>54159</td>
+        <td>user@163.com</td>
+        <td>张三</td>
+        <td>15969562353</td>
+        <td>2010-03-16</td>
+        <td>冻结</td>
+        <td><a href="#" onclick="loading();">解冻</a> <a href="#" onclick="loading();">重置密码</a></td>
+        <td><a href="form-user.html">查看</a> <a href="#">删除</a> <a href="userwlList.html">日志</a></td>
+      </tr>
+      <tr>
+        <td>54159</td>
+        <td>user@163.com</td>
+        <td>张三</td>
+        <td>15969562353</td>
+        <td>2010-03-16</td>
+        <td>正常</td>
+        <td><a href="#" onclick="loading();">冻结</a> <a href="#" onclick="loading();">重置密码</a></td>
+        <td><a href="form-user.html">查看</a> <a href="#">删除</a> <a href="userwlList.html">日志</a></td>
+      </tr>
+      <tr class="bg">
+        <td>54159</td>
+        <td>user@163.com</td>
+        <td>张三</td>
+        <td>15969562353</td>
+        <td>2010-03-16</td>
+        <td>正常</td>
+        <td><a href="#" onclick="loading();">冻结</a> <a href="#" onclick="loading();">重置密码</a></td>
+        <td><a href="form-user.html">查看</a> <a href="#">删除</a> <a href="userwlList.html">日志</a></td>
+      </tr>
+    </table>
+    <div class="pages-box" >
+      <div class="pages"> <a href="#" style="font-weight:bold">&laquo;</a><b> 1 </b> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> ... <a href="#">9</a> <a href="#" style="font-weight:bold">&raquo;</a>
+        <input type="text" size="2" title="输入页码按回车">
+        <a href="#" style="color:#000">GO</a> 页数: [ 1 / 253 ] </div>
+    </div>
+  </div>
+  <!-- 列表模块 END -->
+  <!--浮动层-->
+  <div id="layer" align="center"></div> 
+  <div id="layer2">
+  <div class="searchBox">
+    <h3><img src="../images/admin/close.png" onClick="unload();" alt="点击关闭"/><span>操作</span></h3>
+    <table>
+    <tr>
+        <th>会员ID：</th>
+        <td>54159</td>
+    </tr>
+      
+      <tr>
+        <th>操作类型：</th>
+        <td><input name="" type="radio" value="" checked="checked" />
+          冻结
+          <input name="" type="radio" value="" />
+          解冻
+          <input name="" type="radio" value="" />
+          重置密码</td>
+        </tr>
+      <tr>
+        <th>操作原因：</th>
+        <td><textarea name="textarea" cols="" rows=""></textarea></td>
+        </tr>
+      <tr>
+        <td colspan="2" class="ttali-cent"><button type="submit" class="btn">确认修改</button><button type="submit" class="btn" onClick="unload();">取消</button></td>
+        </tr>
+    </table>
+  </div>
+  </div>
+  <!-- 浮动层 END -->
+</div>
+</body>

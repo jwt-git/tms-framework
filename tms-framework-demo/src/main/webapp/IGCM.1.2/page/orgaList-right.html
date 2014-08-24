@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>恒生网络-系统管理平台</title>
+    <link href="../styles/basic.css" rel="stylesheet" type="text/css" />
+    <link href="../styles/admin.css" rel="stylesheet" type="text/css" />
+    <script language="javascript" type="text/javascript" src="../scripts/My97DatePicker/WdatePicker.js"></script>
+    <script type="text/javascript" src="../scripts/layer.js"></script>
+</head>
+
+<body>
+	
+<div class="main">
+    	
+  <div class="searchBox">
+    <h3><span>组织机构搜索</span></h3>
+    <table>
+      <tr>
+        <th style="width:90px;">员工名称：</th>
+        <td><input type="text" class="inp inp-w90"/></td>
+        <th>直接上级：</th>
+        <td><input type="text" class="inp inp-w90"/></td>
+        <th>状态：</th>
+        <td><select name="select3" class="select" style="width:60px;">
+          <option>冻结</option>
+          <option>解冻</option>
+        </select></td>
+        <th>&nbsp;</th>
+        
+      </tr>
+      <tr>
+        <th style="width:90px;">岗位：</th>
+        <td><select name="select2" class="select" style="width:96px;">
+          <option>请选择</option>
+        </select></td>
+        <th>组织机构：</th>
+        <td><select name="select4" class="select" style="width:96px;">
+          <option>请选择</option>
+        </select></td>
+        <th>是否在职：          
+          </th>
+        <td><select name="select" class="select" style="width:60px;">
+          <option>在职</option>
+          <option>离职</option>
+        </select></td>
+        <th><button type="submit" class="btn">搜 索</button></th>
+        
+      </tr>
+    </table>
+  </div> 
+          
+  <!-- 表单模块 END -->            
+ <div class="tool"> <span><a href="addorgaUser.html" hidefocus="true" class="bt_add">增加</a></span> <span><a href="#" hidefocus="true" class="bt_all">设置部门经理</a></span></div>
+  <div class="clear"></div>
+		
+        
+        <!-- 列表模块 -->
+        <div class="listBox"> 
+          <h3><span>组织机构角色</span></h3> 
+            <table > 
+                <tr>
+                  <th><input name="" type="checkbox" value="" /></th>
+                    <th>员工名称</th>					
+                    <th>岗位名称</th>
+                  <th>性别</th>
+                  <th>电话</th>
+                  <th>Email</th>
+                  <th>所属机构</th>
+                  <th>直接上级</th>
+                    <th>状态</th>
+                    <th>操作</th>
+                </tr>
+                <tr>
+                  <td><input name="input" type="checkbox" value="" /></td>
+					<td>张三</td>
+                	<td>出纳 </td>
+                    <td>男</td>
+                    <td>15922658590</td>
+                    <td>jjsss@163.com</td>
+                    <td>财务一部</td>
+                    <td>王五</td>
+                    <td>正常</td>
+                    <td><a href="editorgaUser.html">编辑</a> <a href="#" onclick="loading();">冻结</a> <a href="#" onclick="loading();">重置密码</a> <a href="setorgaUserrole.html">设置角色</a></td>
+                </tr>
+				<tr class="bg">
+				  <td><input name="input2" type="checkbox" value="" /></td>
+				  	<td>张三</td>
+                	<td>会计</td>
+                    <td>女 </td>
+                    <td>2252625</td>
+                    <td>dddd@163.com</td>
+                    <td>财务二部</td>
+                    <td>李四</td>
+                    <td>冻结</td>
+                    <td><a href="editorgaUser.html">编辑</a> <a href="#" onclick="loading();">解冻</a> <a href="#" onclick="loading();">重置密码</a> <a href="setorgaUserrole.html">设置角色</a></td>
+                </tr>
+
+
+            </table> 
+			
+             <div class="pages-box" >
+       	  <div class="pages">
+                            <a href="#" style="font-weight:bold">&laquo;</a><b> 1 </b>
+                            <a href="#">2</a>
+                            <a href="#">3</a>
+                            <a href="#">4</a>
+                            ...
+                            <a href="#">9</a>
+                            <a href="#" style="font-weight:bold">&raquo;</a> 
+                            <input type="text" size="2" title="输入页码按回车">
+                            <a href="#" style="color:#000">GO</a>
+                            页数: [ 1 / 253 ]
+               </div> 
+          </div>
+             
+        </div>
+        
+        
+        <br />
+        <!-- 列表模块 END -->   
+        	
+       <!--浮动层-->
+  <div id="layer" align="center"></div> 
+  <div id="layer2">
+  <div class="searchBox">
+    <h3><img src="../images/admin/close.png" onClick="unload();" alt="点击关闭"/><span>操作</span></h3>
+    <table>
+    <tr>
+        <th>名字：</th>
+        <td>张三</td>
+    </tr>
+      
+      <tr>
+        <th>岗位名称：</th>
+        <td>会计</td>
+        </tr>
+      <tr>
+      <tr>
+        <th>操作：</th>
+        <td><input name="" type="radio" value="" checked="checked" />冻结<input name="" type="radio" value="" />解冻          </td>
+        </tr>
+      <tr>
+        <th>操作原因：</th>
+        <td><textarea name="textarea" cols="" rows=""></textarea></td>
+        </tr>
+        
+      <tr>
+        <td colspan="2" class="ttali-cent"><button type="submit" class="btn">确认修改</button><button type="submit" class="btn" onClick="unload();">取消</button></td>
+        </tr>
+    </table>
+    <table>
+    <tr>
+        <th>名字：</th>
+        <td>张三</td>
+    </tr>
+      
+      <tr>
+        <th>岗位名称：</th>
+        <td>会计</td>
+        </tr>
+      <tr>
+      <tr>
+        <th>操作：</th>
+        <td><input name="" type="radio" value="" checked="checked" />
+          系统随机生成6位数字密码
+          <input name="" type="radio" value="" />
+          系统配置的固定密码</td>
+        </tr>
+      <tr>
+        <th>&nbsp;</th>
+        <td>&nbsp;</td>
+        </tr>
+        
+      <tr>
+        <td colspan="2" class="ttali-cent"><button type="submit" class="btn">确认修改</button><button type="submit" class="btn" onClick="unload();">取消</button></td>
+        </tr>
+    </table>
+  </div>
+  </div>
+  <!-- 浮动层 END -->    
+    </div>
+    
+</body>

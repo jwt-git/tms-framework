@@ -1,0 +1,254 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>恒生网络-系统管理平台</title>
+<link href="../styles/basic.css" rel="stylesheet" type="text/css" />
+<link href="../styles/admin.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../scripts/jquery-1.4.2.min.js"></script>
+<script language="javascript" type="text/javascript" src="../scripts/My97DatePicker/WdatePicker.js"></script>
+<script>
+$(function(){
+			var div_a =$(".formBox h3 input");
+			//div_a.change(function(){
+				//var index =  div_a.index(this);
+				//div_a.attr("style","display:block")
+				div_a.change(function(){
+				if(div_a.index(this)==1){
+					$("#div-1").hide();
+					$("#div-2").show();
+				}else{
+					$("#div-1").show();
+					$("#div-2").hide();
+				}
+			})
+
+			
+		});
+			
+$(function(){
+		   	$("#mb").change(function(){
+			$("#mb1,#mb2").hide();
+			var index = $("#mb option:selected").index()+1;
+			if(index)
+			{
+				$("#mb"+index).show();
+			}
+			})
+})
+
+$(function(){
+		   	$("#nb").change(function(){
+			$("#nb1,#nb2").hide();
+			var index = $("#nb option:selected").index()+1;
+			if(index)
+			{
+				$("#nb"+index).show();
+			}
+			})
+})
+$(function(){
+		   	var div_a =$("#div-1 input");
+				div_a.change(function(){
+				//alert(div_a.index(this));
+				if(div_a.index(this)==3){
+					//$("#fs1").hide();
+					$("#fs1").show();
+				}else{
+					//$("#fs1").show();
+					$("#fs1").hide();
+				}
+			})
+})
+
+$(function(){
+		   	var div_a =$("#div-2 input");
+				div_a.change(function(){
+				//alert(div_a.index(this));
+				if(div_a.index(this)==3){
+					//$("#fs1").hide();
+					$("#fs2").show();
+				}else{
+					//$("#fs1").show();
+					$("#fs2").hide();
+				}
+			})
+})
+</script>
+</head>
+
+
+<body>
+<div class="main">
+  <h2>发送站内信</h2>
+  <div class="formBox">
+    <h3><i></i><span style="width:auto;">选择发送对象：<input name="a" type="radio" value="" checked="CHECKED"/><label>站内信单发</label>
+        <input name="a" type="radio" value=""/><label>站内信群发</label></span></h3> 	
+    <div id="div-1">
+    <div class="content">
+    
+      <table class="c2" style="width:800px;">
+        <tr>
+          <th style="width:100px;">收件人：</th>
+          <td style="width:300px;"><input type="text" class="inp" style="width:300px;" /></td>
+          <td><span class="red">*</span></td>
+           
+        </tr>
+        <tr>
+          <th style="width:100px;">主 题：</th>
+          <td><input type="text" class="inp" style="width:300px;" />
+            </td>
+          <td><span class="red">*</span></td>
+        </tr>
+        <tr>
+          <th style="width:100px;">模板：</th>
+          <td><select class="select" id="mb">
+            <option>店庆促销</option>
+            <option>春节促销</option>
+          </select>            <span class="red">*</span></td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <th style="width:100px;">类型：</th>
+          <td><select class="select">
+            <option>促销</option>
+            <option>系统</option>
+          </select>
+            <span class="red">*</span></td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <th style="width:100px;">内容：</th>
+          <td>
+          <textarea id="mb1" class="textarea" style="height:200px;">店庆促销模板内容</textarea>
+          <textarea id="mb2" class="textarea" style="height:200px; display:none;">春节促销模板内容</textarea>
+          </td>
+          <td><span class="red">*</span></td>
+        </tr>
+        <tr>
+          <th style="width:100px;">设置：</th>
+          <td><input name="b" type="radio"  value="" checked="checked"/>
+            立即发送
+            <span class="red">*</span></td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <th style="width:100px;"></th>
+          <td>
+          <input id="fs" name="b" type="radio" value=""  />
+            定时发送
+            <label id="fs1" style="display:none;">
+            <input type="text" class="inp" style=" width:80px;" onclick="WdatePicker()" />
+            <select class="select" style="width:50px;">
+              <option>20</option>
+            </select>
+            <select class="select" style="width:50px;">
+              <option>45</option>
+            </select></label>
+            <span class="red">*</span></td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <th style="width:100px;">是否重发：</th>
+          <td><input name="" type="checkbox" value="" checked="checked" />
+            <span class="red">*</span><span>说明文字</span></td>
+          <td>&nbsp;</td>
+        </tr>
+      </table>
+    </div>
+    <div class="form-but">
+      <!-- 表单按钮区 -->
+      <button type="button" class="button-s4">确定</button>
+      <button type="button" class="button-s4">取消</button>
+    </div>
+    <!-- 表单按钮区 END -->
+    </div>
+    <div  id="div-2" style="display:none;">
+    <div class="content">
+    
+      <table class="c2" style="width:800px;">
+        <tr>
+          <th style="width:100px;">收件人：</th>
+          <td><textarea class="textarea" style="height:40px;"></textarea>
+            </td>
+          <td><span class="red">*</span><span>收件人与收件人之间用逗号（，）隔开，最多支持50个收件人</span></td>
+           
+        </tr>
+        <tr>
+          <th style="width:100px;">导入收件人：</th>
+          <td><input type="text" class="inp" style="width:228px;" />
+            <button type="button" class="button-s17">浏览</button>
+            </td>
+          <td><span class="red">*</span><span>导入文件仅支持EXCEL文件</span></td>
+        </tr>
+        <tr>
+          <th style="width:100px;">主 题：</th>
+          <td><input type="text" class="inp" style="width:300px;" />
+            </td>
+          <td><span class="red">*</span></td>
+        </tr>
+        <tr>
+          <th style="width:100px;">模板：</th>
+          <td><select class="select" id="nb">
+            <option>店庆促销</option>
+            <option>春节促销</option>
+          </select>                     <span class="red">*</span></td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <th style="width:100px;">类型：</th>
+          <td><select name="select" class="select">
+            <option>促销</option>
+            <option>系统</option>
+          </select>
+            <span class="red">*</span></td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <th style="width:100px;">内容：</th>
+          <td><textarea id="nb1" class="textarea" style="height:200px;">店庆促销模板内容</textarea>
+          <textarea id="nb2" class="textarea" style="height:200px; display:none;">春节促销模板内容</textarea>
+            </td>
+          <td><span class="red">*</span></td>
+        </tr>
+        <tr>
+          <th style="width:100px;">设置：</th>
+          <td><input name="c" type="radio" value="" checked="checked" />
+            立即发送
+            <span class="red">*</span></td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <th style="width:100px;"></th>
+          <td>
+          <input name="c" type="radio" value=""  />
+            定时发送<label id="fs2" style="display:none;">
+            <input type="text" class="inp" style=" width:80px;" onclick="WdatePicker()" />
+            <select class="select" style="width:50px;">
+              <option>20</option>
+            </select>
+            <select class="select" style="width:50px;">
+              <option>45</option>
+            </select></label>
+            <span class="red">*</span></td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <th style="width:100px;">是否重发：</th>
+          <td><input name="" type="checkbox" value="" checked="checked" />
+            <span class="red">*</span><span>说明文字</span></td>
+          <td>&nbsp;</td>
+        </tr>
+      </table>
+    </div>
+    <div class="form-but">
+      <!-- 表单按钮区 -->
+      <button type="button" class="button-s4">确定</button>
+      <button type="button" class="button-s4">取消</button>
+    </div>
+    <!-- 表单按钮区 END -->
+    </div>
+
+  </div>
+</div>
+</body>

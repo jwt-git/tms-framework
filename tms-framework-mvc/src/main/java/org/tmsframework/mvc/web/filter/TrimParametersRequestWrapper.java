@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequestWrapper;
 import org.apache.commons.lang.StringUtils;
 
 /**
- * ��http�����е�value trim
+ * 把http请求中的value trim
  * 
  * @author sam.zhang
  * 

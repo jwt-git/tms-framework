@@ -17,7 +17,7 @@ public abstract class AbstractCookieReader implements CookieReader {
 	protected Cookie cookie = null;
 	
 	/* (non-Javadoc)
-	 * @see com.hundsun.network.molody.common.cookie.reader.CookieReader#readAsString()
+	 * @see org.tmsframework.io.cookie.reader.CookieReader#readAsString()
 	 */
 	public String readAsString(String key) {
 		if(cookie!=null){

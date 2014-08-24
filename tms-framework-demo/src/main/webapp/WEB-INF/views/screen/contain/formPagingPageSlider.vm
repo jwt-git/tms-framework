@@ -1,0 +1,43 @@
+#set($layout = '')
+<script>
+	function goto$!{sliderRandom}(pg){
+		document.page_slider_$!{sliderRandom}.$!{sliderPage}.value=pg;
+		document.page_slider_$!{sliderRandom}.submit();
+	}
+</script>
+<div>
+	#if($slider_borker)
+		#set($s_broker = $slider_borker)
+	#else
+		#set($s_broker = $appServer)	
+	#end
+	<form name="page_slider_$!{sliderRandom}" action="${s_broker.get("$sliderTarget")}" method="post">
+		#foreach($queryParam in $sliderQuery.parameters.entrySet())
+		<input type="hidden" name="$!{queryParam.key}" value="$!{queryParam.value}"/>
+		#end
+	#if($sliderCurrent == '1')
+	<span> &laquo; </span>
+	#else
+	<a href="#" onclick="goto$!{sliderRandom}('1')">&laquo;首页</a>
+	<a href="#" onclick="goto$!{sliderRandom}('${sliderPrev}')">&laquo;</a>
+	#end
+	#foreach($grid in $grids)
+		#if($grid == 0)
+		<span>...</span>
+		#elseif($grid == $sliderCurrent)
+		<span class="current">${grid}</span>
+		#else
+		<a href="#" onclick="goto$!{sliderRandom}('${grid}')">${grid}</a>
+		#end
+	#end
+	#if($sliderCurrent == $sliderTotal )
+		<span class="nextprev"> &raquo; </span>
+	#else
+		<a href="#" onclick="goto$!{sliderRandom}('${sliderNext}')">&raquo;</a>
+		<a href="#" onclick="goto$!{sliderRandom}('${sliderTotal}')">末页 &raquo;</a>
+	#end
+	<input type="text" name="$!{sliderPage}" value="$sliderQuery.currentPage"/>
+	<input type="submit" name="sb" value="直接到"/>
+    </ins>
+	</form>
+</div>

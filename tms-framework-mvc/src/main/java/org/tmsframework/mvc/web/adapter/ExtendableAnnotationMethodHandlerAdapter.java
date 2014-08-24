@@ -27,8 +27,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.BeanFactoryAware;
@@ -102,11 +102,11 @@ import org.springframework.web.util.WebUtils;
 import org.tmsframework.mvc.profiler.TimeProfiler;
 
 /**
- * ��spring��AnnotationMethodHandlerAdapter����������������ִ��methodǰ�����չ��,˳���¼��ִ��ʱ��
+ * 从spring的AnnotationMethodHandlerAdapter拷贝而来，增加了执行method前后的扩展点,顺便纪录下执行时间
  * 
- * @author sam.zhang
+ * @author fish
  * @version $Id: ExtendableAnnotationMethodHandlerAdapter.java,v 1.2 2009/11/30
- *          02:34:45 sam.zhang Exp $
+ *          02:34:45 fish Exp $
  */
 public class ExtendableAnnotationMethodHandlerAdapter extends
 		WebContentGenerator implements HandlerAdapter, Ordered,
@@ -124,8 +124,8 @@ public class ExtendableAnnotationMethodHandlerAdapter extends
 	 * 
 	 * @see #PAGE_NOT_FOUND_LOG_CATEGORY
 	 */
-	protected static final Log pageNotFoundLogger = LogFactory
-			.getLog(PAGE_NOT_FOUND_LOG_CATEGORY);
+	protected static final Logger pageNotFoundLogger = LoggerFactory
+			.getLogger(PAGE_NOT_FOUND_LOG_CATEGORY);
 
 	private UrlPathHelper urlPathHelper = new UrlPathHelper();
 

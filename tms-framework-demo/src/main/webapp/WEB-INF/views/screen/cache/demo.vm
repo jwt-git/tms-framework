@@ -1,0 +1,9 @@
+如果想cache页面中的某段,则需要用 &#35;cache() .... &#35;end　包含需要cache的部分
+如:<br/>
+&#35;cache()<br/>
+我是被cache的<br/>
+&#35;end<br/>
+这样的方式中,存放于cache中的key由模板名称,当前所在的行,列数自动生成,如果需要直接指定key名称,则:<br/>
+&#35;cache('demo.cache.key')<br/>
+我也是被cache的<br/>
+&#35;end<br/>

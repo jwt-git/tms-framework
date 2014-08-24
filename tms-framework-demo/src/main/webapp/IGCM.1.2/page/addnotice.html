@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>恒生网络-系统管理平台</title>
+<link href="../styles/basic.css" rel="stylesheet" type="text/css" />
+<link href="../styles/admin.css" rel="stylesheet" type="text/css" />
+<script language="javascript" type="text/javascript" src="../scripts/My97DatePicker/WdatePicker.js"></script>
+<script language="javascript" type="text/javascript" src="../scripts/fckeditor/fckeditor.js"></script>
+</head>
+<body>
+<div class="main">
+  <!-- 表单模块 -->
+  <div class="mag-t1"> 添加失败！ </div>
+  <div class="mag-t2"> 添加成功！ </div>
+  <div class="formBox">
+    <h3><i></i><span>添加公告</span></h3>
+    <div class="content">
+      <table class="c2">
+        <tr>
+          <th>公告标题：</th>
+          <td><input type="text" class="inp" /></td>
+        </tr>
+        
+          <th>公告类型：</th>
+          <td><select name="select3" class="select" style="width:205px;">
+            <option>请选择</option>
+          </select>            <span class="red">*</span></td>
+        </tr>
+        <tr>
+          <th>公告内容：</th>
+          <td>
+            <textarea name="${status.expression}" id="shopBulletin"></textarea>
+                <script type="text/javascript">
+                   var oFCKeditor = new FCKeditor('shopBulletin') ;
+                    oFCKeditor.BasePath = "../scripts/fckeditor/" ;
+                    oFCKeditor.Height = 250;
+                    oFCKeditor.Width = 580;
+                    oFCKeditor.ToolbarSet = "Default" ;
+                    oFCKeditor.ReplaceTextarea();
+                </script>
+                <span class="red">*</span></td>
+        </table>
+    </div>
+    <div class="form-but">
+      <!-- 表单按钮区 -->
+      <button type="button" class="button-s4">添加</button>
+      <button type="button" class="button-s4" onclick="javascript:history.back(-1);">取消</button>
+    </div>
+    <!-- 表单按钮区 END -->
+  </div>
+  <!-- 表单模块 END -->
+</div>
+</body>

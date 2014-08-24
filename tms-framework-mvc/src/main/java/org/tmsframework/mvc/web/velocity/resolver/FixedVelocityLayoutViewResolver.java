@@ -16,7 +16,7 @@ public class FixedVelocityLayoutViewResolver extends VelocityViewResolver {
 
 	private String screenContentKey;
 
-	private String templateEncoding = "UTF-8";// velocityģ���ļ�ȱʡ����
+	private String templateEncoding = "UTF-8";
 
 	private VelocityEngine velocityEngine = null;
 

@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>恒生网络-系统管理平台</title>
+    <link href="../styles/basic.css" rel="stylesheet" type="text/css" />
+    <link href="../styles/admin.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="../scripts/jquery-1.4.2.min.js"></script>
+<script language="javascript" type="text/javascript" src="../scripts/My97DatePicker/WdatePicker.js"></script>
+</head>
+<script>
+$(function(){
+			var div_a =$(".form-tab li");
+			div_a.hover(function(){
+				$(".form-tab li").removeClass("c");
+				$(this).addClass("c");
+				var index =  div_a.index(this); 
+				$(".listBox ul")
+						.eq(index).show() 
+						.siblings().hide();
+			})
+		});
+</script>
+<body>
+	
+    <div class="main">
+    	
+        <!-- 搜索模块 -->
+        <div class="searchBox">
+        	<h3><span>返修/换货管理</span></h3>
+        	<table>
+            	<tr>
+                	<th>返修/换货状态：</th>
+                    <td><select class="select">
+                      <option>请选择</option>
+                    </select></td>
+                    <th>订单编号：</th>
+                    <td><input type="text" class="inp" /></td>
+                    <th>买家帐号：</th>
+                    <td><input type="text" class="inp" /></td>
+                </tr>
+                <tr>
+                  <th>申请时间：</th>
+                  <td><input type="text" class="inp inp-w90" onclick="WdatePicker()" />
+-
+  <input type="text" class="inp inp-w90" onclick="WdatePicker()"/></td>
+                  <th>&nbsp;</th>
+                  <td>&nbsp;</td>
+                  <th></th>
+                  <td><button type="submit" class="btn">搜 索</button></td>
+                </tr>
+            </table>
+        </div> <!-- 搜索模块 END -->
+		 <div class="clear"></div>
+        <!-- 列表模块 -->
+        <div class="listBox"> 
+          <h3><span>返修/换货申请列表</span></h3> 
+            <table > 
+                <tr> 
+                    <th>申请编号</th>
+                    <th>订单编号</th>
+                    <th>买家帐号</th>
+                    <th>返修/换货状态</th>
+                    <th>申请时间</th>
+                    <th>操作</th>
+                </tr>
+                <tr>
+                	<td><a href="#">20101020000007</a></td>
+                    <td><a href="#" target="_blank">41002474101734010</a></td>
+                    <td> sellerWalmart</td>
+                    <td>完成</td>
+                    <td>2010-10-20 17:12:17  </td>      
+                    <td><a href="confx.html">审核</a> <a href="confxcon.html">查看</a></td>
+                </tr>
+				<tr class="bg">
+                	<td><a href="#">20101020000007</a></td>
+                    <td><a href="#" target="_blank">41002474101734010</a></td>
+                    <td> sellerWalmart</td>
+                    <td>处理中</td>
+                    <td>2010-10-20 17:12:17  </td>      
+                    <td><a href="confx.html">审核</a> <a href="#">完成</a></td>
+                </tr>
+                <tr>
+                	<td><a href="#">20101020000007</a></td>
+                    <td><a href="#" target="_blank">41002474101734010</a></td>
+                    <td> sellerWalmart</td>
+                    <td>待审核</td>
+                    <td>2010-10-20 17:12:17  </td>      
+                    <td><a href="confx.html">审核</a> <a href="#">完成</a></td>
+                </tr>
+
+            </table> 
+			
+             <div class="pages-box" >
+<div class="pages">
+                            <a href="#" style="font-weight:bold">&laquo;</a><b> 1 </b>
+                            <a href="#">2</a>
+                            <a href="#">3</a>
+                            <a href="#">4</a>
+                            ...
+                            <a href="#">9</a>
+                            <a href="#" style="font-weight:bold">&raquo;</a> 
+                            <input type="text" size="2" title="输入页码按回车">
+                            <a href="#" style="color:#000">GO</a>
+                            页数: [ 1 / 253 ]
+               </div> 
+           </div>
+          
+         
+      </div> <!-- 列表模块 END -->   
+        	
+           
+    </div>
+    
+</body>

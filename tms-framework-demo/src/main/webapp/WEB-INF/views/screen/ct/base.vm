@@ -1,0 +1,40 @@
+contain可以用来在页面中动态include一个url,类似与jsp 中的 jsp:include<br/>
+被include的url习惯上在/contain/这个路径下，模板同理习惯在screen/contain目录下,但这个只是一个建议。<br/>
+使用contain，最需要注意的是防止循环include，比如 a.vm 中　\$contain.get('/contain/b.htm') 但是在 b.vm　中，<br/>
+又使用了 \$contain.get('/contain/a.htm')。<br/>
+<hr/>
+被include的url中，获得的request和调用它的vm是同一个request对象，如果调用者需要传参数给被incule的资源，有以下几个作法:<br/>
+<ul>
+	<li>
+		优于共享同一个request对象，所以可以把需要传递的参数使用　request.setAttribute 设置，contain对象可以使用　request.getAttribute 获得，如代码:<br/>
+		\$request.setAttribute('my_name','neo')<br/>
+		\$contain.get('/contain/show_name.htm')<br/>
+		\$contain.get('/contain/show_name.htm')<br/>
+		效果:<br/>
+		$request.setAttribute('my_name','neo')
+		$contain.get('/contain/show_name.htm')
+		$contain.get('/contain/show_name.htm')
+		$request.removeAttribute('my_name')
+		$contain.get('/contain/show_name.htm')
+	</li>
+	<li>在引用时显示的传入参数 \$contain.get('/contain/a.htm').put('myname','neo'),put与setParameter方法完全相同,<br/>
+		如果需要传入多个参数的，可以　\$contain.get('/contain/a.htm').put('myname','neo').put('age',\$val),<br/>
+		注意此方法和上面第一种方法的区别,此方法调用，设置的参数作用域仅限于contain对象中。如代码:<br/>
+		\$contain.get('/contain/show_name.htm') .put('my_name','morpheus')<br/>
+		\$contain.get('/contain/show_name.htm')<br/>
+		效果:<br/>
+		$contain.get('/contain/show_name.htm').put('my_name','morpheus')
+		$contain.get('/contain/show_name.htm')
+		如果名称冲突，则在contain访问内，contain.put的参数覆盖原值，如果代码:<br/>
+		\$request.setAttribute('my_name','Trinity')<br/>
+		\$contain.get('/contain/show_name.htm')<br/>
+		\$contain.get('/contain/show_name.htm') .put('my_name','Smith')<br/>
+		\$contain.get('/contain/show_name.htm')<br/>
+		效果:<br/>
+		$request.setAttribute('my_name','Trinity')
+		$contain.get('/contain/show_name.htm')
+		$contain.get('/contain/show_name.htm').put('my_name','Smith')
+		$contain.get('/contain/show_name.htm')
+		$request.removeAttribute('my_name')
+	</li>
+</ul>　

@@ -1,0 +1,26 @@
+<form id="editAdmin" action="${appServer}/admin/edit.htm" method="post">
+    <table>
+        <tr>
+            <th>登录名</th>
+            <td>
+                #springBind("admin.loginId")
+                <input type="text" id="loginId" name="${status.expression}" value="$!{status.value}" />
+				<label class="error">${status.errorMessage}</label>
+            </td>
+		</tr>
+		<tr>
+            <th>真实姓名</th>
+            <td>
+                #springBind("admin.realName")
+                <input type="text" id="realName" name="${status.expression}" value="$!{status.value}" />
+				<label class="error">${status.errorMessage}</label>
+            </td>
+		</tr>
+		<tr>	
+            <th>
+                <input type="submit" value="注册" />
+            </th>
+			<td>&nbsp;</td>
+        </tr>
+    </table>
+</form>

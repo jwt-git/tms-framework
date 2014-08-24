@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>恒生网络-系统管理平台</title>
+<link href="../styles/basic.css" rel="stylesheet" type="text/css" />
+<link href="../styles/admin.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../scripts/jquery-1.4.2.min.js"></script>
+<script>
+    $(function(){
+			var div_a =$(".listBox h3");
+			div_a.click(function(){	
+				$(".listBox table").hide()
+				var index =  div_a.index(this); 
+				$(".listBox table")   	
+						.eq(index).show() 
+			})
+		});
+		
+    
+    </script>
+</head>
+<body>
+<div class="main">
+  <div class="formBox">
+    <h3><i></i><span>网站类目管理</span></h3>
+    <div class="content">
+      <table class="c2">
+        <tr>
+          <th>类目名称：</th>
+          <td><input type="text" class="inp" />
+            <span class="red">*</span><span class="error">错误回显！</span></td>
+        </tr>
+        <tr>
+          <th>是否作为搜索类目：</th>
+          <td><input type="radio" name="radio" id="radio" value="radio" />
+            是
+            <input type="radio" name="radio" id="radio2" value="radio" />
+            否 <span class="red">*</span></td>
+        </tr>
+        <tr>
+          <th>是否数字商品类目：</th>
+          <td><input type="radio" name="radio" id="radio3" value="radio" />
+            是
+            <input type="radio" name="radio" id="radio4" value="radio" />
+            否<span class="red">*</span></td>
+        </tr>
+        <tr>
+          <th>类目样式：</th>
+          <td><select name="select" class="select" style="width:205px;">
+              <option>请选择</option>
+            </select>
+            <span>普通文字提醒</span></td>
+        </tr>
+        <tr>
+          <th>类目序号：</th>
+          <td><input type="text" class="inp" /></td>
+        </tr>
+        <tr>
+          <th>类目图片：</th>
+          <td><input type="text" class="inp" style="width:228px;" />
+            <button type="button" class="button-s17">浏览</button></td>
+        </tr>
+        <tr>
+          <th>类目介绍 ：</th>
+          <td><textarea name="" cols="" rows="" class="textarea"></textarea></td>
+        </tr>
+      </table>
+    </div>
+    <div class="form-but">
+      <!-- 表单按钮区 -->
+      <button type="button" class="button-s4">保存类目</button>
+      <button type="button" class="button-s4">删除类目</button>
+    </div>
+    <!-- 表单按钮区 END -->
+    <div class="clear"></div>
+  </div>
+  <!-- 表单模块 END -->
+  <div class="clear"></div>
+  <!-- 列表模块 -->
+  <div class="listBox">
+    <h3><span class="fl_l">已关联属性</span><a href="attriass.html" class="fl_r">新增属性关联</a></h3>
+    <table style="display:none;" >
+      <tr>
+        <th>序号</th>
+        <th>关联类目</th>
+        <th>属性</th>
+        <th>属性分类</th>
+        <th>属性值</th>
+        <th>是否导航</th>
+        <th>操作</th>
+      </tr>
+      <tr>
+        <td>001</td>
+        <td>女鞋</td>
+        <td>颜色 尺寸 材质</td>
+        <td>女鞋</td>
+        <td>--</td>
+        <td><button type="button" class="button-s10">设置导航</button></td>
+        <td><a href="#">查看 </a> <a href="#">删除</a></td>
+      </tr>
+      <tr class="bg">
+        <td>002</td>
+        <td>男鞋</td>
+        <td>颜色 尺寸 材质</td>
+        <td>女鞋</td>
+        <td>--</td>
+        <td><button type="button" class="button-s10">设置导航</button></td>
+        <td><a href="#">查看 </a> <a href="#">删除</a></td>
+      </tr>
+    </table>
+    <div class="pages-box" >
+      <div class="pages"> <a href="#" style="font-weight:bold">&laquo;</a><b> 1 </b> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> ... <a href="#">9</a> <a href="#" style="font-weight:bold">&raquo;</a>
+        <input type="text" size="2" title="输入页码按回车">
+        <a href="#" style="color:#000">GO</a> 页数: [ 1 / 253 ] </div>
+    </div>
+  </div>
+  <br />
+  <div class="listBox">
+    <h3><span class="fl_l">已关联品牌</span><a href="brandass.html" class="fl_r">新增品牌关联</a></h3>
+    <table style="display:none;">
+      <tr>
+        <th>序号</th>
+        <th>关联类目</th>
+        <th>品牌名称</th>
+        <th>品牌URL </th>
+        <th>品牌Logo</th>
+        <th>操作</th>
+      </tr>
+      <tr>
+        <td>001</td>
+        <td>女鞋</td>
+        <td>红蜻蜓</td>
+        <td>http://www.hongqingting.com</td>
+        <td>--</td>
+        <td><a href="#">查看 </a> <a href="#">删除</a></td>
+      </tr>
+      <tr class="bg">
+        <td>002</td>
+        <td>男鞋</td>
+        <td>匡威</td>
+        <td>http://www.kuangwei.com</td>
+        <td>--</td>
+        <td><a href="#">查看 </a> <a href="#">删除</a></td>
+      </tr>
+    </table>
+    <div class="pages-box" >
+      <div class="pages"> <a href="#" style="font-weight:bold">&laquo;</a><b> 1 </b> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> ... <a href="#">9</a> <a href="#" style="font-weight:bold">&raquo;</a>
+        <input type="text" size="2" title="输入页码按回车">
+        <a href="#" style="color:#000">GO</a> 页数: [ 1 / 253 ] </div>
+    </div>
+  </div>
+  <!-- 列表模块 END -->
+</div>
+</body>

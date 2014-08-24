@@ -29,7 +29,6 @@
     	<groupId>net.juweitang.framework</groupId>
     	<artifactId>tms-framework-util</artifactId>
     	<version>0.0.2</version>
-    	<scope>runtime</scope>
     </dependency>
   </dependencies>
 </project>

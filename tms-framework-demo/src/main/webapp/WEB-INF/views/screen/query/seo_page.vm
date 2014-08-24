@@ -1,0 +1,6 @@
+来来来,我include 一个分页简单slider<br/>
+$contain.get('/contain/pageSlider.htm').put('slider_query',$query).put('slider_builder',$builder)
+<br/>
+再构造一个浮动窗为9的分页
+$contain.get('/contain/pageSlider.htm').put('slider_query',$query).put('slider_builder',$builder).put("slider_width",9)
+<br/>

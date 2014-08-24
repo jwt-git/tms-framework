@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="GB2312"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<bean id="ResourceConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>WEB-INF/conf/server.properties</value>
+				<value>/WEB-INF/conf/mail.properties</value>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- URLBrokers -->
+	<bean id="appServerBroker" class="org.tmsframework.mvc.web.url.URLBroker">
+		<property name="encoding" value="${web.encoding}"></property>
+		<property name="config">
+			<bean class="org.tmsframework.mvc.web.url.URLConfig">
+				<property name="host" value="${app.server.host}"></property>
+				<property name="port" value="${app.server.port}"></property>
+				<property name="followContextPath" value="true"></property>
+			</bean>
+		</property>
+	</bean>
+	<!-- https的appserver -->
+	<bean id="sslAppServerBroker" class="org.tmsframework.mvc.web.url.URLBroker">
+		<property name="encoding" value="${web.encoding}"></property>
+		<property name="config">
+			<bean class="org.tmsframework.mvc.web.url.URLConfig">
+				<property name="protocol" value="https"></property>
+				<property name="host" value="${app.server.host}"></property>
+				<property name="port" value="${app.server.port}"></property>
+				<property name="followContextPath" value="true"></property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="imageServerBroker" class="org.tmsframework.mvc.web.url.StampURLBroker">
+		<property name="encoding" value="${web.encoding}"></property>
+		<property name="config">
+			<bean class="org.tmsframework.mvc.web.url.URLConfig">
+				<property name="host" value="${image.server.host}"></property>
+				<property name="port" value="${image.server.port}"></property>
+				<property name="followContextPath" value="true"></property>
+			</bean>
+		</property>
+		<property name="stamp" value="${web.stamp}"></property>
+	</bean>
+	<bean class="org.tmsframework.mvc.web.url.ServletContextInitHelper">
+		<property name="brokers">
+			<list>
+				<ref bean="appServerBroker"/>
+				<ref bean="sslAppServerBroker"/>
+				<ref bean="imageServerBroker"/>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="encodingFilterBean" class="org.springframework.web.filter.CharacterEncodingFilter">
+		<property name="encoding" value="${web.encoding}"></property>
+		<property name="forceEncoding" value="false"></property>
+	</bean>
+	
+	<!-- cookyjar 配置 -->
+	<bean id="cookieCrypto" class="org.tmsframework.util.crypto.impl.AESCryptoImpl">
+		<property name="key" value="${cookie.aes.key}"></property>
+		<property name="ivParameter" value="${cookie.aes.iv}"></property>
+	</bean>
+
+	<bean id="cookyjarConfigure" class="org.tmsframework.mvc.web.cookyjar.CookyjarConfigure">
+		<property name="model" value="SESSION" />
+		<!-- cookie缺省配置 -->
+		<property name="defaultConfigure">
+			<bean class="org.tmsframework.mvc.web.cookyjar.CookieConfigure">
+				<property name="path" value="/" />
+				<property name="lifeTime" value="-1" />
+				<property name="domain" value=".${app.domain}" />
+				<property name="secure" value="true" />
+			</bean>
+		</property>
+		<!-- 每个cookie的配置是 本身配置+缺省配置 -->
+		<property name="cookieConfigures">
+			<list>
+				<bean class="org.tmsframework.mvc.web.cookyjar.CookieConfigure">
+					<property name="name" value="userAgent" />
+					<property name="clientName" value="_uyiu_" />
+					<property name="crypto" ref="cookieCrypto" />
+					<property name="randomChar" value="4" />
+					<property name="SelfSerializableClass" value="org.tmsframework.demo.domain.UserAgent"></property>
+				</bean>
+				<bean class="org.tmsframework.mvc.web.cookyjar.CookieConfigure">
+					<property name="name" value="administerAgent" />
+					<property name="clientName" value="_aa_" />
+					<property name="crypto" ref="cookieCrypto" />
+					<property name="SelfSerializableClass" value="org.tmsframework.demo.domain.AdministratorAgent"></property>
+					<property name="randomChar" value="4" />
+					<property name="sessionTimeout" value="1"/>
+				</bean>
+			</list>
+		</property>
+	</bean>
+	<bean id="responseOutputBufferFilterBean" class="org.tmsframework.mvc.web.filter.ResponseOutputBufferFilter">
+		<property name="outCharset" value="${web.encoding}"></property>
+	</bean>	
+	<bean id="cookyjarFilterBean" class="org.tmsframework.mvc.web.cookyjar.CookyjarFilter">
+		<property name="cookyjarConfigure" ref="cookyjarConfigure"></property>
+	</bean>
+	
+	<bean id="performanceMonitorFilter" class="org.tmsframework.mvc.profiler.SpringPerformanceMonitorFilter">
+		<property name="threshold" value="${performance.monitor.threshold}"></property>
+	</bean>
+	
+</beans>

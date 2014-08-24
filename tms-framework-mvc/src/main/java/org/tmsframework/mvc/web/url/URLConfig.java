@@ -5,7 +5,7 @@ import org.apache.commons.lang.StringUtils;
 
 
 /**
- * @author eyeieye
+ * @author zhangsen
  * 
  */
 
@@ -21,12 +21,12 @@ public class URLConfig {
 
 	private String buildURL = null;
 
-	// �Ƿ����������У�������У�����Ҫ����contextpath����ɵ�url��
+	// 是否上下文敏感，如果敏感，则需要增加contextpath到生成的url中
 	private boolean followContextPath = false;
 
 	/**
-	 * �������úõ�url��${protocol}://${host}:{port} ����http://www.nof.com:8080 ,
-	 * http://www.aef.com https://img.server.com ����"/"��β
+	 * 返回配置好的url，${protocol}://${host}:{port} 比如http://www.nof.com:8080 ,
+	 * http://www.aef.com https://img.server.com 不以"/"结尾
 	 * 
 	 * @return
 	 */

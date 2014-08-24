@@ -1,0 +1,4 @@
+总输出:${report.outputTotal}KB  <br/>
+执行次数:${report.outputCount}  <br/>
+平均值:${report.averageOutput}KB  <br/>
+最大值:${report.maxOutput}KB  <br/>

@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>恒生网络-系统管理平台</title>
+<link href="../styles/basic.css" rel="stylesheet" type="text/css" />
+<link href="../styles/admin.css" rel="stylesheet" type="text/css" />
+<script language="javascript" type="text/javascript" src="../scripts/My97DatePicker/WdatePicker.js"></script>
+</head>
+<body>
+<div class="main">
+  <!-- 表单模块 -->
+  <div class="mag-t1"> 修改失败！ </div>
+  <div class="mag-t2"> 修改成功！ </div>
+  <div class="formBox">
+    <h3><i></i><span>修改品牌</span></h3>
+    <div class="content">
+      <table class="c2">
+        <tr>
+          <th>品牌名称：</th>
+          <td><input type="text" class="inp" value="报喜鸟" />
+            <span class="red">*</span></td>
+        </tr>
+        <tr>
+          <th>品牌URL：</th>
+          <td><input type="text" class="inp" />
+            <span class="red">*</span></td>
+        </tr>
+        <tr>
+          <th>品牌图片：</th>
+          <td><input type="text" class="inp" />
+            <button type="button" class="button-s17">浏览</button>
+            <span class="red">*</span></td>
+        </tr>
+        <tr>
+          <th>品牌入驻时间：</th>
+          <td><input type="text" class="inp" onclick="WdatePicker()" value="2010-10-26" />
+            <span class="red">*</span></td>
+        </tr>
+        <tr>
+          <th>品牌退出时间：</th>
+          <td><input type="text" class="inp" onclick="WdatePicker()" value="2010-12-26" />
+            <span class="red">*</span></td>
+        </tr>
+        <tr>
+          <th>品牌类型：</th>
+          <td><input name="radio" type="radio" id="radio" value="radio" checked="checked" />
+            自创品牌
+            <input type="radio" name="radio" id="radio2" value="radio" />
+            授权品牌 <span class="red">*</span></td>
+        </tr>
+        <tr>
+          <th>描述：</th>
+          <td><label>
+            <textarea name="textarea" cols="45" rows="5" class="textarea" id="textarea">报喜鸟</textarea>
+          </label>
+            <span class="red">*</span></td>
+        </tr>
+      </table>
+    </div>
+    <div class="form-but">
+      <!-- 表单按钮区 -->
+      <button type="button" class="button-s4">修改</button>
+      <button type="button" class="button-s4" onclick="javascript:history.back(-1);">取消</button>
+    </div>
+    <!-- 表单按钮区 END -->
+  </div>
+  <!-- 表单模块 END -->
+</div>
+</body>

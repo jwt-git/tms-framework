@@ -1,0 +1,2 @@
+你好， $!{name}！这是一封Velocity Layout/Screen模板结构的测试邮件。
+<br/>访问本应用:$!{appServer.get('/index.htm')}

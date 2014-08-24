@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>恒生网络-系统管理平台</title>
+    <link href="../styles/basic.css" rel="stylesheet" type="text/css" />
+    <link href="../styles/admin.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+	
+    <div class="main">
+    
+        <!-- 表单模块 -->
+        
+        
+        
+        <div class="formBox">
+        
+        	<h3><i></i><span>添加促销券模版</span></h3>
+            
+        	<div class="content">
+        		<table class="c2">
+            	<tr>
+                	<th>模版名称：</th>
+                    <td><input type="text" class="inp" /><span class="red">*</span><span class="error">错误回显！</span></td>
+                </tr>
+                <tr>
+                	<th>模版金额：</th>
+                    <td><input type="text" class="inp" /><span class="red">*</span></td>
+                </tr>
+                <tr>
+                	<th>有效开始时间：</th>
+                    <td><input type="text" class="inp" />                      <span class="red">*</span></td>
+                </tr>
+                <tr>
+                	<th>有效结束时间：</th>
+                    <td><input type="text" class="inp" />                      <span class="red">*</span><span>普通文字提醒</span></td>
+                </tr>
+                <tr>
+                	<th>促销券总数：</th>
+                    <td><input type="text" class="inp" />
+                    <span class="red">*</span></td>
+                </tr>
+                <tr>
+                  <th>订单金额下限：</th>
+                  <td><input type="text" class="inp" /><span>注：订单金额下限可以不填,填写以后必须大于模版金额</span></td>
+                </tr>
+                <tr>
+                  <th>是否启用：</th>
+                  <td><select class="select" style="width:206px;">
+                    <option>请选择</option>
+                  </select></td>
+                </tr>
+                <tr>
+                  <th>促销卷类型：</th>
+                  <td><select class="select" style="width:206px;">
+                    <option>请选择</option>
+                  </select><span>注：A类模板只能使用一次,B类模板可以重复使用到促销券结束</span></td>
+                </tr>
+                <tr>
+                  <th>商品ID：</th>
+                  <td>
+                    <textarea cols="45" rows="5" class="textarea"></textarea>
+                  </td>
+                </tr>
+              </table>
+       	  </div>
+            <div class="form-but"><!-- 表单按钮区 -->
+                    
+            	<button type="button" class="button-s4">保存</button>
+                <button type="button" class="button-s4">重置</button>
+              
+          	</div><!-- 表单按钮区 END -->
+                    
+            
+        </div> <!-- 表单模块 END -->
+   
+    </div>
+    
+</body>

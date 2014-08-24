@@ -1,0 +1,467 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>恒生网络-系统管理平台</title>
+<link href="../styles/basic.css" rel="stylesheet" type="text/css" />
+<link href="../styles/admin.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../scripts/layer.js"></script>
+<script src="../scripts/My97DatePicker/WdatePicker.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="main">
+  <h2>商品发布→商品属性</h2>
+  <div class="container_list">您当前的选择：<span class="root">饰品/流行首饰/时尚饰品</span><span>项坠/吊坠</span><span>毛衣链</span><span>项链</span>
+    <button onclick="location.href='scat.html'" type="submit" class="button-s5">重新编辑</button>
+  </div>
+  <!-- 表单模块 -->
+  <div class="formBox">
+    <h3><i></i><span>填写商品信息</span></h3>
+    <div class="content">
+      <h5><span>1、商品基本信息</span></h5>
+      <div class="form">
+        <ol>
+          <li>
+            <label>商品类型：</label>
+            <span class="con">
+            <ul>
+              <li>
+                <input name="" type="radio" class="radio" value="" />
+                <label>全新</label>
+              </li>
+              <li>
+                <input name="" type="radio" class="radio" value="" />
+                <label>全新</label>
+              </li>
+              <li><em>*</em></li>
+              <li><span class="error">错误回显！</span></li>
+            </ul>
+            </span></li>
+          <li>
+            <label>商品属性：</label>
+            <span class="con">
+            <div class="skin">
+              <div class="mag-t3"><span>提醒：填错商品属性，可能会影响您的正常销售。 </span></div>
+              <table class="c5">
+                <tr>
+                  <th>品牌：</th>
+                  <td><select name="select" class="select" style="width:206px;">
+                      <option>请选择</option>
+                    </select>
+                    <em>*</em><span class="error">错误回显！</span></td>
+                </tr>
+                <tr>
+                  <th>货号：</th>
+                  <td><input type="text" class="inp" />
+                    <em>*</em></td>
+                </tr>
+                <tr>
+                  <th>活动主题：</th>
+                  <td><select class="select" style="width:206px;">
+                      <option>请选择</option>
+                    </select>
+                    <em>*</em></td>
+                </tr>
+                <tr>
+                  <th>适用空间：</th>
+                  <td><select class="select" style="width:206px;">
+                      <option>请选择</option>
+                    </select>
+                    <span>普通文字提醒</span></td>
+                </tr>
+                <tr>
+                  <th>洁面分类：</th>
+                  <td><select class="select" style="width:90px;">
+                      <option>请选择</option>
+                    </select></td>
+                </tr>
+                <tr>
+                  <th>适合的送礼场景：</th>
+                  <td><label>
+                      <input type="checkbox" />
+                      乔迁新居</label>
+                    <label>
+                      <input type="checkbox" />
+                      数码伴功能</label>
+                    <label>
+                      <input type="checkbox" />
+                      乔迁新居</label>
+                    <label>
+                      <input type="checkbox" />
+                      数伴侣功能</label>
+                    <label>
+                      <input type="checkbox" />
+                      乔迁新居</label>
+                    <label>
+                      <input type="checkbox" />
+                      数码伴侣功能</label>
+                    <label>
+                      <input type="checkbox" />
+                      乔迁新居</label>
+                    <label>
+                      <input type="checkbox" />
+                      数码伴侣功能</label>
+                    <label>
+                      <input type="checkbox" />
+                      乔迁新居</label>
+                    <label>
+                      <input type="checkbox" />
+                      数侣功能</label></td>
+                </tr>
+              </table>
+            </div>
+            </span></li>
+          <li>
+            <label>商品标题：</label>
+            <span class="con">
+            <ul>
+              <li>
+                <input type="text" class="inp inp-w300" />
+              </li>
+              <li><em>*</em></li>
+              <li><span>限定在30个汉字内（60个字符）</span></li>
+            </ul>
+            </span></li>
+          <li>
+            <label>销售价格：</label>
+            <span class="con">
+            <ul>
+              <li>
+                <input type="text" class="inp" />
+                元 </li>
+              <li><em>*</em></li>
+              <li><span>普通文字提醒</span></li>
+            </ul>
+            </span></li>
+          <li>
+            <label>市场价格：</label>
+            <span class="con">
+            <ul>
+              <li>
+                <input type="text" class="inp" />
+                元 </li>
+              <li><em>*</em></li>
+              <li><span>普通文字提醒</span></li>
+            </ul>
+            </span></li>
+          <li>
+            <label>颜色：</label>
+            <span class="con">
+            <ul>
+              <li>
+                <input type="checkbox" checked="checked" />
+                <label class="ys" style="background-color:#1FF"></label>
+              </li>
+              <li>
+                <input type="checkbox" checked="checked" />
+                <label class="ys" style="background-color:#F0F"></label>
+              </li>
+              <li>
+                <input type="checkbox" />
+                <label class="ys" style="background-color:#0FF"></label>
+              </li>
+              <li>
+                <input type="checkbox" />
+                <label class="ys" style="background-color:#FF0"></label>
+              </li>
+              <li>
+                <input type="checkbox" />
+                <label class="ys" style="background-color:#636"></label>
+              </li>
+              <li>
+                <input type="checkbox" />
+                <label class="ys" style="background-color:#458"></label>
+              </li>
+              <li>
+                <input type="checkbox" />
+                <label class="ys" style="background-color:#333"></label>
+              </li>
+              <li>
+                <input type="checkbox" />
+                <label class="ys" style="background-color:#eee"></label>
+              </li>
+              <li>
+                <input type="checkbox" />
+                <label class="ys" style="background-color:#ddd"></label>
+              </li>
+              <li>
+                <input type="checkbox" />
+                <label class="ys" style="background-color:#555"></label>
+              </li>
+              <li>
+                <input type="checkbox" />
+                <label class="ys" style="background-color:#666"></label>
+              </li>
+              <li>
+                <input type="checkbox" />
+                <label class="ys" style="background-color:#777"></label>
+              </li>
+              <li>
+                <input type="checkbox" />
+                <label class="ys" style="background-color:#FbF"></label>
+              </li>
+              <li>
+                <input type="checkbox" />
+                <label class="ys" style="background-color:#FaF"></label>
+              </li>
+              <li>
+                <input type="checkbox" />
+                <label class="ys" style="background-color:#FeF"></label>
+              </li>
+              <li>
+                <input type="checkbox" />
+                <label class="ys" style="background-color:#FcF"></label>
+              </li>
+              <li>
+                <input type="checkbox" />
+                <label>全部</label>
+              </li>
+            </ul>
+            <div class="clear"></div>
+            <!--<div class="skin">
+              <table class="c5">
+                <tr>
+                  <th>自定义颜色名称：</th>
+                  <td>图片（无图片可以不填）</td>
+                </tr>
+                <tr>
+                  <th><label class="ys" style="background-color:#11F"></label>
+                    <input type="text" class="inp inp-w50" /></th>
+                  <td><input type="text" class="inp" />
+                    <button type="button" class="button-s17">浏览</button></td>
+                </tr>
+                <tr>
+                  <th><label class="ys" style="background-color:#F2F"></label>
+                    <input type="text" class="inp inp-w50" /></th>
+                  <td><input type="text" class="inp" />
+                    <button type="button" class="button-s17">浏览</button></td>
+                </tr>
+              </table>
+            </div>-->
+            </span></li>
+          <li>
+            <label>尺寸：</label>
+            <span class="con">
+            <ul>
+              <li>
+                <input type="checkbox" checked="checked" />
+                <label>XS</label>
+              </li>
+              <li>
+                <input type="checkbox" />
+                <label>S</label>
+              </li>
+              <li>
+                <input type="checkbox" />
+                <label>M</label>
+              </li>
+              <li>
+                <input type="checkbox" />
+                <label>L</label>
+              </li>
+              <li>
+                <input type="checkbox" />
+                <label>XL</label>
+              </li>
+              <li>
+                <input type="checkbox" />
+                <label>XXL</label>
+              </li>
+              <li>
+                <input type="checkbox" />
+                <label>XS</label>
+              </li>
+              <li>
+                <input type="checkbox" />
+                <label>XXXL</label>
+              </li>
+              <li>
+                <input type="checkbox" />
+                均码 </li>
+              <li>
+                <input type="checkbox" />
+                <label>其他尺码</label>
+              </li>
+              <li>
+                <input type="checkbox" />
+                <label>全部</label>
+              </li>
+            </ul>
+            <div class="clear"></div>
+            <div class="skin">
+              <table class="c5">
+                <tr class="ttali-cent">
+                  <td></td>
+                  <td>尺寸</td>
+                  <td>销售价格</td>
+                  <td>市场价格</td>
+                  <td>数量</td>
+                  <td>商家编码</td>
+                </tr>
+                <tr class="ttali-cent">
+                  <td><label class="ys" style="background-color:#11F"></label></td>
+                  <td><input type="text" class="inp inp-w50" value="XS" /></td>
+                  <td><input type="text" class="inp inp-w70" />
+                    元</td>
+                  <td><input type="text" class="inp inp-w70" />
+                    元</td>
+                  <td><input type="text" class="inp inp-w70" />
+                    件</td>
+                  <td><input type="text" class="inp inp-w90" /></td>
+                </tr>
+              </table>
+            </div>
+            </span></li>
+          <li>
+            <label>商家编码：</label>
+            <span class="con">
+            <ul>
+              <li>
+                <input type="text" class="inp" />
+              </li>
+              <li></li>
+            </ul>
+            </span></li>
+          <li>
+            <label>商品数量：</label>
+            <span class="con">
+            <ul>
+              <li>
+                <input type="text" class="inp" />
+                件</li>
+              <li><em>*</em></li>
+              <li><span>请认真填写。无货空挂，可能引起投诉与退款。</span></li>
+            </ul>
+            </span></li>
+          <li>
+            <label>商品图片：</label>
+            <span class="con">
+            <div class="skin">
+              <table class="c5">
+                <tr class="ttali-cent">
+                  <td><img src="../images/admin/null.png" alt="" /></td>
+                  <td><img src="../images/admin/null.png" alt="" /></td>
+                  <td><img src="../images/admin/null.png" alt="" /></td>
+                  <td><img src="../images/admin/null.png" alt="" /></td>
+                  <td><img src="../images/admin/null.png" alt="" /></td>
+                </tr>
+                <tr class="ttali-cent">
+                  <td><button type="button" class="button-s7">上传图片</button></td>
+                  <td><button type="button" class="button-s7">上传图片</button></td>
+                  <td><button type="button" class="button-s7">上传图片</button></td>
+                  <td><button type="button" class="button-s7">上传图片</button></td>
+                  <td><button type="button" class="button-s7">上传图片</button></td>
+                </tr>
+                <tr>
+                  <td colspan="5"><div class="mag-t3"><span>提醒：图片至少上传1张，图片大小不能超过500K 。</span></div></td>
+                </tr>
+              </table>
+            </div>
+            </span></li>
+          <li>
+            <label>描述：</label>
+            <span class="con">
+            
+            <div class="skin">
+              
+                <ul class="form-tab">
+                  <li class="c"><span><a href="#">商品描述</a></span></li>
+                  <li><span><a href="#">质保描述</a></span></li>
+                  <li style="background:none; vertical-align:middle;"><img src="../images/admin/button_add.gif" width="16" height="16" onclick="loading();" /></li>
+                </ul>
+              
+              <div class="clear"></div>
+              <div class="skin-con">
+                <ul>
+                  <li>
+                    <textarea name="textarea" cols="" rows="" class="textarea"></textarea>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            </span></li>
+          </ul>
+          </span>
+          </li>
+        </ol>
+      </div>
+      <h5><span>4. 其他信息</span></h5>
+      <div class="form">
+        <ol>
+          <li>
+            <label>类型：</label>
+            <span class="con">
+            <ul>
+              <li>
+                <select name="select2" class="select">
+                <option>请选择</option>
+                  <option>赠送商品</option>
+                  <option>积分商品</option>
+                  <option>秒杀商品</option>
+                  <option>团购商品</option>
+                </select>
+             
+              </li>
+              <li>
+                <div class="mag-t4"><span>提醒：秒杀商品的商品详情页面将不出现"加入购物车"按钮 </span></div>
+              </li>
+            </ul>
+            </span></li>
+          <li>
+            <label>开始时间：</label>
+            <span class="con">
+            <ul>
+              
+              <li>
+                <input type="text" class="inp" onclick="WdatePicker()" />
+                <select name="select3" class="select" style="width:50px;">
+                  <option>10</option>
+                </select>
+                时
+                <select name="select4" class="select" style="width:50px;">
+                  <option>30</option>
+                </select>
+                分<span>(设定开始销售时间)</span></li>
+            </ul>
+            </span></li>
+          
+          <li>
+            <label>积分兑换商品：</label>
+            <span class="con">
+            <ul>
+              <li>
+                <input type="text" class="inp" value="请输入多少积分"/>
+              </li>
+              
+            </ul>
+            </span></li>
+        </ol>
+      </div>
+    </div>
+    <div class="form-but">
+      <!-- 表单按钮区 -->
+      <button type="button" class="button-s4">保存</button>
+      <button type="button" class="button-s4">重置</button>
+    </div>
+    <!-- 表单按钮区 END -->
+  </div>
+  <!-- 表单模块 END -->
+  <!--浮动层-->
+  <div id="layer" align="center"></div> 
+  <div id="layer2" style="width:300px;">
+  <div class="searchBox">
+    <h3><img src="../images/admin/close.png" onClick="unload();" alt="点击关闭"/><span>操作</span></h3>
+    <table>
+      <tr>
+        <th>标题：</th>
+        <td><input name="" type="text" class="inp"/></td>
+      </tr>
+      <tr>
+        <td colspan="2" class="ttali-cent"><button type="submit" class="btn">确认</button><button type="submit" class="btn" onClick="unload();">取消</button></td>
+        </tr>
+    </table>
+  </div>
+  </div>
+  <!-- 浮动层 END -->
+</div>
+</body>

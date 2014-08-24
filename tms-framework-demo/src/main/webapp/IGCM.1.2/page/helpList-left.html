@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>恒生网络-系统管理平台</title>
+<link href="../styles/basic.css" rel="stylesheet" type="text/css" />
+<link href="../styles/admin.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../scripts/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="../scripts/jquery-ui-personalized-1.5.3.min.js"></script>
+<script type="text/javascript" src="../scripts/kvaTree.min.js"></script>
+<script type="text/javascript">
+        function Bind(h,o)
+        {
+            $(h + ' p.addnode').click(function () {
+                o.kvaTree.AddNode(o,'node');
+            });
+            
+            $(h + ' p.addleaf').click(function () {
+                o.kvaTree.AddNode(o,'leaf');
+            });
+            
+            $(h + ' p.edit').click(function () {
+                o.kvaTree.EditNode(o);
+            });
+            
+            $(h + ' p.del').click(function () {
+                o.kvaTree.DeleteNode(o);
+            });
+        }//Bind
+		
+        $(function () {
+            var obj  = $('ul#tree1');
+            var opts = {
+                multi: false
+            };
+            obj.kvaTree(opts);
+            Bind('.ctrls:eq(0)',obj);
+        });
+	
+    </script>
+</head>
+<body>
+<div class="ctrls">
+  <p class="addnode"><img src="../images/admin/role_addnod.gif" width="20" height="19" /></p>
+  <p class="addleaf"><img src="../images/admin/role_add.gif" width="20" height="19" /></p>
+  <p class="edit"><img src="../images/admin/role_edit.gif" width="20" height="19" /></p>
+  <p class="del"><img src="../images/admin/role_delete.gif" width="20" height="19" /></p>
+  <div style="clear: both;"></div>
+</div>
+<!-- /ctrls -->
+<ul id="tree1">
+  <li> <span>帮助中心</span>
+    <ul>
+      <li> <span>买家购物帮助</span>
+        <ul>
+          <li><a href="#">三级类目</a></li>
+          <li><a href="#">三级类目</a></li>
+        </ul>
+      </li>
+      <li> <span>卖家帮助</span>
+        <ul>
+          <li><a href="#">三级类目</a></li>
+          <li><a href="#">三级类目</a></li>
+        </ul>
+      </li>
+      <li> <span>二级类目</span>
+        <ul>
+          <li><a href="#">三级类目</a></li>
+          <li><a href="#">三级类目</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  
+</ul>
+</body>
+</html>

@@ -12,10 +12,10 @@ import org.tmsframework.mvc.mail.context.MailContext;
  * 查（例如：收件人不能为空）、真正发送邮件。
  * 
  * <p>该接口不依赖任何Java Mail API。其中，原有Java Mail API中的 {@link javax.mail.internet.MimeMessage} 
- * 被 {@link com.hundsun.network.melody.common.mail.context.MailContext} 替代，MailContext
+ * 被 {@link org.tmsframework.mvc.mail.context.MailContext} 替代，MailContext
  * 是一个普通的POJO，可以非常方便地被各种框架使用。
  * 
- * <p>发送过程产生的异常将被转换成 {@link com.hundsun.network.melody.common.mail.exception.MailException} ，
+ * <p>发送过程产生的异常将被转换成 {@link org.tmsframework.mvc.mail.exception.MailException} ，
  * 这是一个RuntimeException，调用端可以选择合适地处理它。
  * 
  */
@@ -25,8 +25,8 @@ public interface MailSender {
      * 发送单个邮件。
      * @param mail 邮件上下文
      * @throws MailException 邮件异常
-     * @see com.hundsun.network.melody.common.mail.context.MailContext
-     * @see com.hundsun.network.melody.common.mail.exception.MailException
+     * @see org.tmsframework.mvc.mail.context.MailContext
+     * @see org.tmsframework.mvc.mail.exception.MailException
      */
     public void send(MailContext mail) throws MailException;
     
@@ -34,8 +34,8 @@ public interface MailSender {
      * 发送一组邮件。
      * @param mail 邮件上下文
      * @throws MailException 邮件异常
-     * @see com.hundsun.network.melody.common.mail.context.MailContext
-     * @see com.hundsun.network.melody.common.mail.exception.MailException
+     * @see org.tmsframework.mvc.mail.context.MailContext
+     * @see org.tmsframework.mvc.mail.exception.MailException
      */
     public void send(MailContext[] mails) throws MailException;
 

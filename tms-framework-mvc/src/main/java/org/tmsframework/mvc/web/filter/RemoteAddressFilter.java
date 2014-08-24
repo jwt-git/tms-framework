@@ -12,18 +12,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
 
 /**
- * �����������ͻ���ip�����ص�����
+ * 解决方向代理后客户端ip被隐藏的问题
  * 
- * @author sam.zhang
+ * @author fish
  * 
  */
 public class RemoteAddressFilter implements Filter {
 
 	private static final String ForwardParameterName = "ForwardParameter";
 
-	private String forwardParameter = "X-Forwarded-For";// ȱʡ�� ���� remote address
+	private String forwardParameter = "X-Forwarded-For";// 缺省的 代理 remote address
 
-	// ip ��http head
+	// ip 的http head
 	public void init(FilterConfig fc) throws ServletException {
 		String get = fc.getInitParameter(ForwardParameterName);
 		if (get != null) {
@@ -34,12 +34,12 @@ public class RemoteAddressFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain fc) throws IOException, ServletException {
 		if (!(request instanceof HttpServletRequest)) {
-			// ��http servlet request ,������
+			// 非http servlet request ,不处理
 			fc.doFilter(request, response);
 			return;
 		}
 		if (request instanceof RemoteIpRequestWrapper) {
-			// �Ѿ������,������
+			// 已经处理过,不处理
 			fc.doFilter(request, response);
 			return;
 		}

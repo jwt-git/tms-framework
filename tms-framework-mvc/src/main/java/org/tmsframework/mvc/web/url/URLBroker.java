@@ -6,8 +6,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.tmsframework.mvc.web.velocity.eventhandler.DirectOutput;
 
 
@@ -17,17 +17,17 @@ import org.tmsframework.mvc.web.velocity.eventhandler.DirectOutput;
  * 
  */
 public class URLBroker {
-	private final Log logger = LogFactory.getLog(this.getClass());
+	private final Logger _log = LoggerFactory.getLogger(this.getClass());
 
 	protected String encoding = "UTF-8";
 
 	protected URLConfig config;
 
-	// ����"/" ��β
+	// 不以"/" 结尾
 	protected String server = null;
 
 	public void init(String contextPath) {
-		if (this.server != null) {// �Ѿ�init����
+		if (this.server != null) {// 已经init过了
 			return;
 		}
 		StringBuilder server = new StringBuilder();
@@ -51,8 +51,8 @@ public class URLBroker {
 			server.deleteCharAt(server.length() - 1);
 		}
 		this.server = server.toString();
-		if (logger.isDebugEnabled()) {
-			logger.debug("init end,server:" + this.server);
+		if (_log.isDebugEnabled()) {
+			_log.debug("init end,server:" + this.server);
 		}
 	}
 
@@ -88,14 +88,19 @@ public class URLBroker {
 			}
 			query.append('?');
 		}
+		
+		public QueryData addNullQueryData(String id){
+			query.append(id).append('=').append('&');
+			return this;
+		}
 
 		public QueryData addQueryData(String id, String value) {
 			query.append(id).append('=');
 			try {
 				query.append(URLEncoder.encode(value, URLBroker.this.encoding));
 			} catch (UnsupportedEncodingException e) {
-				if (logger.isErrorEnabled()) {
-					logger.error("UnsupportedEncoding:"
+				if (_log.isErrorEnabled()) {
+					_log.error("UnsupportedEncoding:"
 							+ URLBroker.this.encoding, e);
 				}
 			}
@@ -108,6 +113,9 @@ public class URLBroker {
 		}
 
 		public QueryData addQueryData(String id, Object value) {
+			if(value == null){
+				return addNullQueryData(id);
+			}
 			return addQueryData(id, String.valueOf(value));
 		}
 
@@ -161,3 +169,4 @@ public class URLBroker {
 	}
 
 }
+

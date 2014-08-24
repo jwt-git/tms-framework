@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>恒生网络-系统管理平台</title>
+    <link href="../styles/basic.css" rel="stylesheet" type="text/css" />
+    <link href="../styles/admin.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+	
+<div class="main">
+    	
+<div class="searchBox">
+    <h3><span>帮助信息维护</span></h3>
+    <table>
+      <tr>
+        <th>所在类目：</th>
+        <td><select class="select" style="width:70px;">
+          <option>请选择</option>
+        </select>
+          -
+          <select name="select" class="select" style="width:70px;">
+            <option>请选择</option>
+          </select></td>
+        <th>帮助标题：</th>
+        <td><input type="text" class="inp inp-w90" /></td>
+        <th><button type="submit" class="btn">搜 索</button></th>
+       
+      </tr>
+    </table>
+  </div>
+       <div class="tool">
+        	
+            <span><a href="addhelp.html" hidefocus="true" class="bt_add">新增</a></span>
+            <span><a href="#" hidefocus="true" class="bt_del">批量选为常见问题</a></span>
+           
+        </div> 
+        
+        <div class="clear"></div>
+		
+        
+                <!-- 列表模块 -->
+        <div class="listBox"> 
+          <h3><span>信息列表</span></h3> 
+            <table > 
+                <tr>
+                  <th>
+                    <input type="checkbox" />
+                  </th> 
+                    <th>帮助类目</th>
+                    <th>帮助标题</th>
+                    <th>录入时间</th>
+                    <th>帮助内容</th>
+                    <th>是否常见问题</th>
+                    <th>操作</th>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" /></td>
+                	<td>买家购物帮助</td>
+                	<td> 买家帮助</td>
+                    <td>2010年05月14日</td>
+                    <td><img src="../images/admin/ico_zoom.PNG" width="16" height="16" align="absmiddle" /><a href="#">预览</a></td>
+                    <td>  是</td>
+                    <td><a href="edithelp.html">编辑</a> <a href="#">删除</a></td>
+                </tr>
+				<tr class="bg">
+				  <td><input type="checkbox" /></td>
+                	<td>买家购物帮助</td>
+                	<td>买家帮助 </td>
+                    <td>    2010年05月14日</td><td><img src="../images/admin/ico_zoom.PNG" alt="" width="16" height="16" align="absmiddle" /><a href="#">预览</a></td>
+                    <td>  是</td>
+                    <td><a href="edithelp.html">编辑</a><a href="#"></a> <a href="#">删除</a></td>
+                </tr>
+
+            </table> 
+			
+             <div class="pages-box" >
+<div class="pages">
+                            <a href="#" style="font-weight:bold">&laquo;</a><b> 1 </b>
+                            <a href="#">2</a>
+                            <a href="#">3</a>
+                            <a href="#">4</a>
+                            ...
+                            <a href="#">9</a>
+                            <a href="#" style="font-weight:bold">&raquo;</a> 
+                            <input type="text" size="2" title="输入页码按回车">
+                            <a href="#" style="color:#000">GO</a>
+                            页数: [ 1 / 253 ]
+               </div> 
+          </div>
+             
+        </div> <!-- 列表模块 END -->     
+        	
+      
+    </div>
+    
+</body>

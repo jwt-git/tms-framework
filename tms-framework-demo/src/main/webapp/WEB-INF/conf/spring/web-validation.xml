@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="GB2312"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans default-autowire="byName">
+
+	<!-- 验证共通配置，可以在此配置段内配置通用验证、function等 -->
+	<bean id="valangValidator" abstract="true">
+		<!-- 验证通用function -->
+		<!--
+		<property name="customFunctions">
+			<map>
+				<entry key="" value="" />
+			</map>
+		</property>
+		-->
+	</bean>
+	
+
+	<!-- Valang配置和语法示例 -->
+	<!-- 验证段基本语法为：{属性名 : 验证规则 : 默认错误信息 : 错误信息代码 : 错误信息参数} -->
+	<!-- 具体语法规则请参考如下网址：http://www.chineselinuxuniversity.net/articles/1968.shtml
+	                               https://springmodules.dev.java.net/docs/reference/0.8/html/validation.html#valang 
+	                               http://www.springbyexample.org/examples/spring-modules-validation-module.html      -->
+	<bean id="testValidator" class="org.springmodules.validation.valang.ValangValidator" parent="valangValidator">
+		<property name="valang">
+			<value>
+				<![CDATA[
+				{test : ? has text : '' : 'common.error.required'}
+				{test : matches('^(\\d){1,6}$', ?) is true : '' : 'common.error.matches'}
+				{test : length(?) <= 8 : '' : 'common.error.maxlength' : 8}
+				{test : ? is not null : '' : 'common.error.required'}
+				{test : ? is null or ? > [T<d] : '' : 'common.error.matches'}
+				{test.property1 : test is null or ? is null or ? > gmtSaleEnd : '' : 'common.error.matches'}
+				]]>
+			</value>
+		</property>
+	</bean>
+
+	<!-- 用户注册验证 -->
+	<bean id="registerValidator" class="org.springmodules.validation.valang.ValangValidator" parent="valangValidator">
+		<property name="valang">
+			<value>
+				<![CDATA[
+				{realName : ? has text : '请填写姓名'}
+				{realName : length(?) <= 16 : '姓名不能超过16个字符'}
+				{password : ? has text : '请填写口令'}
+				{password : length(?) <= 12 and length(?) >= 6 : '口令长度只能为6~12个字符'}
+				{password : matches('^[0-9a-zA-Z]{6,12}$', ?) is true : '口令只能为数字和英文'}
+				{birthday : ? is not null : '请填写出生年月日'}
+				{birthday : (? is null or ? >= [1900-01-01]) and (? is null or ? <= [2010-01-01]) : '请正确填写出生年月日'}
+				]]>
+			</value>
+		</property>
+	</bean>
+
+</beans>

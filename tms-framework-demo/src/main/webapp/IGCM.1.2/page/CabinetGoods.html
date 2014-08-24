@@ -1,0 +1,829 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>恒生网络-系统管理平台</title>
+    <link href="../styles/basic.css" rel="stylesheet" type="text/css" />
+    <link href="../styles/admin.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+	
+    <div class="main">
+    	
+        <h2><span>橱窗商品管理</span></h2>
+        <!-- 表单模块 -->
+        <div class="formBox"> 
+        	<h3><i></i><span>橱窗基本信息</span></h3>
+        	<div class="content">
+        		<table class="c6">
+            	<tr>
+                	<th>标题：</th>
+                    <td>test1</td>
+                    <th>类型：</th>
+                    <td>首页橱窗 </td>
+                    <th>次序：</th>
+                    <td>1</td>
+                </tr>
+                <tr>
+                	<th>链接地址：</th>
+                    <td>http://www.hundsun.com</td>
+                    <th>是否显示：</th>
+                    <td>显示</td>
+                    <th>图片：</th>
+                    <td><img name="" src="" height="50" alt="" /></td>
+                  </tr>
+            </table>
+        	</div>
+            
+         </div> <!-- 表单模块 END -->            
+
+
+		<div class="listBox" style="margin-top:10px;"> 
+          <h3><span>橱窗关联的商品列表</span></h3> 
+            <table > 
+                <tr>
+                    <th>商品名称</th>
+                    <th>图片</th>
+                    <th>次序</th>
+                    <th>&nbsp;</th>
+                    <th>操作</th>
+                </tr>
+                <tr>
+                    <td>辛巴克咖啡 </td>
+                    <td> ￥50.00</td>
+                    <td>2</td>
+                    <td><a href="#"><img src="../images/admin/dw.gif" /></a></td>
+                    <td><a href="#">置顶</a> <a href="#">删除</a></td>
+
+                </tr>
+				<tr class="bg">
+                    <td>辛巴克咖啡 </td>
+                    <td> ￥50.00</td>
+                    <td>1</td>
+                    <td><a href="#"><img src="../images/admin/up.gif" /></a><a href="#"><img src="../images/admin/dw.gif" /></a></td>
+                    <td><a href="#">置顶</a> <a href="#">删除</a></td>
+                </tr>
+             	<tr>
+                    <td>辛巴克咖啡 </td>
+                    <td> ￥50.00</td>
+                    <td>2</td>
+                    <td><a href="#"><img src="../images/admin/up.gif" /></a><a href="#"><img src="../images/admin/dw.gif" /></a></td>
+                    <td><a href="#">置顶</a> <a href="#">删除</a></td>
+
+                </tr>
+				<tr class="bg">
+                    <td>辛巴克咖啡 </td>
+                    <td> ￥50.00</td>
+                    <td>1</td>
+                    <td><a href="#"><img src="../images/admin/up.gif" /></a></td>
+                    <td><a href="#">置顶</a> <a href="#">删除</a></td>
+                </tr>
+            </table> 
+            <div class="pages-box" >
+<div class="pages">
+                            <a href="#" style="font-weight:bold">&laquo;</a><b> 1 </b>
+                            <a href="#">2</a>
+                            <a href="#">3</a>
+                            <a href="#">4</a>
+                            ...
+                            <a href="#">9</a>
+                            <a href="#" style="font-weight:bold">&raquo;</a> 
+                            <input type="text" size="2" title="输入页码按回车">
+                            <a href="#" style="color:#000">GO</a>
+                            页数: [ 1 / 253 ]
+              </div> 
+          </div>
+        </div>
+         
+        <!-- 搜索模块 -->
+  <div class="searchBox" style="margin-top:10px;">
+    
+    <table>
+      <tr>
+        <th>商品名称：</th>
+        <td><input type="text" class="inp inp-w160" /></td>
+        <th>商品类别：</th>
+        <td><select name="select" class="select">
+          <option>请选择</option>
+        </select></td>
+        <th>&nbsp;</th>
+        
+      </tr>
+      <tr>
+        <th>价格区间：</th>
+        <td><input type="text" class="inp inp-w70" onclick="WdatePicker()" />
+          -
+          <input type="text" class="inp inp-w70" onclick="WdatePicker()" /></td>
+        <th>&nbsp;</th>
+        <td>&nbsp;</td>
+        <th><button type="submit" class="btn">搜 索</button></th>
+        
+      </tr>
+    </table>
+  </div>
+  <!-- 搜索模块 END -->
+  <div class="tool"><span><a href="#" hidefocus="true" class="bt_add">添加商品到橱窗</a></span></div>
+  <div class="clear"></div>
+  <!-- 列表模块 -->
+  <div class="listBox">
+    <ul class="hover">
+      <h3><span>商品列表</span></h3>
+      <table>
+        <tr>
+          <th><input type="checkbox" /></th>
+          <th>商品名称</th>
+          <th>图片</th>
+        </tr>
+        <tr>
+          <td><input type="checkbox" /></td>
+          <td>可口可乐</td>
+          <td><img name="" src="" width="50" height="50" alt="" /></td>
+        </tr>
+        <tr class="bg">
+          <td><input type="checkbox" /></td>
+          <td>可口可乐</td>
+          <td><img name="" src="" width="50" height="50" alt="" /></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" /></td>
+          <td>可口可乐</td>
+          <td><img name="" src="" width="50" height="50" alt="" /></td>
+        </tr>
+        <tr class="bg">
+          <td><input type="checkbox" /></td>
+          <td>可口可乐</td>
+          <td><img name="" src="" width="50" height="50" alt="" /></td>
+        </tr>
+      </table>
+      <div class="pages-box" >
+        <div class="pages"> <a href="#" style="font-weight:bold">&laquo;</a><b> 1 </b> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> ... <a href="#">9</a> <a href="#" style="font-weight:bold">&raquo;</a>
+          <input type="text" size="2" title="输入页码按回车">
+        <a href="#" style="color:#000">GO</a> 页数: [ 1 / 253 ] </div>
+      </div>
+    </ul>
+    <ul>
+      <h3><span>销售中商品列表</span></h3>
+      <table>
+        <tr>
+          <th><input type="checkbox" /></th>
+          <th>商品编号</th>
+          <th>商品名称</th>
+          <th>商品类目</th>
+          <th>店铺名称</th>
+          <th>特殊标识</th>
+          <th>商品状态</th>
+          <th>出售数量</th>
+          <th>库存数量</th>
+          <th>添加日期</th>
+          <th>价格</th>
+          <th>市场价</th>
+          <th>地域</th>
+          <th>操作</th>
+        </tr>
+        <tr>
+          <td><input type="checkbox" /></td>
+          <td>44569</td>
+          <td>可口可乐</td>
+          <td>饮品->碳酸饮料</td>
+          <td>零六店铺</td>
+          <td></td>
+          <td>上架</td>
+          <td>0</td>
+          <td>200</td>
+          <td>2010-10-26</td>
+          <td>2.0</td>
+          <td>0.0</td>
+          <td>南京市</td>
+          <td><a href="#" title="预览"><img src="../images/admin/ico_zoom.png" alt="预览"  /></a> <a href="#" title="删除"><img src="../images/admin/ico_cancel.png" alt="删除"  /></a> <a href="#" title="设置佣金" onclick="loading();"><img src="../images/admin/ico_chart_pie.png" alt="设置佣金"  /></a> <a href="#" title="设置市场价" onclick="loading();"><img src="../images/admin/ico_coins.png" alt="设置市场价"  /></a> <a href="#" title="下架"><img src="../images/admin/ico_delete.png" alt="下架"  /></a></td>
+        </tr>
+        <tr class="bg">
+          <td><input type="checkbox" /></td>
+          <td>44569</td>
+          <td>可口可乐</td>
+          <td>饮品->碳酸饮料</td>
+          <td>零六店铺</td>
+          <td></td>
+          <td>上架</td>
+          <td>0</td>
+          <td>200</td>
+          <td>2010-10-26</td>
+          <td>2.0</td>
+          <td>0.0</td>
+          <td>南京市</td>
+          <td><a href="#" title="预览"><img src="../images/admin/ico_zoom.png" alt="预览"  /></a> <a href="#" title="删除"><img src="../images/admin/ico_cancel.png" alt="删除"  /></a> <a href="#" title="设置佣金" onclick="loading();"><img src="../images/admin/ico_chart_pie.png" alt="设置佣金"  /></a> <a href="#" title="设置市场价" onclick="loading();"><img src="../images/admin/ico_coins.png" alt="设置市场价"  /></a> <a href="#" title="下架"><img src="../images/admin/ico_delete.png" alt="下架"  /></a></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" /></td>
+          <td>44569</td>
+          <td>可口可乐</td>
+          <td>饮品->碳酸饮料</td>
+          <td>零六店铺</td>
+          <td></td>
+          <td>上架</td>
+          <td>0</td>
+          <td>200</td>
+          <td>2010-10-26</td>
+          <td>2.0</td>
+          <td>0.0</td>
+          <td>南京市</td>
+          <td><a href="#" title="预览"><img src="../images/admin/ico_zoom.png" alt="预览"  /></a> <a href="#" title="删除"><img src="../images/admin/ico_cancel.png" alt="删除"  /></a> <a href="#" title="设置佣金" onclick="loading();"><img src="../images/admin/ico_chart_pie.png" alt="设置佣金"  /></a> <a href="#" title="设置市场价" onclick="loading();"><img src="../images/admin/ico_coins.png" alt="设置市场价"  /></a> <a href="#" title="下架"><img src="../images/admin/ico_delete.png" alt="下架"  /></a></td>
+        </tr>
+        <tr class="bg">
+          <td><input type="checkbox" /></td>
+          <td>44569</td>
+          <td>可口可乐</td>
+          <td>饮品->碳酸饮料</td>
+          <td>零六店铺</td>
+          <td></td>
+          <td>上架</td>
+          <td>0</td>
+          <td>200</td>
+          <td>2010-10-26</td>
+          <td>2.0</td>
+          <td>0.0</td>
+          <td>南京市</td>
+          <td><a href="#" title="预览"><img src="../images/admin/ico_zoom.png" alt="预览"  /></a> <a href="#" title="删除"><img src="../images/admin/ico_cancel.png" alt="删除"  /></a> <a href="#" title="设置佣金" onclick="loading();"><img src="../images/admin/ico_chart_pie.png" alt="设置佣金"  /></a> <a href="#" title="设置市场价" onclick="loading();"><img src="../images/admin/ico_coins.png" alt="设置市场价"  /></a> <a href="#" title="下架"><img src="../images/admin/ico_delete.png" alt="下架"  /></a></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" /></td>
+          <td>44569</td>
+          <td>可口可乐</td>
+          <td>饮品->碳酸饮料</td>
+          <td>零六店铺</td>
+          <td></td>
+          <td>上架</td>
+          <td>0</td>
+          <td>200</td>
+          <td>2010-10-26</td>
+          <td>2.0</td>
+          <td>0.0</td>
+          <td>南京市</td>
+          <td><a href="#" title="预览"><img src="../images/admin/ico_zoom.png" alt="预览"  /></a> <a href="#" title="删除"><img src="../images/admin/ico_cancel.png" alt="删除"  /></a> <a href="#" title="设置佣金" onclick="loading();"><img src="../images/admin/ico_chart_pie.png" alt="设置佣金"  /></a> <a href="#" title="设置市场价" onclick="loading();"><img src="../images/admin/ico_coins.png" alt="设置市场价"  /></a> <a href="#" title="下架"><img src="../images/admin/ico_delete.png" alt="下架"  /></a></td>
+        </tr>
+        <tr class="bg">
+          <td><input type="checkbox" /></td>
+          <td>44569</td>
+          <td>可口可乐</td>
+          <td>饮品->碳酸饮料</td>
+          <td>零六店铺</td>
+          <td></td>
+          <td>上架</td>
+          <td>0</td>
+          <td>200</td>
+          <td>2010-10-26</td>
+          <td>2.0</td>
+          <td>0.0</td>
+          <td>南京市</td>
+          <td><a href="#" title="预览"><img src="../images/admin/ico_zoom.png" alt="预览"  /></a> <a href="#" title="删除"><img src="../images/admin/ico_cancel.png" alt="删除"  /></a> <a href="#" title="设置佣金" onclick="loading();"><img src="../images/admin/ico_chart_pie.png" alt="设置佣金"  /></a> <a href="#" title="设置市场价" onclick="loading();"><img src="../images/admin/ico_coins.png" alt="设置市场价"  /></a> <a href="#" title="下架"><img src="../images/admin/ico_delete.png" alt="下架"  /></a></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" /></td>
+          <td>44569</td>
+          <td>可口可乐</td>
+          <td>饮品->碳酸饮料</td>
+          <td>零六店铺</td>
+          <td></td>
+          <td>上架</td>
+          <td>0</td>
+          <td>200</td>
+          <td>2010-10-26</td>
+          <td>2.0</td>
+          <td>0.0</td>
+          <td>南京市</td>
+          <td><a href="#" title="预览"><img src="../images/admin/ico_zoom.png" alt="预览"  /></a> <a href="#" title="删除"><img src="../images/admin/ico_cancel.png" alt="删除"  /></a> <a href="#" title="设置佣金" onclick="loading();"><img src="../images/admin/ico_chart_pie.png" alt="设置佣金"  /></a> <a href="#" title="设置市场价" onclick="loading();"><img src="../images/admin/ico_coins.png" alt="设置市场价"  /></a> <a href="#" title="下架"><img src="../images/admin/ico_delete.png" alt="下架"  /></a></td>
+        </tr>
+        <tr class="bg">
+          <td><input type="checkbox" /></td>
+          <td>44569</td>
+          <td>可口可乐</td>
+          <td>饮品->碳酸饮料</td>
+          <td>零六店铺</td>
+          <td></td>
+          <td>上架</td>
+          <td>0</td>
+          <td>200</td>
+          <td>2010-10-26</td>
+          <td>2.0</td>
+          <td>0.0</td>
+          <td>南京市</td>
+          <td><a href="#" title="预览"><img src="../images/admin/ico_zoom.png" alt="预览"  /></a> <a href="#" title="删除"><img src="../images/admin/ico_cancel.png" alt="删除"  /></a> <a href="#" title="设置佣金" onclick="loading();"><img src="../images/admin/ico_chart_pie.png" alt="设置佣金"  /></a> <a href="#" title="设置市场价" onclick="loading();"><img src="../images/admin/ico_coins.png" alt="设置市场价"  /></a> <a href="#" title="下架"><img src="../images/admin/ico_delete.png" alt="下架"  /></a></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" /></td>
+          <td>44569</td>
+          <td>可口可乐</td>
+          <td>饮品->碳酸饮料</td>
+          <td>零六店铺</td>
+          <td></td>
+          <td>上架</td>
+          <td>0</td>
+          <td>200</td>
+          <td>2010-10-26</td>
+          <td>2.0</td>
+          <td>0.0</td>
+          <td>南京市</td>
+          <td><a href="#" title="预览"><img src="../images/admin/ico_zoom.png" alt="预览"  /></a> <a href="#" title="删除"><img src="../images/admin/ico_cancel.png" alt="删除"  /></a> <a href="#" title="设置佣金" onclick="loading();"><img src="../images/admin/ico_chart_pie.png" alt="设置佣金"  /></a> <a href="#" title="设置市场价" onclick="loading();"><img src="../images/admin/ico_coins.png" alt="设置市场价"  /></a> <a href="#" title="下架"><img src="../images/admin/ico_delete.png" alt="下架"  /></a></td>
+        </tr>
+        <tr class="bg">
+          <td><input type="checkbox" /></td>
+          <td>44569</td>
+          <td>可口可乐</td>
+          <td>饮品->碳酸饮料</td>
+          <td>零六店铺</td>
+          <td></td>
+          <td>上架</td>
+          <td>0</td>
+          <td>200</td>
+          <td>2010-10-26</td>
+          <td>2.0</td>
+          <td>0.0</td>
+          <td>南京市</td>
+          <td><a href="#" title="预览"><img src="../images/admin/ico_zoom.png" alt="预览"  /></a> <a href="#" title="删除"><img src="../images/admin/ico_cancel.png" alt="删除"  /></a> <a href="#" title="设置佣金" onclick="loading();"><img src="../images/admin/ico_chart_pie.png" alt="设置佣金"  /></a> <a href="#" title="设置市场价" onclick="loading();"><img src="../images/admin/ico_coins.png" alt="设置市场价"  /></a> <a href="#" title="下架"><img src="../images/admin/ico_delete.png" alt="下架"  /></a></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" /></td>
+          <td>44569</td>
+          <td>可口可乐</td>
+          <td>饮品->碳酸饮料</td>
+          <td>零六店铺</td>
+          <td></td>
+          <td>上架</td>
+          <td>0</td>
+          <td>200</td>
+          <td>2010-10-26</td>
+          <td>2.0</td>
+          <td>0.0</td>
+          <td>南京市</td>
+          <td><a href="#" title="预览"><img src="../images/admin/ico_zoom.png" alt="预览"  /></a> <a href="#" title="删除"><img src="../images/admin/ico_cancel.png" alt="删除"  /></a> <a href="#" title="设置佣金" onclick="loading();"><img src="../images/admin/ico_chart_pie.png" alt="设置佣金"  /></a> <a href="#" title="设置市场价" onclick="loading();"><img src="../images/admin/ico_coins.png" alt="设置市场价"  /></a> <a href="#" title="下架"><img src="../images/admin/ico_delete.png" alt="下架"  /></a></td>
+        </tr>
+        <tr class="bg">
+          <td><input type="checkbox" /></td>
+          <td>44569</td>
+          <td>可口可乐</td>
+          <td>饮品->碳酸饮料</td>
+          <td>零六店铺</td>
+          <td></td>
+          <td>上架</td>
+          <td>0</td>
+          <td>200</td>
+          <td>2010-10-26</td>
+          <td>2.0</td>
+          <td>0.0</td>
+          <td>南京市</td>
+          <td><a href="#" title="预览"><img src="../images/admin/ico_zoom.png" alt="预览"  /></a> <a href="#" title="删除"><img src="../images/admin/ico_cancel.png" alt="删除"  /></a> <a href="#" title="设置佣金" onclick="loading();"><img src="../images/admin/ico_chart_pie.png" alt="设置佣金"  /></a> <a href="#" title="设置市场价" onclick="loading();"><img src="../images/admin/ico_coins.png" alt="设置市场价"  /></a> <a href="#" title="下架"><img src="../images/admin/ico_delete.png" alt="下架"  /></a></td>
+        </tr>
+      </table>
+      <div class="pages-box" >
+        <div class="pages"> <a href="#" style="font-weight:bold">&laquo;</a><b> 1 </b> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> ... <a href="#">9</a> <a href="#" style="font-weight:bold">&raquo;</a>
+          <input type="text" size="2" title="输入页码按回车">
+          <a href="#" style="color:#000">GO</a> 页数: [ 1 / 253 ] </div>
+      </div>
+    </ul>
+    <ul>
+      <h3><span>仓库中商品列表</span></h3>
+      <table>
+        <tr>
+          <th><input type="checkbox" /></th>
+          <th>商品编号</th>
+          <th>商品名称</th>
+          <th>商品类目</th>
+          <th>店铺名称</th>
+          <th>特殊标识</th>
+          <th>商品状态</th>
+          <th>出售数量</th>
+          <th>库存数量</th>
+          <th>添加日期</th>
+          <th>价格</th>
+          <th>市场价</th>
+          <th>地域</th>
+          <th>操作</th>
+        </tr>
+        <tr>
+          <td><input type="checkbox" /></td>
+          <td>44569</td>
+          <td>可口可乐</td>
+          <td>饮品->碳酸饮料</td>
+          <td>零六店铺</td>
+          <td></td>
+          <td>下架</td>
+          <td>0</td>
+          <td>200</td>
+          <td>2010-10-26</td>
+          <td>2.0</td>
+          <td>0.0</td>
+          <td>南京市</td>
+          <td><a href="#" title="预览"><img src="../images/admin/ico_zoom.png" alt="预览"  /></a> <a href="#" title="删除"><img src="../images/admin/ico_cancel.png" alt="删除"  /></a> <a href="#" title="设置佣金" onclick="loading();"><img src="../images/admin/ico_chart_pie.png" alt="设置佣金"  /></a> <a href="#" title="设置市场价" onclick="loading();"><img src="../images/admin/ico_coins.png" alt="设置市场价"  /></a> <a href="#" title="上架"><img src="../images/admin/ico_accept.png" alt="上架"  /></a></td>
+        </tr>
+        <tr class="bg">
+          <td><input type="checkbox" /></td>
+          <td>44569</td>
+          <td>可口可乐</td>
+          <td>饮品->碳酸饮料</td>
+          <td>零六店铺</td>
+          <td></td>
+          <td>下架</td>
+          <td>0</td>
+          <td>200</td>
+          <td>2010-10-26</td>
+          <td>2.0</td>
+          <td>0.0</td>
+          <td>南京市</td>
+          <td><a href="#" title="预览"><img src="../images/admin/ico_zoom.png" alt="预览"  /></a> <a href="#" title="删除"><img src="../images/admin/ico_cancel.png" alt="删除"  /></a> <a href="#" title="设置佣金" onclick="loading();"><img src="../images/admin/ico_chart_pie.png" alt="设置佣金"  /></a> <a href="#" title="设置市场价" onclick="loading();"><img src="../images/admin/ico_coins.png" alt="设置市场价"  /></a> <a href="#" title="上架"><img src="../images/admin/ico_accept.png" alt="上架"  /></a></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" /></td>
+          <td>44569</td>
+          <td>可口可乐</td>
+          <td>饮品->碳酸饮料</td>
+          <td>零六店铺</td>
+          <td></td>
+          <td>下架</td>
+          <td>0</td>
+          <td>200</td>
+          <td>2010-10-26</td>
+          <td>2.0</td>
+          <td>0.0</td>
+          <td>南京市</td>
+          <td><a href="#" title="预览"><img src="../images/admin/ico_zoom.png" alt="预览"  /></a> <a href="#" title="删除"><img src="../images/admin/ico_cancel.png" alt="删除"  /></a> <a href="#" title="设置佣金" onclick="loading();"><img src="../images/admin/ico_chart_pie.png" alt="设置佣金"  /></a> <a href="#" title="设置市场价" onclick="loading();"><img src="../images/admin/ico_coins.png" alt="设置市场价"  /></a> <a href="#" title="上架"><img src="../images/admin/ico_accept.png" alt="上架"  /></a></td>
+        </tr>
+        <tr class="bg">
+          <td><input type="checkbox" /></td>
+          <td>44569</td>
+          <td>可口可乐</td>
+          <td>饮品->碳酸饮料</td>
+          <td>零六店铺</td>
+          <td></td>
+          <td>下架</td>
+          <td>0</td>
+          <td>200</td>
+          <td>2010-10-26</td>
+          <td>2.0</td>
+          <td>0.0</td>
+          <td>南京市</td>
+          <td><a href="#" title="预览"><img src="../images/admin/ico_zoom.png" alt="预览"  /></a> <a href="#" title="删除"><img src="../images/admin/ico_cancel.png" alt="删除"  /></a> <a href="#" title="设置佣金" onclick="loading();"><img src="../images/admin/ico_chart_pie.png" alt="设置佣金"  /></a> <a href="#" title="设置市场价" onclick="loading();"><img src="../images/admin/ico_coins.png" alt="设置市场价"  /></a> <a href="#" title="上架"><img src="../images/admin/ico_accept.png" alt="上架"  /></a></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" /></td>
+          <td>44569</td>
+          <td>可口可乐</td>
+          <td>饮品->碳酸饮料</td>
+          <td>零六店铺</td>
+          <td></td>
+          <td>下架</td>
+          <td>0</td>
+          <td>200</td>
+          <td>2010-10-26</td>
+          <td>2.0</td>
+          <td>0.0</td>
+          <td>南京市</td>
+          <td><a href="#" title="预览"><img src="../images/admin/ico_zoom.png" alt="预览"  /></a> <a href="#" title="删除"><img src="../images/admin/ico_cancel.png" alt="删除"  /></a> <a href="#" title="设置佣金" onclick="loading();"><img src="../images/admin/ico_chart_pie.png" alt="设置佣金"  /></a> <a href="#" title="设置市场价" onclick="loading();"><img src="../images/admin/ico_coins.png" alt="设置市场价"  /></a> <a href="#" title="上架"><img src="../images/admin/ico_accept.png" alt="上架"  /></a></td>
+        </tr>
+        <tr class="bg">
+          <td><input type="checkbox" /></td>
+          <td>44569</td>
+          <td>可口可乐</td>
+          <td>饮品->碳酸饮料</td>
+          <td>零六店铺</td>
+          <td></td>
+          <td>下架</td>
+          <td>0</td>
+          <td>200</td>
+          <td>2010-10-26</td>
+          <td>2.0</td>
+          <td>0.0</td>
+          <td>南京市</td>
+          <td><a href="#" title="预览"><img src="../images/admin/ico_zoom.png" alt="预览"  /></a> <a href="#" title="删除"><img src="../images/admin/ico_cancel.png" alt="删除"  /></a> <a href="#" title="设置佣金" onclick="loading();"><img src="../images/admin/ico_chart_pie.png" alt="设置佣金"  /></a> <a href="#" title="设置市场价" onclick="loading();"><img src="../images/admin/ico_coins.png" alt="设置市场价"  /></a> <a href="#" title="上架"><img src="../images/admin/ico_accept.png" alt="上架"  /></a></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" /></td>
+          <td>44569</td>
+          <td>可口可乐</td>
+          <td>饮品->碳酸饮料</td>
+          <td>零六店铺</td>
+          <td></td>
+          <td>下架</td>
+          <td>0</td>
+          <td>200</td>
+          <td>2010-10-26</td>
+          <td>2.0</td>
+          <td>0.0</td>
+          <td>南京市</td>
+          <td><a href="#" title="预览"><img src="../images/admin/ico_zoom.png" alt="预览"  /></a> <a href="#" title="删除"><img src="../images/admin/ico_cancel.png" alt="删除"  /></a> <a href="#" title="设置佣金" onclick="loading();"><img src="../images/admin/ico_chart_pie.png" alt="设置佣金"  /></a> <a href="#" title="设置市场价" onclick="loading();"><img src="../images/admin/ico_coins.png" alt="设置市场价"  /></a> <a href="#" title="上架"><img src="../images/admin/ico_accept.png" alt="上架"  /></a></td>
+        </tr>
+        <tr class="bg">
+          <td><input type="checkbox" /></td>
+          <td>44569</td>
+          <td>可口可乐</td>
+          <td>饮品->碳酸饮料</td>
+          <td>零六店铺</td>
+          <td></td>
+          <td>下架</td>
+          <td>0</td>
+          <td>200</td>
+          <td>2010-10-26</td>
+          <td>2.0</td>
+          <td>0.0</td>
+          <td>南京市</td>
+          <td><a href="#" title="预览"><img src="../images/admin/ico_zoom.png" alt="预览"  /></a> <a href="#" title="删除"><img src="../images/admin/ico_cancel.png" alt="删除"  /></a> <a href="#" title="设置佣金" onclick="loading();"><img src="../images/admin/ico_chart_pie.png" alt="设置佣金"  /></a> <a href="#" title="设置市场价" onclick="loading();"><img src="../images/admin/ico_coins.png" alt="设置市场价"  /></a> <a href="#" title="上架"><img src="../images/admin/ico_accept.png" alt="上架"  /></a></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" /></td>
+          <td>44569</td>
+          <td>可口可乐</td>
+          <td>饮品->碳酸饮料</td>
+          <td>零六店铺</td>
+          <td></td>
+          <td>下架</td>
+          <td>0</td>
+          <td>200</td>
+          <td>2010-10-26</td>
+          <td>2.0</td>
+          <td>0.0</td>
+          <td>南京市</td>
+          <td><a href="#" title="预览"><img src="../images/admin/ico_zoom.png" alt="预览"  /></a> <a href="#" title="删除"><img src="../images/admin/ico_cancel.png" alt="删除"  /></a> <a href="#" title="设置佣金" onclick="loading();"><img src="../images/admin/ico_chart_pie.png" alt="设置佣金"  /></a> <a href="#" title="设置市场价" onclick="loading();"><img src="../images/admin/ico_coins.png" alt="设置市场价"  /></a> <a href="#" title="上架"><img src="../images/admin/ico_accept.png" alt="上架"  /></a></td>
+        </tr>
+        <tr class="bg">
+          <td><input type="checkbox" /></td>
+          <td>44569</td>
+          <td>可口可乐</td>
+          <td>饮品->碳酸饮料</td>
+          <td>零六店铺</td>
+          <td></td>
+          <td>下架</td>
+          <td>0</td>
+          <td>200</td>
+          <td>2010-10-26</td>
+          <td>2.0</td>
+          <td>0.0</td>
+          <td>南京市</td>
+          <td><a href="#" title="预览"><img src="../images/admin/ico_zoom.png" alt="预览"  /></a> <a href="#" title="删除"><img src="../images/admin/ico_cancel.png" alt="删除"  /></a> <a href="#" title="设置佣金" onclick="loading();"><img src="../images/admin/ico_chart_pie.png" alt="设置佣金"  /></a> <a href="#" title="设置市场价" onclick="loading();"><img src="../images/admin/ico_coins.png" alt="设置市场价"  /></a> <a href="#" title="上架"><img src="../images/admin/ico_accept.png" alt="上架"  /></a></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" /></td>
+          <td>44569</td>
+          <td>可口可乐</td>
+          <td>饮品->碳酸饮料</td>
+          <td>零六店铺</td>
+          <td></td>
+          <td>下架</td>
+          <td>0</td>
+          <td>200</td>
+          <td>2010-10-26</td>
+          <td>2.0</td>
+          <td>0.0</td>
+          <td>南京市</td>
+          <td><a href="#" title="预览"><img src="../images/admin/ico_zoom.png" alt="预览"  /></a> <a href="#" title="删除"><img src="../images/admin/ico_cancel.png" alt="删除"  /></a> <a href="#" title="设置佣金" onclick="loading();"><img src="../images/admin/ico_chart_pie.png" alt="设置佣金"  /></a> <a href="#" title="设置市场价" onclick="loading();"><img src="../images/admin/ico_coins.png" alt="设置市场价"  /></a> <a href="#" title="上架"><img src="../images/admin/ico_accept.png" alt="上架"  /></a></td>
+        </tr>
+        <tr class="bg">
+          <td><input type="checkbox" /></td>
+          <td>44569</td>
+          <td>可口可乐</td>
+          <td>饮品->碳酸饮料</td>
+          <td>零六店铺</td>
+          <td></td>
+          <td>下架</td>
+          <td>0</td>
+          <td>200</td>
+          <td>2010-10-26</td>
+          <td>2.0</td>
+          <td>0.0</td>
+          <td>南京市</td>
+          <td><a href="#" title="预览"><img src="../images/admin/ico_zoom.png" alt="预览"  /></a> <a href="#" title="删除"><img src="../images/admin/ico_cancel.png" alt="删除"  /></a> <a href="#" title="设置佣金" onclick="loading();"><img src="../images/admin/ico_chart_pie.png" alt="设置佣金"  /></a> <a href="#" title="设置市场价" onclick="loading();"><img src="../images/admin/ico_coins.png" alt="设置市场价"  /></a> <a href="#" title="上架"><img src="../images/admin/ico_accept.png" alt="上架"  /></a></td>
+        </tr>
+      </table>
+      <div class="pages-box" >
+        <div class="pages"> <a href="#" style="font-weight:bold">&laquo;</a><b> 1 </b> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> ... <a href="#">9</a> <a href="#" style="font-weight:bold">&raquo;</a>
+          <input type="text" size="2" title="输入页码按回车">
+          <a href="#" style="color:#000">GO</a> 页数: [ 1 / 253 ] </div>
+      </div>
+    </ul>
+    <ul>
+      <h3><span>组合销售商品列表</span></h3>
+      <table>
+        <tr>
+          <th><input type="checkbox" /></th>
+          <th>商品编号</th>
+          <th>商品名称</th>
+          <th>商品类目</th>
+          <th>店铺名称</th>
+          <th>特殊标识</th>
+          <th>商品状态</th>
+          <th>出售数量</th>
+          <th>库存数量</th>
+          <th>添加日期</th>
+          <th>价格</th>
+          <th>市场价</th>
+          <th>地域</th>
+          <th>操作</th>
+        </tr>
+        <tr>
+          <td><input type="checkbox" /></td>
+          <td>44569</td>
+          <td>可口可乐</td>
+          <td>饮品->碳酸饮料</td>
+          <td>零六店铺</td>
+          <td></td>
+          <td>--</td>
+          <td>0</td>
+          <td>200</td>
+          <td>2010-10-26</td>
+          <td>2.0</td>
+          <td>0.0</td>
+          <td>南京市</td>
+          <td><a href="#" title="预览"><img src="../images/admin/ico_zoom.png" alt="预览"  /></a> <a href="#" title="删除"><img src="../images/admin/ico_cancel.png" alt="删除"  /></a> <a href="#" title="设置佣金" onclick="loading();"><img src="../images/admin/ico_chart_pie.png" alt="设置佣金"  /></a> <a href="#" title="设置市场价" onclick="loading();"><img src="../images/admin/ico_coins.png" alt="设置市场价"  /></a> <a href="#" title="上架"><img src="../images/admin/ico_accept.png" alt="上架"  /></a> <a href="#" title="下架"><img src="../images/admin/ico_delete.png" alt="下架"  /></a></td>
+        </tr>
+        <tr class="bg">
+          <td><input type="checkbox" /></td>
+          <td>44569</td>
+          <td>可口可乐</td>
+          <td>饮品->碳酸饮料</td>
+          <td>零六店铺</td>
+          <td></td>
+          <td>--</td>
+          <td>0</td>
+          <td>200</td>
+          <td>2010-10-26</td>
+          <td>2.0</td>
+          <td>0.0</td>
+          <td>南京市</td>
+          <td><a href="#" title="预览"><img src="../images/admin/ico_zoom.png" alt="预览"  /></a> <a href="#" title="删除"><img src="../images/admin/ico_cancel.png" alt="删除"  /></a> <a href="#" title="设置佣金" onclick="loading();"><img src="../images/admin/ico_chart_pie.png" alt="设置佣金"  /></a> <a href="#" title="设置市场价" onclick="loading();"><img src="../images/admin/ico_coins.png" alt="设置市场价"  /></a> <a href="#" title="上架"><img src="../images/admin/ico_accept.png" alt="上架"  /></a> <a href="#" title="下架"><img src="../images/admin/ico_delete.png" alt="下架"  /></a></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" /></td>
+          <td>44569</td>
+          <td>可口可乐</td>
+          <td>饮品->碳酸饮料</td>
+          <td>零六店铺</td>
+          <td></td>
+          <td>--</td>
+          <td>0</td>
+          <td>200</td>
+          <td>2010-10-26</td>
+          <td>2.0</td>
+          <td>0.0</td>
+          <td>南京市</td>
+          <td><a href="#" title="预览"><img src="../images/admin/ico_zoom.png" alt="预览"  /></a> <a href="#" title="删除"><img src="../images/admin/ico_cancel.png" alt="删除"  /></a> <a href="#" title="设置佣金" onclick="loading();"><img src="../images/admin/ico_chart_pie.png" alt="设置佣金"  /></a> <a href="#" title="设置市场价" onclick="loading();"><img src="../images/admin/ico_coins.png" alt="设置市场价"  /></a> <a href="#" title="上架"><img src="../images/admin/ico_accept.png" alt="上架"  /></a> <a href="#" title="下架"><img src="../images/admin/ico_delete.png" alt="下架"  /></a></td>
+        </tr>
+        <tr class="bg">
+          <td><input type="checkbox" /></td>
+          <td>44569</td>
+          <td>可口可乐</td>
+          <td>饮品->碳酸饮料</td>
+          <td>零六店铺</td>
+          <td></td>
+          <td>--</td>
+          <td>0</td>
+          <td>200</td>
+          <td>2010-10-26</td>
+          <td>2.0</td>
+          <td>0.0</td>
+          <td>南京市</td>
+          <td><a href="#" title="预览"><img src="../images/admin/ico_zoom.png" alt="预览"  /></a> <a href="#" title="删除"><img src="../images/admin/ico_cancel.png" alt="删除"  /></a> <a href="#" title="设置佣金" onclick="loading();"><img src="../images/admin/ico_chart_pie.png" alt="设置佣金"  /></a> <a href="#" title="设置市场价" onclick="loading();"><img src="../images/admin/ico_coins.png" alt="设置市场价"  /></a> <a href="#" title="上架"><img src="../images/admin/ico_accept.png" alt="上架"  /></a> <a href="#" title="下架"><img src="../images/admin/ico_delete.png" alt="下架"  /></a></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" /></td>
+          <td>44569</td>
+          <td>可口可乐</td>
+          <td>饮品->碳酸饮料</td>
+          <td>零六店铺</td>
+          <td></td>
+          <td>--</td>
+          <td>0</td>
+          <td>200</td>
+          <td>2010-10-26</td>
+          <td>2.0</td>
+          <td>0.0</td>
+          <td>南京市</td>
+          <td><a href="#" title="预览"><img src="../images/admin/ico_zoom.png" alt="预览"  /></a> <a href="#" title="删除"><img src="../images/admin/ico_cancel.png" alt="删除"  /></a> <a href="#" title="设置佣金" onclick="loading();"><img src="../images/admin/ico_chart_pie.png" alt="设置佣金"  /></a> <a href="#" title="设置市场价" onclick="loading();"><img src="../images/admin/ico_coins.png" alt="设置市场价"  /></a> <a href="#" title="上架"><img src="../images/admin/ico_accept.png" alt="上架"  /></a> <a href="#" title="下架"><img src="../images/admin/ico_delete.png" alt="下架"  /></a></td>
+        </tr>
+        <tr class="bg">
+          <td><input type="checkbox" /></td>
+          <td>44569</td>
+          <td>可口可乐</td>
+          <td>饮品->碳酸饮料</td>
+          <td>零六店铺</td>
+          <td></td>
+          <td>--</td>
+          <td>0</td>
+          <td>200</td>
+          <td>2010-10-26</td>
+          <td>2.0</td>
+          <td>0.0</td>
+          <td>南京市</td>
+          <td><a href="#" title="预览"><img src="../images/admin/ico_zoom.png" alt="预览"  /></a> <a href="#" title="删除"><img src="../images/admin/ico_cancel.png" alt="删除"  /></a> <a href="#" title="设置佣金" onclick="loading();"><img src="../images/admin/ico_chart_pie.png" alt="设置佣金"  /></a> <a href="#" title="设置市场价" onclick="loading();"><img src="../images/admin/ico_coins.png" alt="设置市场价"  /></a> <a href="#" title="上架"><img src="../images/admin/ico_accept.png" alt="上架"  /></a> <a href="#" title="下架"><img src="../images/admin/ico_delete.png" alt="下架"  /></a></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" /></td>
+          <td>44569</td>
+          <td>可口可乐</td>
+          <td>饮品->碳酸饮料</td>
+          <td>零六店铺</td>
+          <td></td>
+          <td>--</td>
+          <td>0</td>
+          <td>200</td>
+          <td>2010-10-26</td>
+          <td>2.0</td>
+          <td>0.0</td>
+          <td>南京市</td>
+          <td><a href="#" title="预览"><img src="../images/admin/ico_zoom.png" alt="预览"  /></a> <a href="#" title="删除"><img src="../images/admin/ico_cancel.png" alt="删除"  /></a> <a href="#" title="设置佣金" onclick="loading();"><img src="../images/admin/ico_chart_pie.png" alt="设置佣金"  /></a> <a href="#" title="设置市场价" onclick="loading();"><img src="../images/admin/ico_coins.png" alt="设置市场价"  /></a> <a href="#" title="上架"><img src="../images/admin/ico_accept.png" alt="上架"  /></a> <a href="#" title="下架"><img src="../images/admin/ico_delete.png" alt="下架"  /></a></td>
+        </tr>
+        <tr class="bg">
+          <td><input type="checkbox" /></td>
+          <td>44569</td>
+          <td>可口可乐</td>
+          <td>饮品->碳酸饮料</td>
+          <td>零六店铺</td>
+          <td></td>
+          <td>--</td>
+          <td>0</td>
+          <td>200</td>
+          <td>2010-10-26</td>
+          <td>2.0</td>
+          <td>0.0</td>
+          <td>南京市</td>
+          <td><a href="#" title="预览"><img src="../images/admin/ico_zoom.png" alt="预览"  /></a> <a href="#" title="删除"><img src="../images/admin/ico_cancel.png" alt="删除"  /></a> <a href="#" title="设置佣金" onclick="loading();"><img src="../images/admin/ico_chart_pie.png" alt="设置佣金"  /></a> <a href="#" title="设置市场价" onclick="loading();"><img src="../images/admin/ico_coins.png" alt="设置市场价"  /></a> <a href="#" title="上架"><img src="../images/admin/ico_accept.png" alt="上架"  /></a> <a href="#" title="下架"><img src="../images/admin/ico_delete.png" alt="下架"  /></a></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" /></td>
+          <td>44569</td>
+          <td>可口可乐</td>
+          <td>饮品->碳酸饮料</td>
+          <td>零六店铺</td>
+          <td></td>
+          <td>--</td>
+          <td>0</td>
+          <td>200</td>
+          <td>2010-10-26</td>
+          <td>2.0</td>
+          <td>0.0</td>
+          <td>南京市</td>
+          <td><a href="#" title="预览"><img src="../images/admin/ico_zoom.png" alt="预览"  /></a> <a href="#" title="删除"><img src="../images/admin/ico_cancel.png" alt="删除"  /></a> <a href="#" title="设置佣金" onclick="loading();"><img src="../images/admin/ico_chart_pie.png" alt="设置佣金"  /></a> <a href="#" title="设置市场价" onclick="loading();"><img src="../images/admin/ico_coins.png" alt="设置市场价"  /></a> <a href="#" title="上架"><img src="../images/admin/ico_accept.png" alt="上架"  /></a> <a href="#" title="下架"><img src="../images/admin/ico_delete.png" alt="下架"  /></a></td>
+        </tr>
+        <tr class="bg">
+          <td><input type="checkbox" /></td>
+          <td>44569</td>
+          <td>可口可乐</td>
+          <td>饮品->碳酸饮料</td>
+          <td>零六店铺</td>
+          <td></td>
+          <td>--</td>
+          <td>0</td>
+          <td>200</td>
+          <td>2010-10-26</td>
+          <td>2.0</td>
+          <td>0.0</td>
+          <td>南京市</td>
+          <td><a href="#" title="预览"><img src="../images/admin/ico_zoom.png" alt="预览"  /></a> <a href="#" title="删除"><img src="../images/admin/ico_cancel.png" alt="删除"  /></a> <a href="#" title="设置佣金" onclick="loading();"><img src="../images/admin/ico_chart_pie.png" alt="设置佣金"  /></a> <a href="#" title="设置市场价" onclick="loading();"><img src="../images/admin/ico_coins.png" alt="设置市场价"  /></a> <a href="#" title="上架"><img src="../images/admin/ico_accept.png" alt="上架"  /></a> <a href="#" title="下架"><img src="../images/admin/ico_delete.png" alt="下架"  /></a></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" /></td>
+          <td>44569</td>
+          <td>可口可乐</td>
+          <td>饮品->碳酸饮料</td>
+          <td>零六店铺</td>
+          <td></td>
+          <td>--</td>
+          <td>0</td>
+          <td>200</td>
+          <td>2010-10-26</td>
+          <td>2.0</td>
+          <td>0.0</td>
+          <td>南京市</td>
+          <td><a href="#" title="预览"><img src="../images/admin/ico_zoom.png" alt="预览"  /></a> <a href="#" title="删除"><img src="../images/admin/ico_cancel.png" alt="删除"  /></a> <a href="#" title="设置佣金" onclick="loading();"><img src="../images/admin/ico_chart_pie.png" alt="设置佣金"  /></a> <a href="#" title="设置市场价" onclick="loading();"><img src="../images/admin/ico_coins.png" alt="设置市场价"  /></a> <a href="#" title="上架"><img src="../images/admin/ico_accept.png" alt="上架"  /></a> <a href="#" title="下架"><img src="../images/admin/ico_delete.png" alt="下架"  /></a></td>
+        </tr>
+        <tr class="bg">
+          <td><input type="checkbox" /></td>
+          <td>44569</td>
+          <td>可口可乐</td>
+          <td>饮品->碳酸饮料</td>
+          <td>零六店铺</td>
+          <td></td>
+          <td>--</td>
+          <td>0</td>
+          <td>200</td>
+          <td>2010-10-26</td>
+          <td>2.0</td>
+          <td>0.0</td>
+          <td>南京市</td>
+          <td><a href="#" title="预览"><img src="../images/admin/ico_zoom.png" alt="预览"  /></a> <a href="#" title="删除"><img src="../images/admin/ico_cancel.png" alt="删除"  /></a> <a href="#" title="设置佣金" onclick="loading();"><img src="../images/admin/ico_chart_pie.png" alt="设置佣金"  /></a> <a href="#" title="设置市场价" onclick="loading();"><img src="../images/admin/ico_coins.png" alt="设置市场价"  /></a> <a href="#" title="上架"><img src="../images/admin/ico_accept.png" alt="上架"  /></a> <a href="#" title="下架"><img src="../images/admin/ico_delete.png" alt="下架"  /></a></td>
+        </tr>
+      </table>
+      <div class="pages-box" >
+        <div class="pages"> <a href="#" style="font-weight:bold">&laquo;</a><b> 1 </b> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> ... <a href="#">9</a> <a href="#" style="font-weight:bold">&raquo;</a>
+          <input type="text" size="2" title="输入页码按回车">
+          <a href="#" style="color:#000">GO</a> 页数: [ 1 / 253 ] </div>
+      </div>
+    </ul>
+  </div>
+  <!-- 列表模块 END -->
+       
+    <div class="form-but">
+      <!-- 表单按钮区 -->
+      <button type="button" class="button-s4" onclick="javascript:history.back(-1);">返回</button>
+    </div>
+    <!-- 表单按钮区 END -->
+    </div>
+    
+</body>

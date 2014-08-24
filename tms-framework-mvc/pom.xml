@@ -141,51 +141,6 @@
 			<artifactId>commons-io</artifactId>
 			<version>${commons.io.version}</version>
 		</dependency>
-
-
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-context</artifactId>
-			<version>${spring.version}</version>
-			<exclusions>
-				<exclusion>
-					<groupId>commons-logging</groupId>
-					<artifactId>commons-logging</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-aop</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-jdbc</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-orm</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-aspects</artifactId>
-			<version>${spring.version}</version>
-			<optional>true</optional>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-context-support</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-webmvc</artifactId>
-			<version>${spring.version}</version>
-			<optional>true</optional>
-		</dependency>
 		<dependency>
 			<groupId>com.caucho</groupId>
 			<artifactId>hessian</artifactId>
@@ -240,12 +195,6 @@
 			<version>${ibatis.version}</version>
 			<optional>true</optional>
 		</dependency>
-		<dependency>
-			<groupId>${jdbc.groupId}</groupId>
-			<artifactId>${jdbc.artifactId}</artifactId>
-			<version>${jdbc.version}</version>
-			<optional>true</optional>
-		</dependency>
 
 		<dependency>
 			<groupId>org.codehaus.jackson</groupId>
@@ -274,17 +223,21 @@
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
+			<groupId>javax.activation</groupId>
+			<artifactId>activation</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+		<dependency>
 			<groupId>net.juweitang.framework</groupId>
 			<artifactId>tms-framework-util</artifactId>
 			<version>0.0.2</version>
-			<scope>runtime</scope>
 		</dependency>
 		<dependency>
 			<groupId>net.juweitang.framework</groupId>
 			<artifactId>tms-framework-common</artifactId>
 			<version>0.0.2</version>
-			<scope>runtime</scope>
 		</dependency>
+		
 	</dependencies>
 
 	<properties>
@@ -302,9 +255,6 @@
 		<hessian.version>4.0.7</hessian.version>
 		<velocity.version>1.6.4</velocity.version>
 		<velocity-tools.version>1.3</velocity-tools.version>
-		<jdbc.groupId>com.oracle</jdbc.groupId>
-		<jdbc.artifactId>ojdbc14</jdbc.artifactId>
-		<jdbc.version>10.2.0.2.0</jdbc.version>
 		<commons.beanutils.version>1.8.2</commons.beanutils.version>
 		<commons.codec.version>1.4</commons.codec.version>
 		<commons.dbcp.version>1.2.2</commons.dbcp.version>

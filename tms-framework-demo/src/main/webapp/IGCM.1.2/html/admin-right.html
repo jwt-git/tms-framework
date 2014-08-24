@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>恒生网络-系统管理平台</title>
+    <link href="../styles/basic.css" rel="stylesheet" type="text/css" />
+    <link href="../styles/admin.css" rel="stylesheet" type="text/css" />
+</head>
+<script type="text/javascript">
+function tips_pop(){
+var MsgPop=document.getElementById("winpop");//获取窗口这个对象,即ID为winpop的对象
+var popH=parseInt(MsgPop.style.height);//用parseInt将对象的高度转化为数字,以方便下面比较
+if (popH==0){         //如果窗口的高度是0
+MsgPop.style.display="block";//那么将隐藏的窗口显示出来
+show=setInterval("changeH('up')",2);//开始以每0.002秒调用函数changeH("up"),即每0.002秒向上移动一次
+}
+else {        
+hide=setInterval("changeH('down')",2);//开始以每0.002秒调用函数changeH("down"),即每0.002秒向下移动一次
+}
+}
+function changeH(str) {
+var MsgPop=document.getElementById("winpop");
+var popH=parseInt(MsgPop.style.height);
+if(str=="up"){     //如果这个参数是UP
+if (popH<=150){    //如果转化为数值的高度小于等于150
+MsgPop.style.height=(popH+4).toString()+"px";//高度增加4个象素
+}
+else{
+clearInterval(show);//否则就取消这个函数调用,意思就是如果高度超过150象度了,就不再增长了
+}
+}
+if(str=="down"){
+if (popH>=4){       //如果这个参数是down
+MsgPop.style.height=(popH-4).toString()+"px";//那么窗口的高度减少4个象素
+}
+else{        //否则
+clearInterval(hide);    //否则就取消这个函数调用,意思就是如果高度小于4个象度的时候,就不再减了
+MsgPop.style.display="none";  //因为窗口有边框,所以还是可以看见1~2象素没缩进去,这时候就把DIV隐藏掉
+}
+}
+}
+window.onload=function(){    //加载
+document.getElementById('winpop').style.height='0px';//我不知道为什么要初始化这个高度,CSS里不是已经初始化了吗,知道的告诉我一下
+setTimeout("tips_pop()",800);     //3秒后调用tips_pop()这个函数
+}
+</script>
+<body>
+	
+    <div class="welcome">
+    	<ul>
+        	<li>你好，<strong>Admin</strong>！ 欢迎你使用金手杖系统管理平台</li>
+            <li>上次登录：<span>2010年10月27日 19:23</span></li>
+            <li>登录IP：<span>172.168.2.21</span></li>
+            <li>常用操作：</li>
+        </ul>
+        <p>
+        	<a href="#" title="未定义"><img src="../images/icon/icon_55_12.gif" /></a>
+            <a href="#" title="商品审核"><img src="../images/icon/icon_55_2.gif" /></a>
+        	<a href="#" title="系统系统"><img src="../images/icon/icon_55_5.gif" /></a>
+        	<a href="#" title="修改系统"><img src="../images/icon/icon_55_6.gif" /></a>
+            <a href="#" title="退出系统"><img src="../images/icon/icon_55_4.gif" /></a>
+        </p>
+    </div>
+    <div id="winpop">
+<div class="title">您有新待办事项<span class="close" onclick="tips_pop()">X</span></div>
+<div class="con"><p>你当前所需要处理：</p><p>待发货的商品数量为：13件 <a href="#">查看</a></p>
+<p>待添加的商品数量为：13件 <a href="#">查看</a></p><p>一个新的促销活动<a href="#">查看</a></p>
+
+        <p>请即时操作！</p></div>
+</div>
+</body>

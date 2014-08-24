@@ -1,0 +1,16 @@
+	当前管理员:$!{admin.loginId}<br/>
+	当前是否有FUN1:$!{admin.haveFunction(0)}<br/>
+	当前是否有FUN2:$!{admin.haveFunction(1)}<br/>
+	当前是否有FUN3:$!{admin.haveFunction(2)}<br/>
+	当前是否有FUN4:$!{admin.haveFunction(3)}<br/>
+	当前是否有FUN5:$!{admin.haveFunction(4)}<br/>
+	当前是否有FUN6:$!{admin.haveFunction(5)}<br/>
+	<a href="${appServer}/admin/fun1orfun3.htm">访问次页面需要fun1或者fun3的权限</a> <br/>
+	<hr/>
+	调用adminAccess tool:<br/>
+	\$adminAccess.has('Fun1') 结果: $adminAccess.has('Fun1')<br/>
+	\$adminAccess.has('Fun2') 结果: $adminAccess.has('Fun2')<br/>
+	\$adminAccess.has('Fun3') 结果: $adminAccess.has('Fun3')<br/>
+	\$adminAccess.has('Fun4') 结果: $adminAccess.has('Fun4')<br/>
+	\$adminAccess.has('Fun5') 结果: $adminAccess.has('Fun5')<br/>
+	\$adminAccess.has('Fun6') 结果: $adminAccess.has('Fun6')<br/>

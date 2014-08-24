@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>恒生网络-系统管理平台</title>
+    <link href="../styles/basic.css" rel="stylesheet" type="text/css" />
+    <link href="../styles/admin.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+	
+    <div class="main">
+    
+        <!-- 表单模块 -->
+         <div class="mag-t1">
+        	操作失败！
+        </div>
+        <div class="mag-t2">
+        	操作成功！
+        </div>
+        
+        <div class="formBox">
+        
+        	<h3><i></i><span>编辑属性集</span></h3>
+            
+        	<div class="content">
+        		<table class="c5" style="width:700px;">
+            	<tr>
+                	<th>属性名 ：</th>
+                    <td><input type="text" class="inp inp-w150" value="宠物衣属性分类1属性a" /><span class="red">*</span><span class="error">错误回显！</span></td>
+                </tr>
+                <tr>
+                	<th>是否导航 ：</th>
+                  <td><input name="radio" type="radio" id="radio" value="radio" checked="checked" />
+                    是
+                  <input type="radio" name="radio" id="radio2" value="radio" />
+                  否                    <span class="red">*</span><span class="error">错误回显！</span></td>
+                </tr>
+                <tr>
+                	<th>是否卖家必选 ：</th>
+                    <td><input name="radio" type="radio" id="radio3" value="radio" checked="checked" />
+                      是
+                    <input type="radio" name="radio" id="radio4" value="radio" />
+                    否                      <span class="red">*</span><span class="error">错误回显！</span></td>
+                </tr>
+                <tr>
+                	<th>录入方式 ：</th>
+                    <td><input name="radio" type="radio" id="radio5" value="radio" checked="checked" />
+                      手工录入
+                      <input type="radio" name="radio" id="radio6" value="radio" />
+                      多行文本框
+<input type="radio" name="radio" id="radio7" value="radio" />
+单选
+<input type="radio" name="radio" id="radio8" value="radio" />
+复选                      <span class="red">*</span><span class="error">选择单选或复选的时候，可选值列表必填，空格分割</span></td>
+                </tr>
+                <tr>
+               	  <th>可选值列表：</th>
+                    <td>
+                      <strong>
+                      <textarea cols="45" rows="5" class="textarea" >宠物衣属性分类1属性a</textarea>
+                    </strong></td>
+                </tr>
+                <tr>
+               	  <th>属性描述：</th>
+                    <td>
+                      <textarea cols="45" rows="5" class="textarea" >属性a描述  属性a描述  属性a描述</textarea>
+                  </td>
+                </tr>
+              </table>
+</div>
+            <div class="form-but"><!-- 表单按钮区 -->
+                    
+            	<button type="button" class="button-s4">修改</button>
+                <button type="button" class="button-s4" onclick="javascript:history.back(-1);">取消</button>
+              
+          	</div><!-- 表单按钮区 END -->
+                    
+            
+        </div> <!-- 表单模块 END -->
+   
+    </div>
+    
+</body>

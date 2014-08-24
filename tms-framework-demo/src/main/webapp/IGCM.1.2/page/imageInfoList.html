@@ -1,0 +1,224 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>恒生网络-系统管理平台</title>
+    <link href="../styles/basic.css" rel="stylesheet" type="text/css" />
+    <link href="../styles/admin.css" rel="stylesheet" type="text/css" />
+    <script language="javascript" type="text/javascript" src="../scripts/My97DatePicker/WdatePicker.js"></script>
+</head>
+
+<body>
+	
+    <div class="main">
+    	
+        <!-- 搜索模块 -->
+        <div class="searchBox">
+       	  <h3><span>文件管理</span></h3>
+       	  <table>
+       	    <tr>
+       	      <th>ID：</th>
+       	      <td><input type="text" class="inp" /></td>
+       	      <th>分组ID：</th>
+       	      <td><input type="text" class="inp" /></td>
+       	      <th>上传时间段：</th>
+       	      <td><input type="text" class="inp inp-w70" onclick="WdatePicker()"/>
+       	        -
+       	        <input type="text" class="inp inp-w70" onclick="WdatePicker()"/></td>
+   	        </tr>
+       	    <tr>
+       	      <th>文件名：</th>
+       	      <td><input type="text" class="inp" onclick="WdatePicker()" /></td>
+       	      <th>文件类型：</th>
+       	      <td><input type="text" class="inp" onclick="WdatePicker()" /></td>
+       	      <th>&nbsp;</th>
+       	      <td>&nbsp;</td>
+   	        </tr>
+       	    <tr>
+       	      <th>上传人：</th>
+       	      <td><select name="select" class="select">
+       	        <option>请选择</option>
+     	        </select></td>
+       	      <th>文件类型：</th>
+       	      <td><select name="select2" class="select">
+       	        <option>请选择</option>
+     	        </select></td>
+       	      <th></th>
+       	      <td><button type="submit" class="btn">搜 索</button></td>
+   	        </tr>
+   	      </table>
+        </div> <!-- 搜索模块 END -->
+ 
+		  <div class="tool"><span><a href="addimageInfoList.html" hidefocus="true" class="bt_add">新增</a></span></div>
+  <div class="clear"></div>
+        <!-- 列表模块 -->
+        <div class="listBox"> 
+          <h3><span>文件列表</span></h3> 
+            <table > 
+                <tr> 
+                    <th>ID</th>
+                    <th>分组ID</th>
+                    <th>文件名</th>
+                    <th>文件类型</th>
+                    <th>文件大小</th>
+                    <th>上传人</th>
+                    <th>创建时间 </th>
+                    <th>缩略图 </th>
+                    <th>操作 </th>
+                </tr>
+                <tr>
+                	<td>nike </td>
+                	<td>交易用</td>
+                    <td>fik188.png</td>
+                    <td>图片</td>
+                    <td>12K</td>
+                    <td>ADMIN</td>
+                    <td>2010-05-06 13:04:26 </td>
+                    <td><img width="50" height="50" /></td>
+                    <td><a href="browseimageInfo.html" title="预览"><img src="../images/admin/ico_zoom.png" alt="预览"  /></a> <a href="#" title="删除"><img src="../images/admin/ico_cancel.png" alt="删除"  /></a></td>
+                </tr>
+				<tr class="bg">
+                	<td>nike </td>
+                	<td>交易用</td>
+                    <td>fik188.png</td>
+                    <td>图片</td>
+                    <td>12K</td>
+                    <td>ADMIN</td>
+                    <td>2010-05-06 13:04:26 </td>
+                    <td><img width="50" height="50" /></td>
+                    <td><a href="browseimageInfo.html" title="预览"><img src="../images/admin/ico_zoom.png" alt="预览"  /></a><a href="#" title="预览"></a> <a href="#" title="删除"><img src="../images/admin/ico_cancel.png" alt="删除"  /></a></td>
+                </tr>
+                <tr>
+                	<td>nike </td>
+                	<td>交易用</td>
+                    <td>fik188.png</td>
+                    <td>图片</td>
+                    <td>12K</td>
+                    <td>ADMIN</td>
+                    <td>2010-05-06 13:04:26 </td>
+                    <td><img width="50" height="50" /></td>
+                    <td><a href="browseimageInfo.html" title="预览"><img src="../images/admin/ico_zoom.png" alt="预览"  /></a><a href="#" title="预览"></a> <a href="#" title="删除"><img src="../images/admin/ico_cancel.png" alt="删除"  /></a></td>
+                </tr>
+				<tr class="bg">
+                	<td>nike </td>
+                	<td>系统用</td>
+                    <td>fik188.png</td>
+                    <td>图片</td>
+                    <td>12K</td>
+                    <td>ADMIN</td>
+                    <td>2010-05-06 13:04:26 </td>
+                    <td><img width="50" height="50" /></td>
+                    <td><a href="browseimageInfo.html" title="预览"><img src="../images/admin/ico_zoom.png" alt="预览"  /></a><a href="#" title="预览"></a> <a href="#" title="删除"><img src="../images/admin/ico_cancel.png" alt="删除"  /></a></td>
+                </tr>
+                <tr>
+                	<td>nike </td>
+                	<td>注册用</td>
+                    <td>fik188.png</td>
+                    <td>图片</td>
+                    <td>12K</td>
+                    <td>ADMIN</td>
+                    <td>2010-05-06 13:04:26 </td>
+                    <td><img width="50" height="50" /></td>
+                    <td><a href="browseimageInfo.html" title="预览"><img src="../images/admin/ico_zoom.png" alt="预览"  /></a><a href="#" title="预览"></a> <a href="#" title="删除"><img src="../images/admin/ico_cancel.png" alt="删除"  /></a></td>
+                </tr>
+				<tr class="bg">
+                	<td>nike </td>
+                	<td>系统用</td>
+                    <td>fik188.png</td>
+                    <td>FLASH</td>
+                    <td>12K</td>
+                    <td>ADMIN</td>
+                    <td>2010-05-06 13:04:26 </td>
+                    <td><img width="50" height="50" /></td>
+                    <td><a href="browseimageInfo.html" title="预览"><img src="../images/admin/ico_zoom.png" alt="预览"  /></a><a href="#" title="预览"></a> <a href="#" title="删除"><img src="../images/admin/ico_cancel.png" alt="删除"  /></a></td>
+                </tr>
+                <tr>
+                	<td>nike </td>
+                	<td>交易用</td>
+                    <td>fik188.png</td>
+                    <td>FLASH</td>
+                    <td>12K</td>
+                    <td>ADMIN</td>
+                    <td>2010-05-06 13:04:26 </td>
+                    <td><img width="50" height="50" /></td>
+                    <td><a href="browseimageInfo.html" title="预览"><img src="../images/admin/ico_zoom.png" alt="预览"  /></a><a href="#" title="预览"></a> <a href="#" title="删除"><img src="../images/admin/ico_cancel.png" alt="删除"  /></a></td>
+                </tr>
+				<tr class="bg">
+                	<td>nike </td>
+                	<td>注册用</td>
+                    <td>fik188.png</td>
+                    <td>FLASH</td>
+                    <td>12K</td>
+                    <td>ADMIN</td>
+                    <td>2010-05-06 13:04:26 </td>
+                    <td><img width="50" height="50" /></td>
+                    <td><a href="browseimageInfo.html" title="预览"><img src="../images/admin/ico_zoom.png" alt="预览"  /></a><a href="#" title="预览"></a> <a href="#" title="删除"><img src="../images/admin/ico_cancel.png" alt="删除"  /></a></td>
+                </tr>
+                <tr>
+                	<td>nike </td>
+                	<td>注册用</td>
+                    <td>fik188.png</td>
+                    <td>FLASH</td>
+                    <td>12K</td>
+                    <td>ADMIN</td>
+                    <td>2010-05-06 13:04:26 </td>
+                    <td><img width="50" height="50" /></td>
+                    <td><a href="browseimageInfo.html" title="预览"><img src="../images/admin/ico_zoom.png" alt="预览"  /></a><a href="#" title="预览"></a> <a href="#" title="删除"><img src="../images/admin/ico_cancel.png" alt="删除"  /></a></td>
+                </tr>
+				<tr class="bg">
+                	<td>nike </td>
+                	<td>注册用</td>
+                    <td>fik188.png</td>
+                    <td>FLASH</td>
+                    <td>12K</td>
+                    <td>ADMIN</td>
+                    <td>2010-05-06 13:04:26 </td>
+                    <td><img width="50" height="50" /></td>
+                    <td><a href="browseimageInfo.html" title="预览"><img src="../images/admin/ico_zoom.png" alt="预览"  /></a><a href="#" title="预览"></a> <a href="#" title="删除"><img src="../images/admin/ico_cancel.png" alt="删除"  /></a></td>
+                </tr>
+                <tr>
+                	<td>nike </td>
+                	<td>注册用</td>
+                    <td>fik188.png</td>
+                    <td>FLASH</td>
+                    <td>12K</td>
+                    <td>ADMIN</td>
+                    <td>2010-05-06 13:04:26 </td>
+                    <td><img width="50" height="50" /></td>
+                    <td><a href="browseimageInfo.html" title="预览"><img src="../images/admin/ico_zoom.png" alt="预览"  /></a><a href="#" title="预览"></a> <a href="#" title="删除"><img src="../images/admin/ico_cancel.png" alt="删除"  /></a></td>
+                </tr>
+				<tr class="bg">
+                	<td>nike </td>
+                	<td>注册用</td>
+                    <td>fik188.png</td>
+                    <td>FLASH</td>
+                    <td>12K</td>
+                    <td>ADMIN</td>
+                    <td>2010-05-06 13:04:26 </td>
+                    <td><img width="50" height="50" /></td>
+                    <td><a href="browseimageInfo.html" title="预览"><img src="../images/admin/ico_zoom.png" alt="预览"  /></a><a href="#" title="预览"></a> <a href="#" title="删除"><img src="../images/admin/ico_cancel.png" alt="删除"  /></a></td>
+                </tr>
+
+            </table> 
+			
+             <div class="pages-box" >
+<div class="pages">
+                            <a href="#" style="font-weight:bold">&laquo;</a><b> 1 </b>
+                            <a href="#">2</a>
+                            <a href="#">3</a>
+                            <a href="#">4</a>
+                            ...
+                            <a href="#">9</a>
+                            <a href="#" style="font-weight:bold">&raquo;</a> 
+                            <input type="text" size="2" title="输入页码按回车">
+                            <a href="#" style="color:#000">GO</a>
+                            页数: [ 1 / 253 ]
+               </div> 
+          </div>
+             
+        </div> <!-- 列表模块 END -->   
+        	
+           
+    </div>
+    
+</body>

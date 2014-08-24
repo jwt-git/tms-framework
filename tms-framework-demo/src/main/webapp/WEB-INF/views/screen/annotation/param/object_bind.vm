@@ -1,0 +1,4 @@
+得到的对象如下:<br/>
+名字:${obj.name}<br/>
+称呼:${obj.nick}<br/>
+年龄:${obj.age}<br/>

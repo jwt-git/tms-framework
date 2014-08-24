@@ -1,0 +1,2 @@
+#set($layout = '')
+我的名字是 $!{my_name}<br/>

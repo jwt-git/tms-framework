@@ -21,7 +21,7 @@ public class StampURLBroker extends URLBroker {
 	private Map<String, StaticQueryData> urlCache = new HashMap<String, StaticQueryData>();
 
 	/**
-	 * �õ�һ����̬��Դ������,���������stamp��ע�⣺��̬��Դ�������ڵ�һ����ɺ�һֱʹ�ã����ټ���
+	 * 得到一个静态资源的链接,如果有配置stamp。注意：静态资源的链接在第一次生成后将一直使用，不再计算
 	 * 
 	 * @param key
 	 * @return
@@ -35,7 +35,7 @@ public class StampURLBroker extends URLBroker {
 			return urlCache.get(resource);
 		}
 		QueryData qd = super.setTarget(resource);
-		// ����ʱ�������
+		// 附加时间戳参数
 		String appendStamp = null;
 		if (StringUtils.isNotBlank(stamp)) {
 			int i = resource.lastIndexOf('.');

@@ -1,0 +1,7 @@
+#set($layout = '')
+<head>
+  <title>tms-framework#if($title)-${title}#end</title>
+  #if($iDemand.haveJs('jquery'))
+  <script type="text/javascript" src="$imageServer.get('script/jquery-1.4.2.min.js')"></script>
+  #end
+</head>

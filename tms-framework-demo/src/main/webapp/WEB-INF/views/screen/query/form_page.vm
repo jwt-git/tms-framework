@@ -1,0 +1,12 @@
+#set($title = 'form分页')
+来来来,我include 一个分页简单slider<br/>
+$contain.get('/contain/formPageSlider.htm').put('slider_query',$query).put('slider_target',"/query/form_page.htm")
+<br/>
+再构造一个浮动窗为9的分页
+$contain.get('/contain/formPageSlider.htm').put('slider_query',$query).put('slider_target',"/query/form_page.htm").put("slider_width",9)
+<br/>
+再构造一个分页参数为apage的分页
+$contain.get('/contain/formPageSlider.htm').put('slider_query',$query).put('slider_target',"/query/form_page.htm").put("slider_page",'apage')
+<br/>
+再构造一个神奇的可以直接输入页码的分页
+$contain.get('/contain/formPageSlider.htm').put('slider_query',$query).put('slider_target',"/query/form_page.htm").put('slider_path','/contain/formPagingPageSlider')

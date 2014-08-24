@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>恒生网络-系统管理平台</title>
+<script type="text/javascript" src="../scripts/jquery-1.4.2.min.js"></script>
+<link href="../styles/basic.css" rel="stylesheet" type="text/css" />
+<link href="../styles/admin.css" rel="stylesheet" type="text/css" />
+
+<script language=JavaScript>
+function logout(){
+	if (confirm("您确定要退出管理平台吗？"))
+	top.location = "login.html";
+	return false;
+}
+
+//隐藏菜单功能
+var displaybar = true;
+function shift_status(button)
+{
+	//alert(self.parent.frame["frame2"].cols)
+	if(displaybar){
+		self.parent.document.getElementsByName("frame2")[0].cols = "0,*";
+		displaybar=false;
+		$(".menu_toteBox").css("left", "2px")
+		$(".button_lan").css("background-image", "url(../images/admin/cx.gif)")
+		button.title="显示菜单";
+	}
+	else{
+		self.parent.document.getElementsByName("frame2")[0].cols = "202,*";
+		displaybar=true;
+		$(".menu_toteBox").css("left", "168px")
+		$(".button_lan").css("background-image", "url(../images/admin/yc.gif)")
+		button.title="隐藏菜单";
+	}
+}
+
+$(function(){
+		  $(".toptab ul li").click(function(){
+				$(".toptab ul li").removeClass("c")
+				$(this).addClass("c")
+										 })
+		  
+		  })
+</script>
+
+
+</head>
+
+<body>
+	<div class="ifram_top">
+  <div class="admin-top">
+    <p> <a class="out" href="#" target="_self" onClick="logout();"></a> <a href="#" onclick="tips_pop()"><img src="../images/admin/msg_1.gif" alt="待办事项"></a> <span><a href="../page/Usercenter.html" target="main">个人中心</a></span> <span><a href="../page/editPassword.html" target="main">修改密码</a></span> <span>财务部 张三：您好,感谢登陆使用！</span> </p>
+    <img src="../images/admin/logo.png" height="41">
+    <div class="menu_toteBox">
+      <input type="button" class="button_lan" title="隐藏菜单" onclick="shift_status(this)"/>
+    </div>
+  </div>
+  <div class="toptab">
+    <ul>
+      <li class="c"><span><a href="#">TAB标签页1</a></span></li>
+      <li ><span><a href="#" >TAB标签页2</a></span></li>
+      <li><span><a href="#">TAB标签页3</a></span></li>
+    </ul>
+  </div>
+</div>
+</body>
+
+</html>
+

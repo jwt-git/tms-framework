@@ -30,7 +30,7 @@ public abstract class GenericDaoiBatis<T, PK extends Serializable> extends BaseD
     private static final Logger _log = LoggerFactory.getLogger(GenericDaoiBatis.class);
 
     /**
-     * @see com.hundsun.network.common.dao.GenericDao#exists(java.io.Serializable)
+     * @see org.tmsframework.common.dao.GenericDao#exists(java.io.Serializable)
      */
     public boolean exists(PK id) {
         Object object=get(id);
@@ -38,7 +38,7 @@ public abstract class GenericDaoiBatis<T, PK extends Serializable> extends BaseD
     }
 
     /**
-     * @see com.hundsun.network.common.dao.GenericDao#get(java.io.Serializable)
+     * @see org.tmsframework.common.dao.GenericDao#get(java.io.Serializable)
      */
     @SuppressWarnings("unchecked")
     public T get(PK id) {
@@ -48,7 +48,7 @@ public abstract class GenericDaoiBatis<T, PK extends Serializable> extends BaseD
     }
 
     /**
-     * @see com.hundsun.network.common.dao.GenericDao#save(java.lang.Object)
+     * @see org.tmsframework.common.dao.GenericDao#save(java.lang.Object)
      */
     @SuppressWarnings("unchecked")
     public PK save(T object) {
@@ -58,7 +58,7 @@ public abstract class GenericDaoiBatis<T, PK extends Serializable> extends BaseD
     }
 
     /**
-     * @see com.hundsun.network.common.dao.GenericDao#getSqlMapSpace()
+     * @see org.tmsframework.common.dao.GenericDao#getSqlMapSpace()
      */
     public abstract String getSqlMapSpace();
 

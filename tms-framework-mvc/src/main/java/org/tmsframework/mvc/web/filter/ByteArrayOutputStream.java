@@ -8,11 +8,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * ����org.apache.commons.io.output.ByteArrayOutputStream,
- * Ϊ��������ǿͬʱresponse�������û�в�������,ȥ����ͬ������,Ҳ����˵,�˶������̲߳���ȫ��
- * ͬʱ,Ϊ�˷�ֹ����ռ���ڴ�(�ڴ�й¶),��������ָ�����պ�buffers��С��reset����
+ * 仿照org.apache.commons.io.output.ByteArrayOutputStream,
+ * 为了性能增强同时response输出而且没有并发问题,去掉了同步控制,也就是说,此对象是线程不安全的
+ * 同时,为了防止过多的占用内存(内存泄露),新增加了指定回收后buffers大小的reset方法
  * 
- * @author sam.zhang
+ * @author fish
  * 
  */
 public class ByteArrayOutputStream extends OutputStream {
@@ -213,10 +213,10 @@ public class ByteArrayOutputStream extends OutputStream {
 	}
 
 	/**
-	 * ����buffer�Ի�������
+	 * 重置buffer以回收重用
 	 * 
 	 * @param n
-	 *            ����buffer��
+	 *            保留buffer的
 	 */
 	public void reset(int n) {
 		count = 0;
@@ -227,7 +227,7 @@ public class ByteArrayOutputStream extends OutputStream {
 	}
 
 	/**
-	 * ����buffers.size��n
+	 * 缩减buffers.size到n
 	 * 
 	 * @param n
 	 */

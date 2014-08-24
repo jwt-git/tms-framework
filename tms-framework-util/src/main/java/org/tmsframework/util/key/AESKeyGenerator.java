@@ -38,9 +38,6 @@ public class AESKeyGenerator implements Generator {
 					,(byte)0xF2,(byte)0x76,(byte)0x3A,(byte)0x0E
 					,(byte)0xF3,(byte)0x77,(byte)0x3B,(byte)0x0F};
 
-	/* (non-Javadoc)
-	 * @see com.hundsun.network.melody.tool.Generator#generate(java.lang.String[])
-	 */
 	@Override
 	public String generate(String... strings) {
 		byte[] result = new byte[KEY_LENGTH];

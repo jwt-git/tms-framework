@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>恒生网络-系统管理平台</title>
+<link href="../styles/basic.css" rel="stylesheet" type="text/css" />
+<link href="../styles/admin.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../scripts/jquery-1.4.2.min.js"></script>
+<script>
+$(function(){
+		   	var div_a =$("#radio7");
+			var div_b =$("#radio8");
+			$("#ra7,#ra8").hide();
+				div_a.change(function(){
+					$("#ra8").show();
+				
+			})
+				div_b.change(function(){
+					$("#ra8,#ra7").show();
+				
+			})
+})
+</script>
+</head>
+<body>
+<div class="main">
+  <!-- 表单模块 -->
+  <div class="mag-t1"> 操作失败！ </div>
+  <div class="mag-t2"> 操作成功！ </div>
+  <div class="formBox">
+    <h3><i></i><span>添加属性</span></h3>
+    <div class="content">
+      <table class="c5" style="width:750px;">
+        <tr>
+          <th>属性名 ：</th>
+          <td><input type="text" class="inp inp-w150" />
+            <span class="red">*</span></td>
+        </tr>
+        <tr>
+          <th>属性分类 ：</th>
+          <td><label>
+              <select name="select" class="select" id="select" style="width:155px;">
+                <option>请选择</option>
+              </select>
+            </label>
+            <span class="red">*</span></td>
+        </tr>
+        <tr>
+          <th>是否导航 ：</th>
+          <td><input name="radio" type="radio" id="radio" value="radio" checked="checked" />
+            是
+            <input type="radio" name="radio" id="radio2" value="radio" />
+            否 <span class="red">*</span></td>
+        </tr>
+        <tr>
+          <th>是否卖家必选 ：</th>
+          <td><input name="radio1" type="radio" id="radio3" value="radio" checked="checked" />
+            是
+            <input type="radio" name="radio1" id="radio4" value="radio" />
+            否 <span class="red">*</span></td>
+        </tr>
+        <tr>
+          <th>录入方式 ：</th>
+          <td><input name="radio3" type="radio" id="radio5" value="radio" checked="checked" />
+            手工录入
+            <input name="radio3" type="radio" id="radio6" value="radio" />
+            多行文本框
+            <input name="radio3" type="radio" id="radio7" value="radio" />
+            单选
+            <input type="radio" name="radio3" id="radio8" value="radio" />
+            复选 <span class="red">*</span><span >选择单选或复选的时候，可选值列表必填，空格分割</span></td>
+        </tr>
+        <tr id="ra7" style="display:none;">
+          <th>是否销售属性 ：</th>
+          <td><input name="radio2" type="radio" id="radio3" value="radio" checked="checked" />
+            是
+            <input type="radio" name="radio2" id="radio4" value="radio" />
+            否 <span class="red">*</span></td>
+        </tr>
+        <tr>
+          <th>属性描述：</th>
+          <td><textarea cols="45" rows="5" class="textarea" ></textarea></td>
+        </tr>
+      </table>
+    </div>
+    <div class="form-but">
+      <!-- 表单按钮区 -->
+      <button type="button" class="button-s4">添加</button>
+      <button type="button" class="button-s4" onclick="javascript:history.back(-1);">取消</button>
+    </div>
+    <!-- 表单按钮区 END -->
+  </div>
+  <!-- 表单模块 END -->
+  <!--浮动层-->
+  <div id="layer" align="center"></div>
+  <div id="layer2">
+    <div class="searchBox">
+      <h3><img src="../images/admin/close.png" onClick="unload();" alt="点击关闭"/><span>操作</span></h3>
+      <table>
+        <tr>
+          <th>属性值：</th>
+          <td><label>
+              <input type="text" class="inp" />
+            </label></td>
+        </tr>
+        <tr>
+          <th>图片：</th>
+          <td><input type="text" class="inp" style="width:120px;" />
+            <button type="button" class="button-s17">浏览</button></td>
+        </tr>
+        <tr>
+          <th>&nbsp;</th>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td colspan="2" class="ttali-cent"><button type="submit" class="btn">确定</button>
+            <button type="submit" class="btn" onClick="unload();">取消</button></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <!-- 浮动层 END -->
+</div>
+</body>

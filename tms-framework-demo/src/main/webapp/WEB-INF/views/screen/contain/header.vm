@@ -1,0 +1,3 @@
+#set($layout = '')
+<font color="red"> 我是页面的公用header哦</font>
+<br/>

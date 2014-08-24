@@ -1,0 +1,234 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>恒生网络-系统管理平台</title>
+    <link href="../styles/basic.css" rel="stylesheet" type="text/css" />
+    <link href="../styles/admin.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../scripts/layer.js"></script>
+   <script language="javascript" type="text/javascript" src="../scripts/My97DatePicker/WdatePicker.js"></script>
+</head>
+
+<body>
+	
+    <div class="main">
+    	
+        <!-- 搜索模块 -->
+        <div class="searchBox">
+        	<h3><span>商品评论管理</span></h3>
+        	<table>
+            	<tr>
+                	<th>买家账号：</th>
+                    <td><input type="text" class="inp inp-w90" /> </td>
+                    <th>商品名称：</th>
+                    <td><input type="text" class="inp inp-w90" /></td>
+                    <th>&nbsp;</th>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                	<th>是否显示：</th>
+                    <td><select class="select" style="width:95px;">
+                      <option>请选择</option>
+                </select></td>
+                    <th>评论时间：</th>
+                    <td><input type="text" class="inp inp-w90" onclick="WdatePicker()" />
+                      -
+                      <input type="text" class="inp inp-w90" onclick="WdatePicker()" /></td>
+                    <th>&nbsp;</th>
+                    <td><button type="submit" class="btn">搜 索</button></td>
+                </tr>
+            </table>
+        </div> <!-- 搜索模块 END -->
+ 
+		
+        <!-- 列表模块 -->
+        <div class="listBox"> 
+          <h3><span>评论列表</span></h3> 
+            <table > 
+                <tr>
+                  <th>评分</th> 
+                    <th>订单号</th>
+                    <th>买家账号</th>
+                    <th>商品名称</th>
+                    <th>评论内容</th>
+                    <th>评论时间</th>
+                    <th>是否显示</th>
+                    <th>操作</th>
+                </tr>
+                <tr>
+                  <td><img src="../images/admin/xx.png" width="13" height="13" /></td>
+                	<td><a href="#" target="_blank"> 41002509107320010</a></td>
+                    <td>andychan_seller</td>
+                    <td>高级香槟  </td>
+                    <td>商品很好，发货很快</td>      
+                    <td>2010-10-22 10:24:22</td>
+                    <td>是</td>
+                    <td><a href="creditRate.html">查看 </a> <a href="#" onclick="loading();">处理</a></td>
+                </tr>
+				<tr class="bg">
+				  <td><img src="../images/admin/xx.png" width="13" height="13" /></td>
+                	<td><a href="#" target="_blank"> 41002509107320010</a></td>
+                    <td>andychan_seller</td>
+                    <td>高级香槟  </td>
+                    <td>商品很好，发货很快</td>      
+                    <td>2010-10-22 10:24:22</td>
+                    <td>是</td>
+                    <td><a href="creditRate.html">查看 </a> <a href="#" onclick="loading();">处理</a></td>
+                </tr>
+                <tr>
+                  <td><img src="../images/admin/xx.png" width="13" height="13" /></td>
+                	<td><a href="#" target="_blank"> 41002509107320010</a></td>
+                    <td>andychan_seller</td>
+                    <td>高级香槟  </td>
+                    <td>商品很好，发货很快</td>      
+                    <td>2010-10-22 10:24:22</td>
+                    <td>是</td>
+                    <td><a href="creditRate.html">查看 </a> <a href="#" onclick="loading();">处理</a></td>
+                </tr>
+				<tr class="bg">
+				  <td><img src="../images/admin/xx.png" width="13" height="13" /></td>
+                	<td><a href="#" target="_blank"> 41002509107320010</a></td>
+                    <td>andychan_seller</td>
+                    <td>高级香槟  </td>
+                    <td>商品很好，发货很快</td>      
+                    <td>2010-10-22 10:24:22</td>
+                    <td>是</td>
+                    <td><a href="creditRate.html">查看 </a> <a href="#" onclick="loading();">处理</a></td>
+                </tr>
+                <tr>
+                  <td>&nbsp;</td>
+                	<td><a href="#" target="_blank"> 41002509107320010</a></td>
+                    <td>andychan_seller</td>
+                    <td>高级香槟  </td>
+                    <td>商品很好，发货很快</td>      
+                    <td>2010-10-22 10:24:22</td>
+                    <td>是</td>
+                    <td><a href="creditRate.html">查看 </a> <a href="#" onclick="loading();">处理</a></td>
+                </tr>
+				<tr class="bg">
+				  <td>&nbsp;</td>
+                	<td><a href="#" target="_blank"> 41002509107320010</a></td>
+                    <td>andychan_seller</td>
+                    <td>高级香槟  </td>
+                    <td>商品很好，发货很快</td>      
+                    <td>2010-10-22 10:24:22</td>
+                    <td>是</td>
+                    <td><a href="creditRate.html">查看 </a> <a href="#" onclick="loading();">处理</a></td>
+                </tr>
+                <tr>
+                  <td>&nbsp;</td>
+                	<td><a href="#" target="_blank"> 41002509107320010</a></td>
+                    <td>andychan_seller</td>
+                    <td>高级香槟  </td>
+                    <td>质量不好，又不给换</td>      
+                    <td>2010-10-22 10:24:22</td>
+                    <td>否</td>
+                    <td><a href="creditRate.html">查看 </a> <a href="#" onclick="loading();">处理</a></td>
+                </tr>
+				<tr class="bg">
+				  <td>&nbsp;</td>
+                	<td><a href="#" target="_blank"> 41002509107320010</a></td>
+                    <td>andychan_seller</td>
+                    <td>高级香槟  </td>
+                    <td>质量不好，又不给换</td>      
+                    <td>2010-10-22 10:24:22</td>
+                    <td>否</td>
+                    <td><a href="creditRate.html">查看 </a> <a href="#" onclick="loading();">处理</a></td>
+                </tr>
+                <tr>
+                  <td>&nbsp;</td>
+                	<td><a href="#" target="_blank"> 41002509107320010</a></td>
+                    <td>andychan_seller</td>
+                    <td>高级香槟  </td>
+                    <td>质量不好，又不给换</td>      
+                    <td>2010-10-22 10:24:22</td>
+                    <td>否</td>
+                    <td><a href="creditRate.html">查看 </a> <a href="#" onclick="loading();">处理</a></td>
+                </tr>
+				<tr class="bg">
+				  <td>&nbsp;</td>
+                	<td><a href="#" target="_blank"> 41002509107320010</a></td>
+                    <td>andychan_seller</td>
+                    <td>高级香槟  </td>
+                    <td>质量不好，又不给换</td>      
+                    <td>2010-10-22 10:24:22</td>
+                    <td>否</td>
+                    <td><a href="creditRate.html">查看 </a> <a href="#" onclick="loading();">处理</a></td>
+                </tr>
+                <tr>
+                  <td>&nbsp;</td>
+                	<td><a href="#" target="_blank"> 41002509107320010</a></td>
+                    <td>andychan_seller</td>
+                    <td>高级香槟  </td>
+                    <td>质量不好，又不给换</td>      
+                    <td>2010-10-22 10:24:22</td>
+                    <td>否</td>
+                    <td><a href="creditRate.html">查看 </a> <a href="#" onclick="loading();">处理</a></td>
+                </tr>
+				<tr class="bg">
+				  <td>&nbsp;</td>
+                	<td><a href="#" target="_blank"> 41002509107320010</a></td>
+                    <td>andychan_seller</td>
+                    <td>高级香槟  </td>
+                    <td>质量不好，又不给换</td>      
+                    <td>2010-10-22 10:24:22</td>
+                    <td>否</td>
+                    <td><a href="creditRate.html">查看 </a> <a href="#" onclick="loading();">处理</a></td>
+                </tr>
+
+            </table> 
+			
+             <div class="pages-box" >
+<div class="pages">
+                            <a href="#" style="font-weight:bold">&laquo;</a><b> 1 </b>
+                            <a href="#">2</a>
+                            <a href="#">3</a>
+                            <a href="#">4</a>
+                            ...
+                            <a href="#">9</a>
+                            <a href="#" style="font-weight:bold">&raquo;</a> 
+                            <input type="text" size="2" title="输入页码按回车">
+                            <a href="#" style="color:#000">GO</a>
+                            页数: [ 1 / 253 ]
+               </div> 
+          </div>
+             
+        </div> <!-- 列表模块 END -->   
+         <!--浮动层-->
+  <div id="layer" align="center"></div> 
+  <div id="layer2">
+  <div class="searchBox">
+    <h3><img src="../images/admin/close.png" onClick="unload();" alt="点击关闭"/><span>操作</span></h3>
+    <table>
+    <tr>
+        <th>商品名字：</th>
+        <td>高级香槟</td>
+    </tr>
+      
+      <tr>
+        <th>买家账号：</th>
+        <td>andychan_seller</td>
+        </tr>
+      <tr>
+      <tr>
+        <th>是否显示：</th>
+        <td><input name="" type="radio" value="" checked="checked" />
+        是
+          <input name="" type="radio" value="" />
+        否</td>
+        </tr>
+      <tr>
+        <th>备注：</th>
+        <td><textarea name="textarea" cols="" rows=""></textarea></td>
+        </tr>
+      <tr>
+        <td colspan="2" class="ttali-cent"><button type="submit" class="btn">确认修改</button><button type="submit" class="btn" onClick="unload();">取消</button></td>
+        </tr>
+    </table>
+  </div>
+  </div>
+  <!-- 浮动层 END -->    	
+           
+    </div>
+    
+</body>

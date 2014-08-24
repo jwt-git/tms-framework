@@ -1,0 +1,231 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>恒生网络-系统管理平台</title>
+<link href="../styles/basic.css" rel="stylesheet" type="text/css" />
+<link href="../styles/admin.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../scripts/layer.js"></script>
+<script type="text/javascript" src="../scripts/jquery-1.4.2.min.js"></script>
+<script language="javascript" type="text/javascript" src="../scripts/My97DatePicker/WdatePicker.js"></script>
+</head>
+<script>
+$(function(){
+			var div_a =$(".form-tab li");
+			div_a.hover(function(){
+				$(".form-tab li").removeClass("c");
+				$(this).addClass("c");
+				var index =  div_a.index(this); 
+				$(".listBox ul")
+						.eq(index).show() 
+						.siblings().hide();
+			})
+		});
+</script>
+<body>
+<div class="main">
+  <!-- 搜索模块 -->
+  <div class="searchBox">
+    <h3><span>搜索商品</span></h3>
+    <table>
+      <tr>
+        <th>商品编号：</th>
+        <td><input type="text" class="inp inp-w90" /></td>
+        <th>商品名称：</th>
+        <td><input type="text" class="inp" /></td>
+        <th>商品类目：</th>
+        <td><select class="select">
+            <option>请选择</option>
+          </select></td>
+      </tr>
+      <tr>
+        <th>商品状态：</th>
+        <td><select class="select" style="width:95px;">
+          <option>请选择</option>
+        </select></td>
+        <th>发布时间：</th>
+        <td><input type="text" class="inp inp-w70" onclick="WdatePicker()" />
+          -
+          <input type="text" class="inp inp-w70" onclick="WdatePicker()" /></td>
+        <th>&nbsp;</th>
+        <td><button type="submit" class="btn">搜 索</button></td>
+      </tr>
+    </table>
+  </div>
+  <!-- 搜索模块 END -->
+  <div class="tool"><span><a href="#" hidefocus="true" class="bt_add">批量上架</a></span> <span><a href="#" hidefocus="true" class="bt_no">批量下架</a></span> <span><a href="#" hidefocus="true" class="bt_del">批量删除</a></span></div>
+  <div class="clear"></div>
+  <!-- 列表模块 -->
+  <ul class="form-tab">
+    <li class="c"><span><a href="#">全部商品</a></span></li>
+    <li><span><a href="#">销售中的商品</a></span></li>
+    <li><span><a href="#">仓库中的商品</a></span></li>
+  </ul>
+  <div class="clear"></div>
+  <div class="listBox">
+    <ul class="hover">
+      <h3><span>商品列表</span></h3>
+      <table>
+        <tr>
+          <th><input type="checkbox" /></th>
+          <th>商品编号</th>
+          <th>商品名称</th>
+          <th>商品类目</th>
+          <th>销售价格</th>
+          <th>市场价</th>
+          <th>商品状态</th>
+          <th>库存</th>
+          <th>发布时间</th>
+          <th>操作</th>
+        </tr>
+        <tr>
+          <td><input type="checkbox" /></td>
+          <td>44569</td>
+          <td>可口可乐<img src="../images/admin/role_edit.gif" alt="" width="20" height="19" align="absmiddle"  onclick="loading();"/></td>
+          <td>饮品->碳酸饮料</td>
+          <td>2.0</td>
+          <td>0.0</td>
+          <td>销售中</td>
+          <td>200<img src="../images/admin/role_edit.gif" width="20" height="19" align="absmiddle" onclick="loading();"/></td>
+          <td>2010-10-26</td>
+          <td><a href="#" title="下架">下架</a></td>
+        </tr>
+        <tr class="bg">
+          <td><input type="checkbox" /></td>
+          <td>44569</td>
+          <td>可口可乐<img src="../images/admin/role_edit.gif" alt="" width="20" height="19" align="absmiddle" onclick="loading();"/></td>
+          <td>饮品->碳酸饮料</td>
+          <td>2.0</td>
+          <td>0.0</td>
+          <td>仓库中</td>
+          <td>200<img src="../images/admin/role_edit.gif" alt="" width="20" height="19" align="absmiddle" onclick="loading();"/></td>
+          <td>2010-10-26</td>
+          <td><a href="#" title="上架">上架</a> <a href="#" title="编辑">编辑</a> <a href="#" title="删除">删除</a></td>
+        </tr>
+      </table>
+      <div class="pages-box" >
+        <div class="pages"> <a href="#" style="font-weight:bold">&laquo;</a><b> 1 </b> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> ... <a href="#">9</a> <a href="#" style="font-weight:bold">&raquo;</a>
+          <input type="text" size="2" title="输入页码按回车">
+          <a href="#" style="color:#000">GO</a> 页数: [ 1 / 253 ] </div>
+      </div>
+    </ul>
+    <ul>
+      <h3><span>销售中商品列表</span></h3>
+      <table>
+        <tr>
+          <th><input type="checkbox" /></th>
+          <th>商品编号</th>
+          <th>商品名称</th>
+          <th>商品类目</th>
+          <th>销售价格</th>
+          <th>市场价</th>
+          <th>商品状态</th>
+          <th>库存</th>
+          <th>发布时间</th>
+          <th>操作</th>
+        </tr>
+        <tr>
+          <td><input type="checkbox" /></td>
+          <td>44569</td>
+          <td>可口可乐<img src="../images/admin/role_edit.gif" alt="" width="20" height="19" align="absmiddle"  onclick="loading();"/></td>
+          <td>饮品-&gt;碳酸饮料</td>
+          <td>2.0</td>
+          <td>0.0</td>
+          <td>销售中</td>
+          <td>200<img src="../images/admin/role_edit.gif" width="20" height="19" align="absmiddle" onclick="loading();"/></td>
+          <td>2010-10-26</td>
+          <td><a href="#" title="下架">下架</a></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" /></td>
+          <td>44569</td>
+          <td class="bg">可口可乐<img src="../images/admin/role_edit.gif" alt="" width="20" height="19" align="absmiddle" onclick="loading();"/></td>
+          <td>饮品-&gt;碳酸饮料</td>
+          <td>2.0</td>
+          <td>0.0</td>
+          <td>销售中</td>
+          <td class="bg">200<img src="../images/admin/role_edit.gif" alt="" width="20" height="19" align="absmiddle" onclick="loading();"/></td>
+          <td>2010-10-26</td>
+          <td><a href="#" title="下架">下架</a></td>
+        </tr>
+      </table>
+      <div class="pages-box" >
+        <div class="pages"> <a href="#" style="font-weight:bold">&laquo;</a><b> 1 </b> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> ... <a href="#">9</a> <a href="#" style="font-weight:bold">&raquo;</a>
+          <input type="text" size="2" title="输入页码按回车">
+        <a href="#" style="color:#000">GO</a> 页数: [ 1 / 253 ] </div>
+      </div>
+    </ul>
+    <ul>
+      <h3><span>仓库中商品列表</span></h3>
+      <table>
+        <tr>
+          <th><input type="checkbox" /></th>
+          <th>商品编号</th>
+          <th>商品名称</th>
+          <th>商品类目</th>
+          <th>销售价格</th>
+          <th>市场价</th>
+          <th>商品状态</th>
+          <th>库存</th>
+          <th>发布时间</th>
+          <th>操作</th>
+        </tr>
+        <tr class="bg">
+          <td><input type="checkbox" /></td>
+          <td>44569</td>
+          <td>可口可乐<img src="../images/admin/role_edit.gif" alt="" width="20" height="19" align="absmiddle"  onclick="loading();"/></td>
+          <td>饮品-&gt;碳酸饮料</td>
+          <td>2.0</td>
+          <td>0.0</td>
+          <td>仓库中</td>
+          <td>200<img src="../images/admin/role_edit.gif" width="20" height="19" align="absmiddle" onclick="loading();"/></td>
+          <td>2010-10-26</td>
+          <td><a href="#" title="上架">上架</a> <a href="#" title="编辑">编辑</a> <a href="#" title="删除">删除</a></td>
+        </tr>
+        <tr class="bg">
+          <td><input type="checkbox" /></td>
+          <td>44569</td>
+          <td>可口可乐<img src="../images/admin/role_edit.gif" alt="" width="20" height="19" align="absmiddle" onclick="loading();"/></td>
+          <td>饮品-&gt;碳酸饮料</td>
+          <td>2.0</td>
+          <td>0.0</td>
+          <td>仓库中</td>
+          <td>200<img src="../images/admin/role_edit.gif" alt="" width="20" height="19" align="absmiddle" onclick="loading();"/></td>
+          <td>2010-10-26</td>
+          <td><a href="#" title="上架">上架</a> <a href="#" title="编辑">编辑</a> <a href="#" title="删除">删除</a></td>
+        </tr>
+      </table>
+      <div class="pages-box" >
+        <div class="pages"> <a href="#" style="font-weight:bold">&laquo;</a><b> 1 </b> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> ... <a href="#">9</a> <a href="#" style="font-weight:bold">&raquo;</a>
+          <input type="text" size="2" title="输入页码按回车">
+          <a href="#" style="color:#000">GO</a> 页数: [ 1 / 253 ] </div>
+      </div>
+    </ul>
+  </div>
+  <!-- 列表模块 END -->
+  <!--浮动层-->
+  <div id="layer" align="center"></div>
+  <div id="layer2">
+    <div class="searchBox">
+      <h3><img src="../images/admin/close.png" onClick="unload();" alt="点击关闭"/><span>操作</span></h3>
+      <table>
+        <tr>
+          <th>库存/商品名称：</th>
+          <td><label>
+              <input type="text" class="inp inp-w200" />
+            </label></td>
+        </tr>
+        <tr>
+          <th>&nbsp;</th>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td colspan="2" class="ttali-cent"><button type="submit" class="btn">确认修改</button>
+            <button type="submit" class="btn" onClick="unload();">取消</button></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <!-- 浮动层 END -->
+</div>
+</body>

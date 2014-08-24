@@ -1,0 +1,98 @@
+demo缺省配置为使用http://localhost:8080访问,如果你的tomcat端口不同,请修改WEB-INF/conf/server.properties
+<hr/>
+样式效果：<br/>
+<a href="$appServer.get('IGCM.1.2/index.html')">管理后台样式</a><br/>
+<hr/>
+$iDemand.addJs('jquery')
+URLBroker演示:<br/>
+我来造个app链接  $appServer.get('index.htm')  <br/>
+再来造个  $appServer.get('search.htm').addQueryData('key','中文搜索').addQueryData('sort','price')  <br/>
+静态图片链接 $imageServer.get('/e/f/ggg.png')<br/>
+https app链接 $sslAppServer.get('index.htm')<br/>
+<hr/>
+<a href="$appServer.get('vpage.htm')">velocoty页面</a> <br/>
+<a href="$appServer.get('jsppage.htm')">jsp页面</a> <br/>
+<hr/>
+spring mvc annotation 演示:<br/>
+action方法返回值演示，AnnotationDemoAction.java
+<ul>
+<li><a href="$appServer.get('annotation/return/void.htm')">返回 void -- Method:annotationVoid</a></li>
+<li><a href="$appServer.get('/annotation/return/string.htm')">返回 String -- Method:annotationString</a></li>
+<li><a href="$appServer.get('/annotation/return/view.htm')">返回 view -- Method:annotationModelAndView</a></li>
+<script type="text/javascript">
+	function download(){
+		jQuery.ajax({
+			url:"$appServer.get('/file/download.htm')",
+			type:"GET"
+		});
+	}
+	
+	$(document).ready(function() {
+		$("#json_return_href").click(function(){
+		jQuery.getJSON("$appServer.get('/annotation/return/json.htm')",
+			function(data){
+				alert('name:'+data.name+' nick:'+data.nick+' age:'+data.age);
+			}); 
+		});
+		$("#json_bind_href").click(function(){
+		jQuery.ajax({
+			type: "POST",
+			url:"$appServer.get('/annotation/param/json.htm')",
+			contentType:"application/json",
+			data:'{"name":"shaseng","nick":"sanshidi","age":250}',
+			dataType:"json",
+			success:function(data){
+				alert('name:'+data.name+' nick:'+data.nick+' age:'+data.age);
+			}
+		  })	
+		}); 
+	})
+</script>
+<li><a href="#" id="json_return_href">返回 json -- Method:annotationJson</a></li>
+</ul> 
+<br/>
+action入参演示 ,AnnotationDemoAction.java
+<ul>
+<li><a href="$appServer.get('annotation/param/base.htm').addQueryData('name','齐天')">基本 -- Method:annotationBase</a></li>
+<li><a href="$appServer.get('annotation/param/object_bind.htm').addQueryData('name','八戒').addQueryData('nick','二师兄').addQueryData('age','500')">对象属性自带绑定 -- Method:annotationObjectBind</a></li>
+<li><a href="#" id="json_bind_href">json对象绑定 -- Method:annotationJsonBind</a></li>
+<li><a href="${appServer}/annotation/movie/matrix/66.htm">REST风格URL path参数绑定 -- Method:annotationRestBind</a></li>
+</ul>
+<hr/>
+contain使用演示:<br/>
+<ul>
+<li><a href="$appServer.get('ct/base.htm')">基本使用</a></li>
+</ul>
+<hr/>
+校验码演示:<br/>
+<ul>
+<li><img src="$appServer.get('/checkcode/simple.htm')" /></li>
+<li><img src="$appServer.get('/checkcode/arithmetic.htm')" /></li>
+</ul>
+<hr/>
+表单初始化/校验/处理演示入口：<br>
+<a href="$!{appServer}/register.htm">用户注册</a><br/>
+<a href="$!{appServer}/login.htm">用户登录</a><br/>
+<a href="$!{appServer}/admin/login.htm">管理员登录</a><br/>
+<a href="$!{appServer}/admin/main.htm">直接访问受保护url</a><br/>
+<a href="$!{appServer}/admin/edit.htm?id=13">编辑管理用户</a><br/>
+<hr/>
+邮件发送演示入口：<br>
+<a href="$!{appServer}/mail/send-simple-mail.htm">简单邮件发送</a>
+<a href="$!{appServer}/mail/send-velocity-mail.htm">简单Velocity模板邮件发送</a>
+<br/>
+<hr/>
+文件上传下载演示:<br/>
+<a href="$appServer.get('/upload/simple.htm')">文件上传</a><br/>
+<a href="$appServer.get('/download/excel.htm')">excel文件下载</a><br/>
+<hr/>
+<a href="$appServer.get('/cache/demo.htm')">velocity页面cache</a><br/>
+<hr/>
+分页演示入口：<br>
+<a href="$appServer.get('/query/form_page.htm')">form提交分页</a><br/>
+<a href="$appServer.get('/query/seo_page.htm')">seo化静态链接分页</a><br/>
+<hr/>
+页面输出统计：<br>
+<a href="$appServer.get('/report/output.htm')">统计</a><br/>
+测试：<br>
+<a href="javascript:download()">下载</a><br/>

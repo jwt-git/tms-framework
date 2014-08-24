@@ -14,21 +14,21 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpServletResponseWrapper;
 
 import org.apache.commons.lang.ClassUtils;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.filter.GenericFilterBean;
 import org.tmsframework.mvc.profiler.TimeProfiler;
 
 /**
- * ��http response �������ȫ����,ֻ�е������ȫ������֮��,��д��response
+ * 对http response 输出进行全缓冲,只有当输出流全部结束之后,才写回response
  * 
- * @author sam.zhang
+ * @author fish
  * 
  */
 public class ResponseOutputBufferFilter extends GenericFilterBean implements
 		Filter {
-	private static final Log logger = LogFactory
-			.getLog(ResponseOutputBufferFilter.class);
+	private static final Logger logger = LoggerFactory
+			.getLogger(ResponseOutputBufferFilter.class);
 
 	private static final String ThisTag = "_"
 			+ ClassUtils.getShortClassName(ResponseOutputBufferFilter.class);
@@ -38,18 +38,18 @@ public class ResponseOutputBufferFilter extends GenericFilterBean implements
 	private final OutputReport report = new OutputReport();
 
 	/**
-	 * ���������,ȱʡΪutf-8
+	 * 输出流编码,缺省为utf-8
 	 */
 	private String outCharset = "UTF-8";
 
 	/**
-	 * ��������ʼ����С
+	 * 输出缓冲初始化大小
 	 */
 	private int outBufferSize = 1024 * 5;
 
 	/**
-	 * ��ֹ�ڴ�й¶,����ByteArrayOutputStreamʱ�����Ļ������,Ҳ����
-	 * recyclingBufferBlockSize*outBufferSize=�������ʼ�����ֵ
+	 * 防止内存泄露,回收ByteArrayOutputStream时保留的缓冲块数,也就是
+	 * recyclingBufferBlockSize*outBufferSize=缓冲区初始化最大值
 	 */
 	private int recyclingBufferBlockSize = 2;
 
@@ -87,6 +87,7 @@ public class ResponseOutputBufferFilter extends GenericFilterBean implements
 			fc.doFilter(request, response);
 			return;
 		}
+		request.setAttribute(ThisTag, ThisTag);
 		final HttpServletResponse httpResponse = (HttpServletResponse) response;
 		final OutoutWrapper out = new OutoutWrapper();
 		HttpServletResponse httpResponseWrapper = new HttpServletResponseWrapper(
@@ -146,6 +147,7 @@ public class ResponseOutputBufferFilter extends GenericFilterBean implements
 				}
 				out.reset();
 			}
+			request.removeAttribute(ThisTag);
 		}
 	}
 
@@ -206,11 +208,11 @@ public class ResponseOutputBufferFilter extends GenericFilterBean implements
 	}
 
 	public static final class OutputReport {
-		// �������С
+		// 总输出大小
 		private long outputTotal = 0;
-		// �������
+		// 输出次数
 		private long outputCount = 0;
-		// ������
+		// 最大输出
 		private int maxOutput = 0;
 
 		private void output(int size) {
@@ -220,7 +222,7 @@ public class ResponseOutputBufferFilter extends GenericFilterBean implements
 		}
 
 		/**
-		 * ƽ�������С(KB)
+		 * 平均输出大小(KB)
 		 */
 		public long getAverageOutput() {
 			return (outputTotal / outputCount) / 1024;

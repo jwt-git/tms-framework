@@ -1,0 +1,2 @@
+你好， $!{name}！这是一封简单Velocity模板的测试邮件。
+<br/>访问本应用:$!{appServer}/index.htm

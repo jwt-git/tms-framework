@@ -13,9 +13,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpServletResponseWrapper;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.apache.velocity.tools.view.context.ViewContext;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.tmsframework.mvc.profiler.TimeProfiler;
 import org.tmsframework.mvc.web.velocity.eventhandler.DirectOutput;
 
@@ -27,10 +27,10 @@ import org.tmsframework.mvc.web.velocity.eventhandler.DirectOutput;
  */
 
 public class Contain {
-	private static final Log log = LogFactory.getLog(Contain.class);
+	private static final Logger _log = LoggerFactory.getLogger(Contain.class);
 
 	/**
-	 * 锟斤拷锟斤拷锟斤拷request锟斤拷,contain锟斤拷锟斤拷锟矫的憋拷锟絢ey
+	 * 保存在request中,contain被调用的标记key
 	 */
 	private static final String ContainFlagKey = "iContain";
 
@@ -42,7 +42,7 @@ public class Contain {
 
 	private static final int recursiveLevel = 20;
 
-	private static final ThreadLocal<VaryInt> count = new ThreadLocal<VaryInt>();// 锟捷癸拷锟斤拷眉锟斤拷锟斤拷锟�
+	private static final ThreadLocal<VaryInt> count = new ThreadLocal<VaryInt>();// 递归调用计数器
 
 	public Contain() {
 		super();
@@ -81,7 +81,7 @@ public class Contain {
 		}
 
 		public ControlRender put(String key, Object value) {
-			// 锟斤拷锟斤拷request锟斤拷锟较碉拷value锟斤拷锟斤拷锟斤拷染锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟�也锟斤拷锟斤拷说锟斤拷锟斤拷锟捷革拷contain锟侥诧拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟絚ontain锟斤拷invoke
+			// 保留request中老的value，当渲染完后重新设置,也就是说，传递给contain的参数作用域仅限于contain的invoke
 			parameters.add(new ContainParameter(Contain.this.request, key,
 					value));
 			return this;
@@ -94,7 +94,7 @@ public class Contain {
 		@Override
 		public String toString() {
 			if (enter()) {
-				log.error("contain recursive invoked,so exist.");
+				_log.error("contain recursive invoked,so exist.");
 				return "";
 			}
 			parameters.add(new ContainParameter(Contain.this.request,
@@ -115,13 +115,13 @@ public class Contain {
 				}
 				return back;
 			} catch (ServletException e) {
-				if (log.isErrorEnabled()) {
-					log.error("error in control render.", e);
+				if (_log.isErrorEnabled()) {
+					_log.error("error in control render.", e);
 				}
 				return e.getMessage();
 			} catch (IOException e) {
-				if (log.isErrorEnabled()) {
-					log.error("error in control render.", e);
+				if (_log.isErrorEnabled()) {
+					_log.error("error in control render.", e);
 				}
 				return e.getMessage();
 			} finally {
@@ -133,7 +133,7 @@ public class Contain {
 		}
 
 		/**
-		 * 锟斤拷锟斤拷锟斤拷一锟斤拷,锟斤拷锟斤拷锟角否超癸拷莨锟斤拷锟�
+		 * 调用了一次,返回是否超过递归层次
 		 * 
 		 * @return
 		 */
@@ -155,7 +155,7 @@ public class Contain {
 
 		private void leave() {
 			VaryInt vi = count.get();
-			if (vi == null) {// 锟斤拷锟杰帮拷?
+			if (vi == null) {// 不能吧?
 				count.set(new VaryInt());
 				return;
 			}

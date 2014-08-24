@@ -1,0 +1,34 @@
+<style type="text/css">
+label.error {
+	color: red;
+	padding: 3px 10px;
+}
+span.required { 
+	color: red; 
+}
+</style>
+<form id="loginForm" action="${appServer}/admin/login.htm" method="post">
+    <table>
+        <tr>
+            <th><span class="required">*</span>µÇÂ¼Ãû£º</th>
+            <td>
+                #springBind("admin.loginId")
+                <input type="text" id="loginId" name="${status.expression}" value="$!{status.value}" />
+				<label class="error">${status.errorMessage}</label>
+            </td>
+		</tr>
+		<tr>
+            <th><span class="required">*</span>¿ÚÁî£º</th>
+            <td>
+                #springBind("admin.password")
+                <input type="text" id="password" name="${status.expression}" value="" />
+				<label class="error">${status.errorMessage}</label>
+            </td>
+		</tr>
+		<tr>	
+            <th>
+                <input type="submit" value="µÇÂ¼" />
+            </th>
+        </tr>
+    </table>
+</form>

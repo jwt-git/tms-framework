@@ -12,7 +12,7 @@ import org.tmsframework.mvc.mail.render.impl.SimpleMailRender;
 /**
  * 邮件发送抽象类，定义了邮件信息组装（渲染）、检查和发送的一系列过程。
  * 
- * <p>该类使用 {@link com.hundsun.network.melody.common.mail.render.impl.SimpleMailRender}
+ * <p>该类使用 {@link org.tmsframework.mvc.mail.render.impl.SimpleMailRender}
  * 作为默认的邮件信息渲染实现，SimpleMailRender支持代码级别的、非配置形式的邮件渲染。
  * 
  * <p>邮件信息检查仅简单地检查了收件人是否为空。

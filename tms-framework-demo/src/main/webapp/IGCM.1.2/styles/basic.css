@@ -1,0 +1,57 @@
+@charset "utf-8";
+/*
+ * Copyright (c)  All rights reserved.
+ * Code licensed under the New BSD License.
+ * version: 091011
+ * @Franky.li
+ */
+
+/* * {margin:0px;padding:0px;color: #666;font-size:12px;font-style:normal; background:transparent; }*/
+body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{
+	margin:0;padding:0;border:0;outline:0;font-size:12px;font-family:Arial, Helvetica, taho;border:0px;}
+ol,ul{list-style:none;}
+blockquote,q{quotes:none;}
+blockquote:before,blockquote:after,q:before,q:after{content:'';content:none;}
+:focus{outline:0;}
+ins{text-decoration:none;}
+del{text-decoration:line-through;}
+table{border-collapse:collapse;border-spacing:0;}
+a:focus{outline:1px dotted;}
+hr{border:0 #ccc solid;border-top-width:1px;clear:both;height:0;}
+h1, h2, h3, h4, h5, h6 {font-weight: bold;}
+h1{font-size:25px;}
+h2{font-size:23px;}
+h3{font-size:21px;}
+h4{font-size:19px;}
+h5{font-size:17px;}
+h6{font-size:15px;}
+ol{list-style:decimal;}
+ul{list-style:disc;list-style:none;}
+li{list-style:none;}
+select option {padding-right:3px;}
+cite, blackquote, em, i {font-style: italic;}
+strong, b {font-weight: bold;}
+pre, code {font-family: monospace;}
+acronym, abbr {cursor: help;}
+a{ color:#06C; text-decoration:none;}
+a:hover{ color:#F60; text-decoration:underline;}
+* html body {
+	overflow: visible;}
+* html iframe, * html frame {
+	overflow: auto;}
+* html frameset {
+	overflow: hidden;}
+.clear {height:0px;clear:both;overflow:hidden;}
+.clearfix:after {content:" ";display:block;height:0;clear:both;visibility:hidden;}
+.clearfix{ /* IE7 hack */display:inline-block;}
+* html .clearfix{ /* IE-mac, IE5, IE6 */
+	height:1%;} 
+.clearfix{display:block;}
+.invisible {visibility:hidden;}
+.hidden {display: none;}
+.gray {color: gray; margin-right:3px}
+.red {color: red; margin-right:3px}
+.green {color: green; margin-right:3px}
+.orange{color: #ff6600;margin-right:3px}
+.fl_r{ float:right;}
+.fl_l{ float:left;}

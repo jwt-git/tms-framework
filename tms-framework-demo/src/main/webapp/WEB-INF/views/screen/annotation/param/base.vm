@@ -1,0 +1,4 @@
+基本入参显示<br/>
+你的ip:$!{ip}<br/>
+入参中name的值:$!{name}<br/>
+入参中size的值:$!{size}<br/>

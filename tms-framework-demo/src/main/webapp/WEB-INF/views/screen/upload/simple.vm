@@ -1,0 +1,9 @@
+<form name="upload" method="post" action="$appServer/upload/simple.htm" enctype="multipart/form-data">
+	请选择文件：<input type="file" name="upfile" />
+	<br/>
+	<input type="submit" value="上传" />
+</form>
+	<br/>
+#if($originalFilename)
+	上传文件名 $originalFilename,大小:$length
+#end

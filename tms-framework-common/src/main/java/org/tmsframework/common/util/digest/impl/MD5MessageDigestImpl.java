@@ -16,7 +16,7 @@ public final class MD5MessageDigestImpl extends AbstractMessageDigestImpl {
 	 * 
 	 * @param bytes
 	 * @return byte[]
-	 * @see com.hundsun.wudadao.common.util.digest.impl.AbstractMessageDigestImpl#digestInternal(byte[])
+	 * @see org.tmsframework.common.util.digest.impl.AbstractMessageDigestImpl#digestInternal(byte[])
 	 */
 	@Override
 	protected byte[] digestInternal(byte[] bytes) {

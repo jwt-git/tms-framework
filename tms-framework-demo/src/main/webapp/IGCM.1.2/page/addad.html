@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>恒生网络-系统管理平台</title>
+<link href="../styles/basic.css" rel="stylesheet" type="text/css" />
+<link href="../styles/admin.css" rel="stylesheet" type="text/css" />
+<script language="javascript" type="text/javascript" src="../scripts/My97DatePicker/WdatePicker.js"></script>
+</head>
+<body>
+<div class="main">
+  <!-- 表单模块 -->
+  <div class="mag-t1"> 添加失败！ </div>
+  <div class="mag-t2"> 添加成功！ </div>
+  <div class="formBox">
+    <h3><i></i><span>添加广告</span></h3>
+    <div class="content">
+      <table class="c2">
+        <tr>
+          <th>广告位：</th>
+          <td><select name="select" class="select" style="width:205px;">
+            <option>请选择</option>
+          </select></td>
+        </tr>
+        
+          <th>广告名称：</th>
+          <td><input type="text" class="inp" />
+            <span class="red">*</span></td>
+        </tr>
+        <tr>
+          <th>开始时间：</th>
+          <td><input type="text" class="inp" onclick="WdatePicker()"/>
+            <span class="red">*</span><span>默认为当前日期</span></td>
+        <tr>
+          <th>结束时间：</th>
+          <td><input type="text" class="inp" onclick="WdatePicker()"/> <span class="red">*</span><span>默认为当前日期的后三十天</span></td>
+        </tr>
+        <tr>
+          <th>联系人：</th>
+          <td><input type="text" class="inp" /></td>
+        </tr>
+        <tr>
+          <th>联系人Email：</th>
+          <td><input type="text" class="inp" /></td>
+        </tr> <tr>
+          <th>联系电话：</th>
+          <td><input type="text" class="inp" />            <span class="red">*</span></td>
+        </tr><tr>
+          <th>广告链接：</th>
+          <td><input type="text" class="inp" value="http://" />
+            <span class="red">*</span></td>
+        </tr>
+        <tr>
+          <th>类型：</th>
+          <td><select name="select3" class="select" style="width:205px;">
+            <option>请选择</option>
+          </select></td>
+        </tr>
+        <tr>
+          <th>选择文件：</th>
+          <td><input type="text" class="inp" /><button type="button" class="button-s17">浏览</button></td>
+        </tr>
+      </table>
+    </div>
+    <div class="form-but">
+      <!-- 表单按钮区 -->
+      <button type="button" class="button-s4">添加</button>
+      <button type="button" class="button-s4" onclick="javascript:history.back(-1);">取消</button>
+    </div>
+    <!-- 表单按钮区 END -->
+  </div>
+  <!-- 表单模块 END -->
+</div>
+</body>

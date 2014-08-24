@@ -1,0 +1,44 @@
+#set($layout="layout/blank.vm")
+<style type="text/css">
+label.error {
+	color: red;
+	padding: 3px 10px;
+}
+span.required { 
+	color: red; 
+}
+</style>
+<form id="sendMailForm" action="send-simple-mail.htm" method="post">
+	最简单的邮件发送，使用Spring的Java Mail API，无需配置任何MailRender，通过代码设<br>
+	置MailContext，调用MailSender.send(MailContext)实现。
+    <table>
+        <tr>
+            <th><span class="required">*</span>发件人：</th>
+            <td>
+                #springBind("mail.from")
+                <input type="text" id="from" name="${status.expression}" value="$!{status.value}" />
+				<label class="error">${status.errorMessage}</label>
+            </td>
+		</tr>
+        <tr>
+            <th><span class="required">*</span>收件人：</th>
+            <td>
+                #springBind("mail.to")
+                <input type="text" id="to" name="${status.expression}" value="$!{status.value}" />
+				<label class="error">${status.errorMessage}</label>
+            </td>
+		</tr>
+		<tr>
+            <th>内容：</th>
+            <td>
+                #springBind("mail.text")
+                <textarea name="${status.expression}">$!{status.value}</textarea>				
+            </td>
+		</tr>
+		<tr>	
+            <th>
+                <input type="submit" value="发送" />
+            </th>
+        </tr>
+    </table>
+</form>

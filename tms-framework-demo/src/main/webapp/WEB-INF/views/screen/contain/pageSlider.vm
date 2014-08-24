@@ -1,0 +1,29 @@
+#set($layout = '')
+<div>
+	#if($slider_borker)
+		#set($s_broker = $slider_borker)
+	#else
+		#set($s_broker = $appServer)	
+	#end
+	#if($sliderCurrent == '1')
+	<span> &laquo; </span>
+	#else
+	<a href="${s_broker.get("$slider_builder.build($query,1)")}">&laquo;��ҳ</a>
+	<a href="${s_broker.get("$slider_builder.build($query,$sliderPrev)")}">&laquo;</a>
+	#end
+	#foreach($grid in $grids)
+		#if($grid == 0)
+		<span>...</span>
+		#elseif($grid == $sliderCurrent)
+		<span class="current">${grid}</span>
+		#else
+		<a href="${s_broker.get("$slider_builder.build($query,$grid)")}">${grid}</a>
+		#end
+	#end
+	#if($sliderCurrent == $sliderTotal )
+		<span class="nextprev"> &raquo; </span>
+	#else
+		<a href="${s_broker.get("$slider_builder.build($query,$sliderNext)")}" >&raquo;</a>
+		<a href="${s_broker.get("$slider_builder.build($query,$sliderTotal)")}" >ĩҳ &raquo;</a>
+	#end
+</div>

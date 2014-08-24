@@ -6,7 +6,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.tmsframework.common.util.cache.CompactCache;
 
 /**
- * �򵥵�ʹ��jvm��hashMap ʵ��cache
+ * 简单的使用jvm　hashMap 实现cache
  * 
  * @author sam.zhang
  * 

@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>恒生网络-系统管理平台</title>
+    <link href="../styles/basic.css" rel="stylesheet" type="text/css" />
+    <link href="../styles/admin.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="../scripts/jquery-1.4.2.min.js"></script>
+</head>
+
+<script>
+$(function(){
+		   	var div_a =$("#qx1");
+				div_a.click(function(){	
+					$("#qx1 #jia").hide();	
+					$("#qx1 #jian").show();
+					$("#qx2-1,#qx2-2").hide();
+					$("#qx1-1,#qx1-2").show();
+					$("#qx2 #jia").show();
+					$("#qx2 #jian").hide();
+				
+				
+			})
+})
+$(function(){
+		   	var div_a =$("#qx2");
+				div_a.click(function(){	 
+					$("#qx2 #jia").hide();	
+					$("#qx2 #jian").show();
+					$("#qx2-1,#qx2-2").show();
+					$("#qx1-1,#qx1-2").hide();
+					$("#qx1 #jia").show();
+					$("#qx1 #jian").hide();
+				
+				
+			})
+})
+
+</script>
+<body>
+	
+    <div class="main">
+
+        <h2>权限管理</h2>
+        
+        <div class="mag-t2">
+        	保存成功！
+        </div>
+        
+ 		<div class="tool">
+            <span><a href="addRole.html" hidefocus="true" class="bt_all">新增一级权限</a></span>
+        </div> 
+        
+        <div class="clear"></div>
+		
+        <!-- 列表模块 -->
+        <div class="listBox"> 
+          <h3><span>权限类目列表</span></h3> 
+            <table > 
+                <tr>
+                  <th>序列</th>
+                    <th>权限类目名称</th>
+                    <th>权限类目描述</th>
+                    <th>操作</th>
+                </tr>
+                <tr class="align-left">
+                  <td>1</td>
+                    <td><input type="text" class="inp" value="系统通用权限" /></td>
+                    <td><input type="text" class="inp" value="系统通用权限" /></td>
+                    <td class="align-center"><a href="addRole.html">添加子类目</a> <a href="#">保存</a> <a href="#">删除</a></td>
+                </tr>
+                <tr class="align-left" id="qx1">
+                  <td>2</td>
+                    <td><input type="text" class="inp" value="商品管理" />
+                    <img src="../images/admin/plus.gif" width="9" height="9" id="jia" /><img src="../images/admin/minus.gif" alt="" width="9" height="9" id="jian"  style="display:none"/></td>
+                    <td><input type="text" class="inp" value="管理商品权限" /></td>
+                    <td class="align-center"><a href="addRole.html">添加子类目</a> <a href="#">保存</a> <a href="#">删除</a></td>
+                </tr>
+                
+				<tr class="align-left" id="qx1-1" style="display:none">
+				  <td class="align-right">1</td>
+				  	<td><img src="../images/admin/td_bg.gif" /><input type="text" class="inp inp-w150" value="商品发布(新增)权限" /></td>
+                    <td><input type="text" class="inp" value="发布商品" /></td>
+                    <td  class="align-center"><a href="#">保存</a> <a href="#">删除子类目</a></td>
+                </tr>
+                <tr class="align-left" id="qx1-2"  style="display:none">
+                  <td class="align-right">2</td>
+				  	<td><img src="../images/admin/td_bg.gif" /><input type="text" class="inp inp-w150" value="商品删除权限" /></td>
+                    <td><input type="text" class="inp" value="删除商品" /></td>
+                    <td  class="align-center"><a href="#">保存</a> <a href="#">删除子类目</a></td>
+                </tr>
+                
+                <tr class="align-left" id="qx2">
+                  <td>3</td>
+                    <td><input type="text" class="inp" value="交易管理" />
+                   <img src="../images/admin/plus.gif" width="9" height="9" id="jia" /><img src="../images/admin/minus.gif" alt="" width="9" height="9" id="jian"  style="display:none"/></td>
+                    <td><input type="text" class="inp" value="管理商品交易权限" /></td>
+                    <td class="align-center"><a href="addRole.html">添加子类目</a> <a href="#">保存</a> <a href="#">删除</a></td>
+                </tr>
+				<tr class="align-left" id="qx2-1" style="display:none">
+				  <td class="align-right">1</td>
+				  	<td><img src="../images/admin/td_bg.gif" /><input type="text" class="inp inp-w150" value="订单管理修改权限" /></td>
+                    <td><input type="text" class="inp" value="管理订单" /></td>
+                    <td  class="align-center"><a href="#">保存</a> <a href="#">删除子类目</a></td>
+                </tr>
+                <tr class="align-left" id="qx2-2" style="display:none">
+                  <td class="align-right">2</td>
+				  	<td><img src="../images/admin/td_bg.gif" /><input type="text" class="inp inp-w150" value="退货/退款管理权限(财务)" /></td>
+                    <td><input type="text" class="inp" value="管理退货退款" /></td>
+                    <td  class="align-center"><a href="#">保存</a> <a href="#">删除子类目</a></td>
+                </tr>
+            </table> 
+			
+             <div class="pages-box" >
+<div class="pages">
+                            <a href="#" style="font-weight:bold">&laquo;</a><b> 1 </b>
+                            <a href="#">2</a>
+                            <a href="#">3</a>
+                            <a href="#">4</a>
+                            ...
+                            <a href="#">9</a>
+                            <a href="#" style="font-weight:bold">&raquo;</a> 
+                            <input type="text" size="2" title="输入页码按回车">
+                            <a href="#" style="color:#000">GO</a>
+                            页数: [ 1 / 253 ]
+               </div> 
+          </div>
+             
+        </div> <!-- 列表模块 END -->   
+        	
+           
+    </div>
+    
+</body>

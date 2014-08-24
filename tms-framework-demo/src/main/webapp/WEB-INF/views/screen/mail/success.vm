@@ -1,0 +1,4 @@
+#set($layout="layout/blank.vm")
+邮件发送成功！O(∩_∩)O~
+<a>点此返回继续尝试</a>
+	

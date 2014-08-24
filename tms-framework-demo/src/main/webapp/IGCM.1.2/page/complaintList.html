@@ -1,0 +1,197 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>恒生网络-系统管理平台</title>
+    <link href="../styles/basic.css" rel="stylesheet" type="text/css" />
+    <link href="../styles/admin.css" rel="stylesheet" type="text/css" />
+   <script type="text/javascript" src="../scripts/layer.js"></script>
+</head>
+
+<body>
+	
+    <div class="main">
+    	
+        <!-- 搜索模块 -->
+        <div class="searchBox">
+       	  <h3><span>投诉管理</span></h3>
+        	<table>
+            	<tr>
+                	<th>标题：</th>
+                    <td><input type="text" class="inp inp-w90" /> </td>
+                    <th>处理状态：</th>
+                    <td><select name="select" class="select">
+                      <option>请选择</option>
+                    </select></td>
+                    <th>投诉时间：</th>
+                    <td><input type="text" class="inp inp-w70" />
+                      -
+                      <input type="text" class="inp inp-w70" /></td>
+                    
+                </tr>
+                <tr>
+                  <th>投诉人：</th>
+                  <td><input type="text" class="inp  inp-w90" /></td>
+                  <th>投诉类型：</th>
+                  <td><select class="select">
+                    <option>请选择</option>
+                  </select></td>
+                  <th>是否需要回复：</th>
+                  <td><select name="select2" class="select">
+                    <option>请选择</option>
+                  </select></td>
+                  
+                </tr>
+                <tr>
+                  <th>处理人：</th>
+                  <td><input type="text" class="inp  inp-w90" /></td>
+                  <th>用户满意度：</th>
+                  <td><select name="select4" class="select">
+                    <option>请选择</option>
+                  </select></td>
+                  <th></th>
+                  <td><button type="submit" class="btn">搜 索</button></td>
+                </tr>
+            </table>
+        </div> <!-- 搜索模块 END -->
+ 
+		
+        <!-- 列表模块 -->
+        <div class="listBox"> 
+          <h3><span>结果列表</span></h3> 
+            <table > 
+                <tr>
+                  <th>标题</th>
+                  <th>投诉类型</th> 
+                    <th>投诉人</th>
+                    <th>创建时间</th>
+                    <th>是否需要回复</th>
+                    <th>处理状态</th>
+                    <th>用户满意度</th>
+                    <th>处理人</th>
+                    <th>操作</th>
+                </tr>
+                <tr>
+                  <td>&nbsp;</td>
+                  <td>订单投诉</td>
+                	<td>上海流氓</td>
+                    <td>2010-10-22</td>
+                    <td>是</td>
+                    <td>处理中</td>
+                    <td>满意</td>
+                    <td>&nbsp;</td>      
+                    <td><a href="brcomplaint.html">查看</a> <a href="#" onclick="loading();">处理</a> <a href="#">删除</a></td>
+                </tr>
+                <tr>
+                  <td>&nbsp;</td>
+                  <td>商品投诉</td>
+                	<td>上海流氓</td>
+                    <td>2010-10-22</td>
+                    <td>是</td>
+                    <td>等待反馈</td>
+                    <td>一般</td>
+                    <td>&nbsp;</td>      
+                    <td><a href="brcomplaint.html">查看</a> <a href="#" onclick="loading();">处理</a> <a href="#">删除</a></td>
+                </tr>
+				<tr class="bg">
+				  <td>&nbsp;</td>
+				  <td>网站投诉</td>
+                	<td>上海流氓</td>
+                    <td>2010-10-22</td>
+                    <td>是</td>
+                    <td>已经反馈</td>
+                    <td>不满意</td>
+                    <td>&nbsp;</td>      
+                    <td><a href="brcomplaint.html">查看</a> <a href="#" onclick="loading();">处理</a> <a href="#">删除</a></td>
+                </tr>
+                <tr>
+                  <td>&nbsp;</td>
+                  <td>客服投诉</td>
+                	<td>上海流氓</td>
+                    <td>2010-10-22</td>
+                    <td>否</td>
+                    <td>已经反馈</td>
+                    <td>满意</td>
+                    <td>&nbsp;</td>      
+                    <td><a href="brcomplaint.html">查看</a> <a href="#" onclick="loading();">处理</a> <a href="#">删除</a></td>
+                </tr>
+				<tr class="bg">
+				  <td>&nbsp;</td>
+				  <td>普通投诉</td>
+                	<td>上海流氓</td>
+                    <td>2010-10-22</td>
+                    <td>否</td>
+                    <td>已经反馈</td>
+                    <td>满意</td>
+                    <td>&nbsp;</td>      
+                    <td><a href="brcomplaint.html">查看</a> <a href="#" onclick="loading();">处理</a> <a href="#">删除</a></td>
+                </tr>
+                <tr>
+                  <td>&nbsp;</td>
+                  <td>普通投诉</td>
+                	<td>上海流氓</td>
+                    <td>2010-10-22</td>
+                    <td>否</td>
+                    <td>已经反馈</td>
+                    <td>满意</td>
+                    <td>&nbsp;</td>      
+                    <td><a href="brcomplaint.html">查看</a> <a href="#" onclick="loading();">处理</a> <a href="#">删除</a></td>
+                </tr>
+				<tr class="bg">
+				  <td>&nbsp;</td>
+				  <td>普通投诉</td>
+                	<td>上海流氓</td>
+                    <td>2010-10-22</td>
+                    <td>否</td>
+                    <td>已经反馈</td>
+                    <td>满意</td>
+                    <td>&nbsp;</td>      
+                    <td><a href="brcomplaint.html">查看</a> <a href="#" onclick="loading();">处理</a> <a href="#">删除</a></td>
+                </tr>
+
+            </table> 
+			
+             <div class="pages-box" >
+<div class="pages">
+                            <a href="#" style="font-weight:bold">&laquo;</a><b> 1 </b>
+                            <a href="#">2</a>
+                            <a href="#">3</a>
+                            <a href="#">4</a>
+                            ...
+                            <a href="#">9</a>
+                            <a href="#" style="font-weight:bold">&raquo;</a> 
+                            <input type="text" size="2" title="输入页码按回车">
+                            <a href="#" style="color:#000">GO</a>
+                            页数: [ 1 / 253 ]
+               </div> 
+          </div>
+             
+        </div> <!-- 列表模块 END -->   
+        	
+          <!--浮动层-->
+  <div id="layer" align="center"></div> 
+  <div id="layer2">
+  <div class="searchBox">
+    <h3><img src="../images/admin/close.png" onClick="unload();" alt="点击关闭"/><span>操作</span></h3>
+    <table>
+    <tr>
+        <th>处罚：</th>
+        <td><input type="radio" name="" id="radio" />
+          需要处罚
+            <input type="radio" name="" id="radio2" />
+            不处罚</td>
+    </tr>
+      <tr>
+        <th>备注：</th>
+        <td><textarea name="textarea" cols="" rows=""></textarea></td>
+      </tr>
+      <tr>
+        <td colspan="2" class="ttali-cent"><button type="submit" class="btn">确认</button><button type="submit" class="btn" onClick="unload();">取消</button></td>
+        </tr>
+    </table>
+  </div>
+  </div>
+  <!-- 浮动层 END -->   
+    </div>
+    
+</body>

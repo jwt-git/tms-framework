@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>恒生网络-系统管理平台</title>
+    <link href="../styles/basic.css" rel="stylesheet" type="text/css" />
+    <link href="../styles/admin.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+	
+    <div class="main">
+    	
+    
+        
+        <div class="clear"></div>
+ 
+		
+        <!-- 列表模块 -->
+        <div class="listBox"> 
+          <h3><span>系统配置列表</span></h3> 
+            <table > 
+                <tr>
+                  <th>名称</th>
+                  <th>说明</th>
+                    <th>值</th>
+                    <th>开关值</th>
+                    <th>操作</th>
+                </tr>
+                <tr>
+                  <td>积分占佣金的比例</td>
+                  <td>赠送积分占佣金的比例，单位%</td>
+                	<td><input type="text" class="inp" /></td>
+                    <td>启用
+                      <input value="1" type="radio" name="sysConfig.usedStatus" />
+停用
+<input value="0" checked="checked" type="radio" name="sysConfig.usedStatus" /></td>
+                    <td><img src="../images/admin/layout_edit.png" width="16" height="16" align="absmiddle" /> <a href="#">修改</a> </td>
+                </tr>
+				<tr class="bg">
+				  <td>过滤关键字</td>
+				  <td>过滤关键字,使用&quot;|&quot;分隔多个关键字</td>
+                	<td>
+               	      <textarea class="textarea"></textarea>
+               	    </td>
+                    <td>启用
+                      <input value="1" type="radio" name="sysConfig.usedStatus" />
+停用
+<input value="0" checked="checked" type="radio" name="sysConfig.usedStatus" /></td>
+                    <td><img src="../images/admin/layout_edit.png" width="16" height="16" align="absmiddle" /> <a href="#">修改</a> </td>
+                </tr>
+                <tr>
+                  <td>积分占佣金的比例</td>
+                  <td>赠送积分占佣金的比例，单位%</td>
+                  <td><input type="text" class="inp" /></td>
+                  <td>启用
+                    <input value="1" type="radio" name="sysConfig.usedStatus" />
+                    停用
+                    <input value="0" checked="checked" type="radio" name="sysConfig.usedStatus" /></td>
+                  <td><img src="../images/admin/layout_edit.png" alt="" width="16" height="16" align="absmiddle" /> <a href="#">修改</a></td>
+                </tr>
+				<tr>
+				  <td>积分占佣金的比例</td>
+				  <td>赠送积分占佣金的比例，单位%</td>
+				  <td><input type="text" class="inp" /></td>
+				  <td>启用
+				    <input value="1" type="radio" name="sysConfig.usedStatus" />
+				    停用
+				    <input value="0" checked="checked" type="radio" name="sysConfig.usedStatus" /></td>
+				  <td><img src="../images/admin/layout_edit.png" alt="" width="16" height="16" align="absmiddle" /> <a href="#">修改</a></td>
+			  </tr>
+                <tr>
+                  <td>积分占佣金的比例</td>
+                  <td>赠送积分占佣金的比例，单位%</td>
+                  <td><input type="text" class="inp" /></td>
+                  <td>启用
+                    <input value="1" type="radio" name="sysConfig.usedStatus" />
+                    停用
+                    <input value="0" checked="checked" type="radio" name="sysConfig.usedStatus" /></td>
+                  <td><img src="../images/admin/layout_edit.png" alt="" width="16" height="16" align="absmiddle" /> <a href="#">修改</a></td>
+                </tr>
+
+            </table> 
+			
+             <div class="pages-box" >
+<div class="pages">
+                            <a href="#" style="font-weight:bold">&laquo;</a><b> 1 </b>
+                            <a href="#">2</a>
+                            <a href="#">3</a>
+                            <a href="#">4</a>
+                            ...
+                            <a href="#">9</a>
+                            <a href="#" style="font-weight:bold">&raquo;</a> 
+                            <input type="text" size="2" title="输入页码按回车">
+                            <a href="#" style="color:#000">GO</a>
+                            页数: [ 1 / 253 ]
+               </div> 
+          </div>
+             
+        </div> <!-- 列表模块 END -->   
+        	
+           
+    </div>
+    
+</body>
