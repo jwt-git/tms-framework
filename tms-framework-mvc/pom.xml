@@ -3,7 +3,7 @@
   <parent>
     <groupId>net.juweitang.framework</groupId>
     <artifactId>tms-framework</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
   </parent>
   <artifactId>tms-framework-mvc</artifactId>
   <name>tms-framework-mvc</name>

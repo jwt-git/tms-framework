@@ -11,89 +11,89 @@ public interface Crypto {
 	}
 
 	/**
-	 * ����string
+	 * 加密string
 	 * 
 	 * @param s
-	 *            ����Ϊnull
-	 * @return ���ܺ��string
+	 *            不能为null
+	 * @return 加密后的string
 	 */
 	public String encrypt(String s);
 
 	/**
-	 * ����string
+	 * 加密string
 	 * 
 	 * @param s
-	 *            ����Ϊnull
+	 *            不能为null
 	 * @param en
-	 *            ���뷽ʽ
+	 *            编码方式
 	 * @return
 	 */
 	public String encrypt(String s, Encoding en);
 
 	/**
-	 * ����string
+	 * 加密string
 	 * 
 	 * @param s
-	 *            ����Ϊnull
+	 *            不能为null
 	 * @param encoding
-	 *            string�ı����ַ�
-	 * @return ���ܺ��string
+	 *            string的编码字符集
+	 * @return 加密后的string
 	 */
 	public String encrypt(String s, String charset);
 
 	/**
-	 * ����string
+	 * 加密string
 	 * 
 	 * @param s
-	 *            ����Ϊnull
+	 *            不能为null
 	 * @param en
-	 *            ���뷽ʽ
+	 *            编码方式
 	 * @param charset
-	 *            string�ı����ַ�
+	 *            string的编码字符集
 	 * @return
 	 */
 	public String encrypt(String s, Encoding en, String charset);
 
 	/**
-	 * ��string�����н���
+	 * 对string串进行解密
 	 * 
 	 * @param s
-	 *            ����Ϊnull
-	 * @return ���ܺ��string
+	 *            不能为null
+	 * @return 解密后的string
 	 */
 	public String dectypt(String s);
 
 	/**
-	 * ��string�����н���
+	 * 对string串进行解密
 	 * 
 	 * @param s
-	 *            ����Ϊnull
+	 *            不能为null
 	 * @param en
-	 *            ���뷽ʽ
+	 *            编码方式
 	 * @return
 	 */
 	public String dectypt(String s, Encoding en);
 
 	/**
-	 * ��string��ʹ��ָ���ı�����н���
+	 * 对string串使用指定的编码进行解密
 	 * 
 	 * @param s
-	 *            ����Ϊnull
+	 *            不能为null
 	 * @param encoding
-	 *            �ַ�
-	 * @return ���ܺ��string
+	 *            字符集
+	 * @return 解密后的string
 	 */
 	public String dectypt(String s, String encoding);
 
 	/**
-	 * ��string�����н���
+	 * 对string串进行解密
 	 * 
 	 * @param s
-	 *            ����Ϊnull
+	 *            不能为null
 	 * @param en
-	 *            ����
+	 *            编码
 	 * @param encoding
-	 *            �ַ�
+	 *            字符集
 	 * @return
 	 */
 	public String dectypt(String s, Encoding en, String encoding);

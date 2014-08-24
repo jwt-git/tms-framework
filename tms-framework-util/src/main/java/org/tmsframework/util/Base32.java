@@ -3,9 +3,9 @@ package org.tmsframework.util;
 import java.io.UnsupportedEncodingException;
 
 /**
- * ���http://bitcollider.cvs.sourceforge.net/bitcollider/jbitcollider/plugins/org
- * .bitpedia.collider.core/src/org/bitpedia/util/Base32.java?view=markup �����д��
- * base32ʵ�� Base32 - encodes and decodes RFC3548 Base32 (see
+ * 根据http://bitcollider.cvs.sourceforge.net/bitcollider/jbitcollider/plugins/org
+ * .bitpedia.collider.core/src/org/bitpedia/util/Base32.java?view=markup 这个改写的
+ * base32实现 Base32 - encodes and decodes RFC3548 Base32 (see
  * http://www.faqs.org/rfcs/rfc3548.html )
  * 
  * @author Robert Kaye
@@ -53,7 +53,7 @@ public final class Base32 {
 	private static final String defaultStringEncoding = "UTF-8";
 	
 	/**
-	 * ʹ��base32�����ַ�ʹ��ȱʡ��utf-8�����ַ�
+	 * 使用base32编码字符串，使用缺省的utf-8解析字符串
 	 * @param s
 	 * @return
 	 */
@@ -62,7 +62,7 @@ public final class Base32 {
 	}
 	
 	/**
-	 * ʹ��base32�������ַ�,ʹ��ȱʡ��utf-8�����ַ�
+	 * 使用base32反解析字符串,使用缺省的utf-8解析字符串
 	 * @param s
 	 * @return
 	 */
@@ -71,7 +71,7 @@ public final class Base32 {
 	}
 	
 	/**
-	 * ���ַ�ʹ��ָ�����������ʹ��base32����
+	 * 将字符串使用指定编码解析后使用base32编码
 	 * @param s
 	 * @param encoding
 	 * @return
@@ -89,7 +89,7 @@ public final class Base32 {
 	}
 
 	/**
-	 * ������base32��ʹ��ָ�����빹���ַ�
+	 * 反解析base32后使用指定编码构造字符串
 	 * @param s
 	 * @param encoding
 	 * @return

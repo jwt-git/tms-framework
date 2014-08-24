@@ -7,8 +7,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Date Utility Class used to convert Strings to Dates and Timestamps
@@ -18,7 +18,7 @@ import org.apache.commons.logging.LogFactory;
  *  to correct time pattern. Minutes should be mm not MM (MM is month).
  */
 public class DateUtil {
-    private static Log          log          = LogFactory.getLog(DateUtil.class);
+    private static Logger          log          = LoggerFactory.getLogger(DateUtil.class);
     private static final String TIME_PATTERN = "HH:mm";
 
     /**
@@ -27,15 +27,15 @@ public class DateUtil {
     public DateUtil() {
     }
 
-    //Timestamp��String֮��ת���ĺ���
+    //Timestamp和String之间转换的函数：
     public static String getTimestampToString(Timestamp obj) {
-        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");//�����ʽ������ʾ����
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");//定义格式，不显示毫秒
         String str = df.format(obj);
         return str;
     }
 
     /*
-     * �Զ��� ת��ģʽ��Timestamp ���
+     * 自定义 转换模式将Timestamp 输出
      */
     public static String getTimestampToString(String formatPattern, Timestamp obj) {
         SimpleDateFormat df = new SimpleDateFormat(formatPattern);
@@ -43,7 +43,7 @@ public class DateUtil {
         return str;
     }
 
-    //Stringת��ΪTimestamp:
+    //String转化为Timestamp:
     public static Timestamp getStringToTimestamp(String str) {
         Timestamp ts = Timestamp.valueOf(str);
         return ts;
@@ -210,7 +210,7 @@ public class DateUtil {
             aDate = convertStringToDate(getDatePattern(), strDate);
         } catch (ParseException pe) {
             log.error("Could not convert '" + strDate + "' to a date, throwing exception");
-            log.error(pe);
+            log.error("{}",pe);
             throw new ParseException(pe.getMessage(), pe.getErrorOffset());
         }
 
@@ -227,7 +227,7 @@ public class DateUtil {
     }
 
     /**
-     * ȡ�ô�startDate��ʼ��ǰ(��)/��(��)day��
+     * 取得从startDate开始的前(正)/后(负)day天
      * @param startDate
      * @param day
      * @return
@@ -239,15 +239,15 @@ public class DateUtil {
             calendar.add(Calendar.DAY_OF_MONTH, day);
             return calendar.getTime();
         } catch (Exception e) {
-            log.error(e);
+            log.error("{}",e);
             return startDate;
         }
     }
 
     /**
-     * ������ڻ�ȡ���ڼ�
+     * 根据日期获取星期几
      *
-     * @param date java.util.Date����,����Ϊnull
+     * @param date java.util.Date对象,不能为null
      * @return
      */
     public static int getDay(Date date) {
@@ -257,8 +257,8 @@ public class DateUtil {
     }
 
     /**
-     * ͳ������ʱ�����ص�������(��24Сʱ��һ�죬����24Сʱ��Ϊ0���������ʱ����ð�Сʱ�����ӵ�ȥ��)
-     * @param begin ��ʼʱ��
+     * 统计两个时间差，返回的是天数(即24小时算一天，少于24小时就为0，用这个的时候最好把小时、分钟等去掉)
+     * @param begin 开始时间
      * @param end
      * @return
      */

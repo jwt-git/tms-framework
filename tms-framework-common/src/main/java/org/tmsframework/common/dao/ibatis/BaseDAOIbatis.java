@@ -6,7 +6,7 @@
  * Create Date:2010-12-15
  *
  */
-package org.tmsframework.common.dao;
+package org.tmsframework.common.dao.ibatis;
 
 
 import java.sql.SQLException;
@@ -26,12 +26,12 @@ import com.ibatis.sqlmap.client.SqlMapExecutor;
  * @author zhangsen
  * @version $Id: BaseDAO.java 2010-12-15 上午10:11:52 zhangsen $
  */
-public abstract class BaseDAO {
+public abstract class BaseDAOIbatis {
     
     /**
     * Logger for this class
     */
-    private static final Logger  logger = LoggerFactory.getLogger(BaseDAO.class);
+    private static final Logger  logger = LoggerFactory.getLogger(BaseDAOIbatis.class);
     
     @Autowired
     private SqlMapClientTemplate sqlMapClientTemplate;

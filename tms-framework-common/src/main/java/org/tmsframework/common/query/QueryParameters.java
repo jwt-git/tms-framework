@@ -13,10 +13,10 @@ import java.util.Map;
 
 /**
  * <p>获取查询参数接口</p>
- * @author shencb
- * @version $Id: QueryGetParameters.java 2010-12-15 上午10:11:52 shencb $
+ * @author zhangsen
+ * @version $Id: QueryParameters.java 2010-12-15 上午10:11:52 zhangsen $
  */
-public interface QueryGetParameters {
+public interface QueryParameters {
 
     /**
      * 获取所有查询参数集

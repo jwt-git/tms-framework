@@ -1,4 +1,4 @@
-package org.tmsframework.io.cookie.common;
+package org.tmsframework.common.user;
 
 public class GenericUser{
 

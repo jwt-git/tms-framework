@@ -13,8 +13,8 @@ import java.io.Serializable;
 
 /**
  * <p>标准Dao接口定义，仅CRU基础方法</p>
- * @author shencb
- * @version $Id: GenericDao.java 2011-4-12 下午12:56:30 shencb $
+ * @author zhangsen
+ * @version $Id: GenericDao.java 2011-4-12 下午12:56:30 zhangsen $
  * @param <T> 域对象
  * @param <PK> 域对象主键
  */

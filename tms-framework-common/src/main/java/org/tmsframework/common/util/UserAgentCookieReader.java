@@ -9,8 +9,8 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang.StringUtils;
+import org.tmsframework.common.user.GenericUser;
 import org.tmsframework.io.cookie.SelfUtil;
-import org.tmsframework.io.cookie.common.GenericUser;
 import org.tmsframework.io.cookie.reader.CookieReader;
 import org.tmsframework.io.cookie.reader.impl.AESCookieReader;
 import org.tmsframework.io.cookie.reader.impl.BlowfishCookieReader;

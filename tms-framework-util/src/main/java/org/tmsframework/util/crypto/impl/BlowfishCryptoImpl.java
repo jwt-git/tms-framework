@@ -5,7 +5,7 @@ import javax.crypto.spec.SecretKeySpec;
 
 /**
  * 
- * @author fish
+ * @author sam.zhang
  * 
  */
 public class BlowfishCryptoImpl extends AbstractCryptoImpl {

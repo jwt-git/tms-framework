@@ -18,14 +18,14 @@ import org.springframework.transaction.support.TransactionTemplate;
 
 /**
  * <p>基础Service</p>
- * @author shencb
- * @version $Id: BaseService.java 2010-12-15 上午10:11:52 shencb $
+ * @author zhangsen
+ * @version $Id: BaseService.java 2010-12-15 上午10:11:52 zhangsen $
  */
 public abstract class BaseService {
     /**
     * Logger for this class
     */
-    protected static final Logger   logger = LoggerFactory.getLogger(BaseService.class);
+    protected static final Logger   _log = LoggerFactory.getLogger(BaseService.class);
 	
     /**
      * 事务模板

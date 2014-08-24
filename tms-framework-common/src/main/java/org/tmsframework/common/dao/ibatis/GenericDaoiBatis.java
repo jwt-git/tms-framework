@@ -15,20 +15,19 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.Assert;
 import org.springframework.util.ClassUtils;
-import org.tmsframework.common.dao.BaseDAO;
 import org.tmsframework.common.dao.GenericDao;
 
 /**
  * <p>通用Dao的Ibatis实现</p>
- * @author shencb
- * @version $Id: GenericDaoiBatis.java 2011-4-12 下午01:04:05 shencb $
+ * @author zhangsen
+ * @version $Id: GenericDaoiBatis.java 2011-4-12 下午01:04:05 zhangsen $
  */
-public abstract class GenericDaoiBatis<T, PK extends Serializable> extends BaseDAO implements
+public abstract class GenericDaoiBatis<T, PK extends Serializable> extends BaseDAOIbatis implements
                                                                                   GenericDao<T, PK> {
     /**
     * Logger for this class
     */
-    private static final Logger logger = LoggerFactory.getLogger(GenericDaoiBatis.class);
+    private static final Logger _log = LoggerFactory.getLogger(GenericDaoiBatis.class);
 
     /**
      * @see com.hundsun.network.common.dao.GenericDao#exists(java.io.Serializable)
@@ -115,7 +114,7 @@ public abstract class GenericDaoiBatis<T, PK extends Serializable> extends BaseD
             Method getMethod = o.getClass().getMethod(getterMethod, (Class[]) null);
             return getMethod.invoke(o, (Object[]) null);
         } catch (Exception e) {
-            logger.error("无法通过:{} 反射:{}方法", getterMethod, ClassUtils.getShortName(o.getClass()));
+            _log.error("无法通过:{} 反射:{}方法", getterMethod, ClassUtils.getShortName(o.getClass()));
         }
         return null;
     }

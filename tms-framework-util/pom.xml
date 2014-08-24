@@ -5,10 +5,9 @@
   <parent>
     <groupId>net.juweitang.framework</groupId>
     <artifactId>tms-framework</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
   </parent>
   <artifactId>tms-framework-util</artifactId>
-  <version>0.0.1</version>
   <name>tms-framework-util</name>
   <url>http://maven.apache.org</url>
   <properties>

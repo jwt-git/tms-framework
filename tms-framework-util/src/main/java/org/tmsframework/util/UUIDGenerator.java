@@ -4,12 +4,12 @@ import java.net.InetAddress;
 
 /**
  * @author sam.zhang
- * @version $Id: UUIDGenerator.java,v 1.1 2008/10/15 15:39:23 daiyq Exp $
+ * @version $Id: UUIDGenerator.java,v 1.1 2008/10/15 15:39:23 sam.zhang Exp $
  */
 public class UUIDGenerator {
 
 	/**
-	 * ����һ��32λ��UUID
+	 * 产生一个32位的UUID
 	 * 
 	 * @return
 	 */

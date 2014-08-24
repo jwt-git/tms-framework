@@ -25,10 +25,10 @@ import javax.imageio.stream.ImageInputStream;
 public class ImageHelper {
 	
 	/**
-	 * ���ˮӡͼƬ
-	 * 		Ĭ�ϲ�͸����ˮӡ�߾�Ϊ10����,λ��Ϊ9�����½�
-	 * @param targetImg		�����ˮӡ��ͼƬ
-	 * @param watermarkImg		ˮӡ��ȥ��ͼƬ	
+	 * 添加水印图片
+	 * 		默认不透明，水印边距为10像素,位置为9，右下角
+	 * @param targetImg		被添加水印的图片
+	 * @param watermarkImg		水印上去的图片	
 	 * @throws IOException
 	 */
 	public static void pWatermarkImage(String targetImg, String watermarkImg) throws IOException {
@@ -36,11 +36,11 @@ public class ImageHelper {
 	} 
 	
 	/**
-	 * ���ˮӡͼƬ
-	 * 		Ĭ�ϲ�͸����ˮӡ�߾�Ϊ10����
-	 * @param targetImg		�����ˮӡ��ͼƬ
-	 * @param watermarkImg		ˮӡ��ȥ��ͼƬ	
-	 * @param position		�Ź���λ�ò���,[1-9]
+	 * 添加水印图片
+	 * 		默认不透明，水印边距为10像素
+	 * @param targetImg		被添加水印的图片
+	 * @param watermarkImg		水印上去的图片	
+	 * @param position		九宫格位置参数,[1-9]
 	 * @throws IOException
 	 */
 	public static void pWatermarkImage(String targetImg, String watermarkImg,int position) throws IOException {
@@ -48,12 +48,12 @@ public class ImageHelper {
 	} 
 	
 	/**
-	 * ���ˮӡͼƬ
-	 * 		Ĭ��ˮӡ�߾�Ϊ10����
-	 * @param targetImg		�����ˮӡ��ͼƬ
-	 * @param watermarkImg		ˮӡ��ȥ��ͼƬ	
-	 * @param position		�Ź���λ�ò���,[1-9]
-	 * @param alpha		ˮӡ͸���ȣ�0-1��Χȡֵ
+	 * 添加水印图片
+	 * 		默认水印边距为10像素
+	 * @param targetImg		被添加水印的图片
+	 * @param watermarkImg		水印上去的图片	
+	 * @param position		九宫格位置参数,[1-9]
+	 * @param alpha		水印透明度，0-1范围取值
 	 * @throws IOException
 	 */
 	public static void pWatermarkImage(String targetImg, String watermarkImg,int position, float alpha) throws IOException {
@@ -61,12 +61,12 @@ public class ImageHelper {
 	} 
 	
 	/**
-	 * ���ˮӡͼƬ
-	 * @param targetImg		�����ˮӡ��ͼƬ
-	 * @param watermarkImg		ˮӡ��ȥ��ͼƬ	
-	 * @param position		�Ź���λ�ò���,[1-9]
-	 * @param alpha		ˮӡ͸���ȣ�0-1��Χȡֵ
-	 * @param margin	ˮӡ�߾�
+	 * 添加水印图片
+	 * @param targetImg		被添加水印的图片
+	 * @param watermarkImg		水印上去的图片	
+	 * @param position		九宫格位置参数,[1-9]
+	 * @param alpha		水印透明度，0-1范围取值
+	 * @param margin	水印边距
 	 * @throws IOException
 	 */
 	public static void pWatermarkImage(String targetImg, String watermarkImg,int position, float alpha, int margin) throws IOException {
@@ -133,7 +133,7 @@ public class ImageHelper {
 		int height = targetImg.getHeight(null);
 		BufferedImage image = new BufferedImage(width, height,
 				BufferedImage.TYPE_INT_RGB);
-//		�����pngͼƬʹ��͸������
+//		如果是png图片使用透明背景
 		Graphics2D g = image.createGraphics();
 		if("png".equalsIgnoreCase(distImgType)){
 			image = g.getDeviceConfiguration().createCompatibleImage(width, height, Transparency.TRANSLUCENT); 
@@ -141,10 +141,10 @@ public class ImageHelper {
 			g = image.createGraphics(); 
 		}
 		g.drawImage(targetImg, 0, 0, width, height, null);
-		//��ȡˮӡ�ļ�
+		//读取水印文件
 		int wmWideth = watermarkImg.getWidth(null);
 		int wmHeight = watermarkImg.getHeight(null);
-		//���ˮӡ
+		//添加水印
 		g.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_ATOP,
 				alpha));
 		g.drawImage(watermarkImg, x, y, wmWideth, wmHeight, null);
@@ -155,9 +155,9 @@ public class ImageHelper {
 	
 	private static int[] getTextXY(int position, Image src, String text, int fontsize, int margin){
 		int wmWidth;
-//		�ж��Ƿ��Ǵ�Ӣ��ˮӡ
+//		判断是否是纯英文水印
 		if(text.getBytes().length==text.length()){
-			wmWidth = text.length()*fontsize / 2 +20;//Ӣ��ˮӡ���ȳ���2�ټ�20���ص�����
+			wmWidth = text.length()*fontsize / 2 +20;//英文水印长度除以2再加20像素的修正
 		}else{
 			wmWidth = text.length()*fontsize;
 		}
@@ -166,13 +166,13 @@ public class ImageHelper {
 	}
 	
 	/**
-	 * ͼƬ���ͼƬˮӡ
-	 * 		��֧��Gif��̬ͼƬ
-	 * @param targetImg				�����ˮӡ��ͼƬ
-	 * @param watermarkImg		ˮӡ��ȥ��ͼƬ	
-	 * @param x		��ͼƬ���Ͻ�Ϊԭ���X��ƫ����
-	 * @param y		��ͼƬ���Ͻ�Ϊԭ���Y��ƫ����
-	 * @param alpha		ˮӡͼƬ͸���ȣ�ȡֵ��Χ0-1
+	 * 图片添加图片水印
+	 * 		不支持Gif动态图片
+	 * @param targetImg				被添加水印的图片
+	 * @param watermarkImg		水印上去的图片	
+	 * @param x		以图片左上角为原点的X轴偏移量
+	 * @param y		以图片左上角为原点的Y轴偏移量
+	 * @param alpha		水印图片透明度，取值范围0-1
 	 * @throws IOException 
 	 */
 	public static void watermarkImage(String targetImg, String watermarkImg,
@@ -182,7 +182,7 @@ public class ImageHelper {
 		}
 		String distImgType = targetImg
 				.substring(targetImg.lastIndexOf(".") + 1);
-		//��ȡĿ���ļ�
+		//读取目标文件
 		File tarImgFile = new File(targetImg);
 		Image src = ImageIO.read(tarImgFile);
 		int width = src.getWidth(null);
@@ -190,7 +190,7 @@ public class ImageHelper {
 		BufferedImage image = new BufferedImage(width, height,
 				BufferedImage.TYPE_INT_RGB);
 		Graphics2D g = image.createGraphics();
-//		�����pngͼƬʹ��͸������
+//		如果是png图片使用透明背景
 		if("png".equalsIgnoreCase(distImgType)){
 			image = g.getDeviceConfiguration().createCompatibleImage(width, height, Transparency.TRANSLUCENT); 
 			g.dispose(); 
@@ -199,31 +199,31 @@ public class ImageHelper {
 		
 		g.drawImage(src, 0, 0, width, height, null);
 		File wmFile = new File(watermarkImg);
-		//��ȡˮӡ�ļ�
+		//读取水印文件
 		Image wmSrc = ImageIO.read(wmFile);
 		int wmWideth = wmSrc.getWidth(null);
 		int wmHeight = wmSrc.getHeight(null);
-		//			���ˮӡ
+		//			添加水印
 		g.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_ATOP,
 				alpha));
 		g.drawImage(wmSrc, x, y, wmWideth, wmHeight, null);
 		g.dispose();
-		//			����д���ļ�
+		//			重新写回文件
 		ImageIO.write(image, distImgType, new File(targetImg));
 	}
 
 	/**
-	 * ͼƬ�������ˮӡ
-	 * 		��֧��Gif��̬ͼƬ
-	 * @param watermarkText  ˮӡ����
-	 * @param targetImg  Ŀ��ͼƬ
-	 * @param fontName  ������
-	 * @param fontStyle  ������ʽ
-	 * @param color  ������ɫ
-	 * @param fontSize  �����С
-	 * @param x   ��ͼƬ���Ͻ�Ϊԭ���X��ƫ����
-	 * @param y   ��ͼƬ���Ͻ�Ϊԭ���Y��ƫ����
-	 * @param alpha		ˮӡ����͸���ȣ�ȡֵ��Χ0-1
+	 * 图片添加文字水印
+	 * 		不支持Gif动态图片
+	 * @param watermarkText  水印文字
+	 * @param targetImg  目标图片
+	 * @param fontName  字体名
+	 * @param fontStyle  字体样式
+	 * @param color  字体颜色
+	 * @param fontSize  字体大小
+	 * @param x   以图片左上角为原点的X轴偏移量
+	 * @param y   以图片左上角为原点的Y轴偏移量
+	 * @param alpha		水印文字透明度，取值范围0-1
 	 * @throws IOException 
 	 */
 	public static void watermarkText(String watermarkText, String targetImg,
@@ -241,7 +241,7 @@ public class ImageHelper {
 		BufferedImage image = new BufferedImage(width, height,
 				BufferedImage.TYPE_INT_RGB);
 		Graphics2D g = image.createGraphics();
-//		�����pngͼƬʹ��͸������
+//		如果是png图片使用透明背景
 		if("png".equalsIgnoreCase(distImgType)){
 			image = g.getDeviceConfiguration().createCompatibleImage(width, height, Transparency.TRANSLUCENT); 
 			g.dispose(); 
@@ -255,7 +255,7 @@ public class ImageHelper {
 				alpha));
 		g.drawString(watermarkText, x, y + fontSize);
 		g.dispose();
-		//			����д���ļ�
+		//			重新写回文件
 		ImageIO.write(image, distImgType, new File(targetImg));
 	}
 
@@ -283,35 +283,35 @@ public class ImageHelper {
 	}
 	
 	/**
-	 * ͼƬ�������ˮӡ
-	 * 		��֧��Gif��̬ͼƬ
-	 * @param watermarkText  ˮӡ����
-	 * @param targetImg  Ŀ��ͼƬ
-	 * @param color  ������ɫ
-	 * @param fontSize  �����С
-	 * @param x   ��ͼƬ���Ͻ�Ϊԭ���X��ƫ����
-	 * @param y   ��ͼƬ���Ͻ�Ϊԭ���Y��ƫ����
-	 * @param alpha		ˮӡ����͸���ȣ�ȡֵ��Χ0-1
+	 * 图片添加文字水印
+	 * 		不支持Gif动态图片
+	 * @param watermarkText  水印文字
+	 * @param targetImg  目标图片
+	 * @param color  字体颜色
+	 * @param fontSize  字体大小
+	 * @param x   以图片左上角为原点的X轴偏移量
+	 * @param y   以图片左上角为原点的Y轴偏移量
+	 * @param alpha		水印文字透明度，取值范围0-1
 	 */
 	public static void watermarkText(String watermarkText, String targetImg,
 			Color color, int fontSize, int x, int y, float alpha)
 			throws IOException {
-		watermarkText(watermarkText, targetImg, "����", Font.BOLD, color,
+		watermarkText(watermarkText, targetImg, "宋体", Font.BOLD, color,
 				fontSize, x, y, alpha);
 	}
 	
 	/**
-	 * ͼƬ�������ˮӡ
-	 * 		��֧��Gif��̬ͼƬ
-	 * @param watermarkText		ˮӡ����
-	 * @param targetImg		Ŀ��ͼƬ
-	 * @param position 	�Ź���λ�ò���,[1-9]
-	 * @param margin 		�߾�
-	 * @param fontStyle 	��ʽ
-	 * @param fontName 	����
-	 * @param color		��ɫ
-	 * @param fontSize		�����С
-	 * @param alpha		͸���ȣ�ȡֵ��Χ0-1
+	 * 图片添加文字水印
+	 * 		不支持Gif动态图片
+	 * @param watermarkText		水印文字
+	 * @param targetImg		目标图片
+	 * @param position 	九宫格位置参数,[1-9]
+	 * @param margin 		边距
+	 * @param fontStyle 	样式
+	 * @param fontName 	字体
+	 * @param color		颜色
+	 * @param fontSize		字体大小
+	 * @param alpha		透明度，取值范围0-1
 	 * @throws IOException 
 	 */
 	public static void pWatermarkText(String watermarkText, String targetImg,int position,int margin, Color color, int fontSize, float alpha, int fontStyle, String fontName) throws IOException{
@@ -327,7 +327,7 @@ public class ImageHelper {
 		BufferedImage image = new BufferedImage(width, height,
 				BufferedImage.TYPE_INT_RGB);
 		Graphics2D g = image.createGraphics();
-//		�����pngͼƬʹ��͸������
+//		如果是png图片使用透明背景
 		if("png".equalsIgnoreCase(distImgType)){
 			image = g.getDeviceConfiguration().createCompatibleImage(width, height, Transparency.TRANSLUCENT); 
 			g.dispose(); 
@@ -341,84 +341,84 @@ public class ImageHelper {
 				alpha));
 		g.drawString(watermarkText, xy[0], xy[1] + fontSize);
 		g.dispose();
-		//			����д���ļ�
+		//			重新写回文件
 		ImageIO.write(image, distImgType, new File(targetImg));
 	}
 	
 	/**
-	 * ͼƬ�������ˮӡ
-	 * 		��֧��Gif��̬ͼƬ,
-	 * 		Ĭ������λ��Ϊ7�����½ǣ�����ɫ����ɫ�����壺���塢���壬�����С��20px���߾ࣺ10px��͸���ȣ�1
-	 * @param watermarkText		ˮӡ����
-	 * @param targetImg			Ŀ��ͼƬ
+	 * 图片添加文字水印
+	 * 		不支持Gif动态图片,
+	 * 		默认设置位置为7（左下角），颜色：黑色，字体：宋体、粗体，字体大小：20px，边距：10px，透明度：1
+	 * @param watermarkText		水印文字
+	 * @param targetImg			目标图片
 	 * @throws IOException
 	 */
 	public static void pWatermarkText(String watermarkText, String targetImg) throws IOException{
-		pWatermarkText(watermarkText,targetImg,7,10,Color.BLACK,20,1f,Font.BOLD,"����");
+		pWatermarkText(watermarkText,targetImg,7,10,Color.BLACK,20,1f,Font.BOLD,"宋体");
 	}
 
 	/**
-	 * ͼƬ�������ˮӡ
-	 * 		��֧��Gif��̬ͼƬ,Ĭ��������ɫ����ɫ�����壺���塢���壬�����С��20px���߾ࣺ10px��͸���ȣ�1
-	 * @param watermarkText		ˮӡ����
-	 * @param targetImg			Ŀ��ͼƬ
-	 * @param position			�Ź���λ�ò���,[1-9]
+	 * 图片添加文字水印
+	 * 		不支持Gif动态图片,默认设置颜色：黑色，字体：宋体、粗体，字体大小：20px，边距：10px，透明度：1
+	 * @param watermarkText		水印文字
+	 * @param targetImg			目标图片
+	 * @param position			九宫格位置参数,[1-9]
 	 * @throws IOException
 	 */
 	public static void pWatermarkText(String watermarkText, String targetImg,int position) throws IOException{
-		pWatermarkText(watermarkText,targetImg,position,10,Color.BLACK,20,1f,Font.BOLD,"����");
+		pWatermarkText(watermarkText,targetImg,position,10,Color.BLACK,20,1f,Font.BOLD,"宋体");
 	}
 	
 	/**
-	 * ͼƬ�������ˮӡ
-	 * 		��֧��Gif��̬ͼƬ,Ĭ���������壺���塢���壬�����С��20px���߾ࣺ10px��͸���ȣ�1
-	 * @param watermarkText		ˮӡ����
-	 * @param targetImg			Ŀ��ͼƬ
-	 * @param position			�Ź���λ�ò���,[1-9]
-	 * @param color		��ɫ
+	 * 图片添加文字水印
+	 * 		不支持Gif动态图片,默认设置字体：宋体、粗体，字体大小：20px，边距：10px，透明度：1
+	 * @param watermarkText		水印文字
+	 * @param targetImg			目标图片
+	 * @param position			九宫格位置参数,[1-9]
+	 * @param color		颜色
 	 * @throws IOException
 	 */
 	public static void pWatermarkText(String watermarkText, String targetImg,int position,Color color) throws IOException{
-		pWatermarkText(watermarkText,targetImg,position,10,color,20,1f,Font.BOLD,"����");
+		pWatermarkText(watermarkText,targetImg,position,10,color,20,1f,Font.BOLD,"宋体");
 	}
 	
 	/**
-	 * ͼƬ�������ˮӡ
-	 * 		��֧��Gif��̬ͼƬ,Ĭ���������壺���塢���壬�߾ࣺ10px��͸���ȣ�1
-	 * @param watermarkText		ˮӡ����
-	 * @param targetImg			Ŀ��ͼƬ
-	 * @param position			�Ź���λ�ò���,[1-9]
-	 * @param color		��ɫ
-	 * @param fontSize		�����С
+	 * 图片添加文字水印
+	 * 		不支持Gif动态图片,默认设置字体：宋体、粗体，边距：10px，透明度：1
+	 * @param watermarkText		水印文字
+	 * @param targetImg			目标图片
+	 * @param position			九宫格位置参数,[1-9]
+	 * @param color		颜色
+	 * @param fontSize		字体大小
 	 * @throws IOException
 	 */
 	public static void pWatermarkText(String watermarkText, String targetImg,int position,Color color, int fontSize) throws IOException{
-		pWatermarkText(watermarkText,targetImg,position,10,color,fontSize,1f,Font.BOLD,"����");
+		pWatermarkText(watermarkText,targetImg,position,10,color,fontSize,1f,Font.BOLD,"宋体");
 	}
 	
 	/**
-	 * ͼƬ�������ˮӡ
-	 * 		��֧��Gif��̬ͼƬ
-	 * @param watermarkText		ˮӡ����
-	 * @param targetImg			Ŀ��ͼƬ
-	 * @param position			�Ź���λ�ò���,[1-9]
-	 * @param color		��ɫ
-	 * @param fontSize		�����С
-	 * @param alpha		͸���ȣ�ȡֵ��Χ0-1
+	 * 图片添加文字水印
+	 * 		不支持Gif动态图片
+	 * @param watermarkText		水印文字
+	 * @param targetImg			目标图片
+	 * @param position			九宫格位置参数,[1-9]
+	 * @param color		颜色
+	 * @param fontSize		字体大小
+	 * @param alpha		透明度，取值范围0-1
 	 * @throws IOException 
 	 */
 	public static void pWatermarkText(String watermarkText, String targetImg,int position,Color color, int fontSize, float alpha) throws IOException{
-		pWatermarkText(watermarkText,targetImg,position,10,color,fontSize,alpha,Font.BOLD,"����");
+		pWatermarkText(watermarkText,targetImg,position,10,color,fontSize,alpha,Font.BOLD,"宋体");
 	}
 	
 	/** 
-	 * �⻬����ͼƬ
-	 * 		��֧�ֶ�̬GifͼƬ(GifͼƬ��ʽ�ܵ���Ȩ����)
-	 * 		��ɵ�ͼƬ�����ȽϺ� ���ٶ���
-	 * @param srcImg  		ԭͼƬ�ļ�·�� 
-	 * @param distImg  	��ɵ�ͼƬ�ļ�·�� 
-	 * @param distWidth  ���ͼƬ�Ŀ�� 
-	 * @param distHeight  ���ͼƬ�ĸ߶� 
+	 * 光滑缩放图片
+	 * 		不支持动态Gif图片(Gif图片格式受到版权保护)
+	 * 		生成的图片质量比较好 但速度慢
+	 * @param srcImg  		原图片文件路径 
+	 * @param distImg  	生成的图片文件路径 
+	 * @param distWidth  生成图片的宽度 
+	 * @param distHeight  生成图片的高度 
 	 * @throws IOException 
 	 */
 	public static void zoomImgSmooth(String srcImg, String distImg,
@@ -446,10 +446,10 @@ public class ImageHelper {
 	}
 	
 	/**
-	 * ������⻬����ͼƬ
-	 * @param srcImg  		ԭͼƬ�ļ�·�� 
-	 * @param distImg  	��ɵ�ͼƬ�ļ�·�� 
-	 * @param proportion	���ű���
+	 * 按比例光滑缩放图片
+	 * @param srcImg  		原图片文件路径 
+	 * @param distImg  	生成的图片文件路径 
+	 * @param proportion	缩放比例
 	 * @throws IOException
 	 */
 	public static void proportionalZoomImgSmooth(String srcImg, String distImg, float proportion) throws IOException{
@@ -483,12 +483,12 @@ public class ImageHelper {
 	}
 	
 	/** 
-	 * ����ͼƬ
-	 * 		��֧�ֶ�̬GifͼƬ(GifͼƬ��ʽ�ܵ���Ȩ����)
-	 * @param srcImg  		ԭͼƬ�ļ�·�� 
-	 * @param distImg  	��ɵ�ͼƬ�ļ�·�� 
-	 * @param distWidth  ���ͼƬ�Ŀ�� 
-	 * @param distHeight  ���ͼƬ�ĸ߶� 
+	 * 缩放图片
+	 * 		不支持动态Gif图片(Gif图片格式受到版权保护)
+	 * @param srcImg  		原图片文件路径 
+	 * @param distImg  	生成的图片文件路径 
+	 * @param distWidth  生成图片的宽度 
+	 * @param distHeight  生成图片的高度 
 	 * @throws IOException 
 	 */
 	public static void zoomImg(String srcImg, String distImg,
@@ -517,10 +517,10 @@ public class ImageHelper {
 
 	
 	/**
-	 * ����������ͼƬ
-	 * @param srcImg  		ԭͼƬ�ļ�·�� 
-	 * @param distImg  	��ɵ�ͼƬ�ļ�·�� 
-	 * @param proportion	���ű���
+	 * 按比例缩放图片
+	 * @param srcImg  		原图片文件路径 
+	 * @param distImg  	生成的图片文件路径 
+	 * @param proportion	缩放比例
 	 * @throws IOException
 	 */
 	public static void proportionalZoomImg(String srcImg, String distImg, float proportion) throws IOException{
@@ -555,11 +555,11 @@ public class ImageHelper {
 	}
 	
 	/**
-	 * ����pngͼƬ
-	 * @param srcImg		ԭͼƬ�ļ�
-	 * @param distImg		���ͼƬ�ļ�
-	 * @param distWidth	���ͼƬ�ļ����
-	 * @param distHeight	���ͼƬ�ļ��߶�
+	 * 缩放png图片
+	 * @param srcImg		原图片文件
+	 * @param distImg		生成图片文件
+	 * @param distWidth	生成图片文件宽度
+	 * @param distHeight	生成图片文件高度
 	 * @throws IOException
 	 */
 	public static void zoomPngImg(String srcImg, String distImg,
@@ -583,31 +583,31 @@ public class ImageHelper {
 	}
 	
 	 /**
-     * �ü�ͼƬ
+     * 裁剪图片
      *
-     * @param srcImgPath  ԭ�ļ�ȫ·��
-     * @param  targetImgPath �ü�����ļ�����ȫ·��
-     * @param  startX ��ʼ�ü���x���
-     * @param  startY ��ʼ�ü���y���
-     * @param  targetWidth �ü��Ŀ��
-     * @param  targetHeight �ü��ĸ߶�
+     * @param srcImgPath  原文件全路径
+     * @param  targetImgPath 裁剪后的文件保存全路径
+     * @param  startX 开始裁剪的x坐标
+     * @param  startY 开始裁剪的y坐标
+     * @param  targetWidth 裁剪的宽度
+     * @param  targetHeight 裁剪的高度
      * @throws Exception 
      */
 	public static void cutOutImg(String srcImgPath, String targetImgPath, int startX,
                                               int startY, int targetWidth, int targetHeight)
                                                                                             throws Exception {
     	String fileType = srcImgPath.substring(srcImgPath.lastIndexOf(".")+1);
-        // ȡ��ͼƬ������
+        // 取得图片读入器
         Iterator<ImageReader> readers = ImageIO.getImageReadersByFormatName(fileType);
         ImageReader reader = (ImageReader) readers.next();
-        // ȡ��ͼƬ������
+        // 取得图片读入流
         InputStream source = null;
         ImageInputStream iis = null;
         try {
             source = new FileInputStream(srcImgPath);
             iis = ImageIO.createImageInputStream(source);
             reader.setInput(iis, true);
-            // ����ͼƬ���� Rectangle(���϶���x���, y���, ���ο��, ���θ߶�)
+            // 设置图片参数 Rectangle(左上顶点x坐标, y坐标, 矩形宽度, 矩形高度)
             ImageReadParam param = reader.getDefaultReadParam();
             Rectangle rect = new Rectangle(startX, startY, targetWidth, targetHeight);
             param.setSourceRegion(rect);
@@ -619,25 +619,25 @@ public class ImageHelper {
                     source.close();
                 }
             } catch (Exception e) {
-                throw new Exception("ImgUtils:cutOutImg()source  �رմ���");
+                throw new Exception("ImgUtils:cutOutImg()source  关闭错误");
             }
             try {
                 if (iis != null) {
                     iis.close();
                 }
             } catch (Exception e) {
-                throw new Exception("ImgUtils:cutOutImg()iis �رմ���");
+                throw new Exception("ImgUtils:cutOutImg()iis 关闭错误");
             }
         }
     }
 
     /**
-     * �ü�ͼƬ�������Ͻ�(0,0)��ʼ
+     * 裁剪图片，从左上角(0,0)开始
      *
-     * @param srcImgPath  ԭ�ļ�ȫ·��
-     * @param  targetImgPath �ü�����ļ�����ȫ·��
-     * @param  endX �ü���Ŀ��
-     * @param  endY �ü���ĸ߶�
+     * @param srcImgPath  原文件全路径
+     * @param  targetImgPath 裁剪后的文件保存全路径
+     * @param  endX 裁剪后的宽度
+     * @param  endY 裁剪后的高度
      * @throws Exception 
      */
     public static void cutOutImg(String srcImgPath, String targetImgPath, int endX,
@@ -646,12 +646,12 @@ public class ImageHelper {
     }
 
     /**
-     * ����������ͼƬ
-     *		�Ŵ������Сʱ���հ������ð�ɫ�������
-     * @param srcImgPath  ԭ�ļ�ȫ·��
-     * @param targetImgPath ѹ������ļ�����ȫ·��
-     * @param targetWidth ѹ����Ŀ��
-     * @param targetHeight ѹ����ĸ߶�
+     * 不拉伸缩放图片
+     *		放大或者缩小时，空白区域用白色背景填充
+     * @param srcImgPath  原文件全路径
+     * @param targetImgPath 压缩后的文件保存全路径
+     * @param targetWidth 压缩后的宽度
+     * @param targetHeight 压缩后的高度
      * @throws IOException 
      */
     public static void noneExtrudeZoomImg(String srcImgPath, String targetImgPath,
@@ -663,7 +663,7 @@ public class ImageHelper {
 
         BufferedImage tag = new BufferedImage(targetWidth, targetHeight, BufferedImage.TYPE_INT_RGB);
         Graphics gra = tag.getGraphics();
-        // ���ñ���ɫ
+        // 设置背景色
         gra.setColor(Color.white);
         gra.fillRect(0, 0, targetWidth, targetHeight);
         if (width <= targetWidth && height <= targetHeight) {

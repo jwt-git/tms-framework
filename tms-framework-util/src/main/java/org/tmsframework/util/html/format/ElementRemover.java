@@ -35,7 +35,7 @@ public class ElementRemover extends DefaultFilter {
 
 	// information
 
-	// ������Ҫ֧�ֵ�������ʽ
+	// 属性需要支持的正则表达式
 	protected Map<String, Map<String, Pattern>> fAttributePattern = new Hashtable<String, Map<String, Pattern>>();
 
 	/** Accepted elements. */
@@ -59,11 +59,11 @@ public class ElementRemover extends DefaultFilter {
 	/**
 	 * 
 	 * @param element
-	 *            - Ԫ�����
+	 *            - 元素名称
 	 * @param attribute
-	 *            - �������
+	 *            - 属性名称
 	 * @param pattern
-	 *            - ������Ҫ�����������ʽ
+	 *            - 属性需要满足的正则表达式
 	 */
 	public void acceptElementAttribute(String element, String attribute,
 			String pattern) {
@@ -278,7 +278,7 @@ public class ElementRemover extends DefaultFilter {
 			Object key = element.rawname.toLowerCase();
 			Object value = fAcceptedElements.get(key);
 
-			// ���ָ���������Ƿ�����Ҫ��
+			// 检查指定的属性是否满足要求
 			Map<String, Pattern> attrPatterns = fAttributePattern.get(key);
 
 			//
@@ -289,7 +289,7 @@ public class ElementRemover extends DefaultFilter {
 					String aname = attributes.getQName(i).toLowerCase();
 					for (int j = 0; j < anames.length; j++) {
 						if (anames[j].equals(aname)) {
-							// ִ�ж����������ʽ�ļ��
+							// 执行额外的正则表达式的检查
 							if (attrPatterns != null) {
 								Pattern pattern = attrPatterns.get(aname);
 								if (pattern != null) {

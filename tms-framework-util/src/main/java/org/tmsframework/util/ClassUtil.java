@@ -10,47 +10,47 @@ import java.util.Map;
 import java.util.WeakHashMap;
 
 /**
- * �й� <code>Class</code> ����Ĺ����ࡣ
+ * 有关 <code>Class</code> 处理的工具类。
  * 
  * <p>
- * ������е�ÿ�����������ԡ���ȫ���ش��� <code>null</code> ������׳� <code>NullPointerException</code>��
+ * 这个类中的每个方法都可以“安全”地处理 <code>null</code> ，而不会抛出 <code>NullPointerException</code>。
  * </p>
  *
  */
 public class ClassUtil {
     /* ============================================================================ */
-    /* ������singleton��                                                            */
+    /* 常量和singleton。                                                            */
     /* ============================================================================ */
 
-    /** ��Դ�ļ��ķָ��� <code>'/'</code>�� */
+    /** 资源文件的分隔符： <code>'/'</code>。 */
     public static final char   RESOURCE_SEPARATOR_CHAR    = '/';
 
-    /** Java����ķָ��� <code>'.'</code>�� */
+    /** Java类名的分隔符： <code>'.'</code>。 */
     public static final char   PACKAGE_SEPARATOR_CHAR     = '.';
 
-    /** Java����ķָ��� <code>"."</code>�� */
+    /** Java类名的分隔符： <code>"."</code>。 */
     public static final String PACKAGE_SEPARATOR          = String.valueOf(PACKAGE_SEPARATOR_CHAR);
 
-    /** ������ķָ��� <code>'$'</code>�� */
+    /** 内联类的分隔符： <code>'$'</code>。 */
     public static final char   INNER_CLASS_SEPARATOR_CHAR = '$';
 
-    /** ������ķָ��� <code>"$"</code>�� */
+    /** 内联类的分隔符： <code>"$"</code>。 */
     public static final String INNER_CLASS_SEPARATOR      = String
                                                               .valueOf(INNER_CLASS_SEPARATOR_CHAR);
 
-    /** ���������Ϣ�?��������, �ӿ�, �����ά�����Ϣ�� */
+    /** 所有类的信息表，包括父类, 接口, 数组的维数等信息。 */
     private static Map         TYPE_MAP                   = Collections
                                                               .synchronizedMap(new WeakHashMap());
 
     /* ============================================================================ */
-    /* ȡ�������package��ķ�����                                                  */
+    /* 取得类名和package名的方法。                                                  */
     /* ============================================================================ */
 
     /**
-     * ȡ�ö������������ֱ������
+     * 取得对象所属的类的直观类名。
      * 
      * <p>
-     * �൱�� <code>object.getClass().getName()</code> ������ͬ���ǣ��÷����ø�ֱ�۵ķ�ʽ��ʾ�������͡� ���磺
+     * 相当于 <code>object.getClass().getName()</code> ，但不同的是，该方法用更直观的方式显示数组类型。 例如：
      * <pre>
      *  int[].class.getName() = "[I" ClassUtil.getClassName(int[].class) = "int[]"
      * 
@@ -59,16 +59,16 @@ public class ClassUtil {
      * </p>
      * 
      * <p>
-     * ���ڷ���������ͣ��÷�����Ч�� <code>Class.getName()</code> ������
+     * 对于非数组的类型，该方法等效于 <code>Class.getName()</code> 方法。
      * </p>
      * 
      * <p>
-     * ע�⣬�÷�����ص���������ֻ��������ʾ���˿����������� <code>Class.forName</code> ������
+     * 注意，该方法所返回的数组类名只能用于显示给人看，不能用于 <code>Class.forName</code> 操作。
      * </p>
      *
-     * @param object Ҫ��ʾ����Ķ���
+     * @param object 要显示类名的对象
      *
-     * @return ������ʾ��ֱ���������ԭ����Ϊ�ջ�Ƿ����򷵻� <code>null</code>
+     * @return 用于显示的直观类名，如果原类名为空或非法，则返回 <code>null</code>
      */
     public static String getClassNameForObject(Object object) {
         if (object == null) {
@@ -79,10 +79,10 @@ public class ClassUtil {
     }
 
     /**
-     * ȡ��ֱ�۵�����
+     * 取得直观的类名。
      * 
      * <p>
-     * �൱�� <code>clazz.getName()</code> ������ͬ���ǣ��÷����ø�ֱ�۵ķ�ʽ��ʾ�������͡� ���磺
+     * 相当于 <code>clazz.getName()</code> ，但不同的是，该方法用更直观的方式显示数组类型。 例如：
      * <pre>
      *  int[].class.getName() = "[I" ClassUtil.getClassName(int[].class) = "int[]"
      * 
@@ -91,16 +91,16 @@ public class ClassUtil {
      * </p>
      * 
      * <p>
-     * ���ڷ���������ͣ��÷�����Ч�� <code>Class.getName()</code> ������
+     * 对于非数组的类型，该方法等效于 <code>Class.getName()</code> 方法。
      * </p>
      * 
      * <p>
-     * ע�⣬�÷�����ص���������ֻ��������ʾ���˿����������� <code>Class.forName</code> ������
+     * 注意，该方法所返回的数组类名只能用于显示给人看，不能用于 <code>Class.forName</code> 操作。
      * </p>
      *
-     * @param clazz Ҫ��ʾ�������
+     * @param clazz 要显示类名的类
      *
-     * @return ������ʾ��ֱ���������ԭʼ��Ϊ <code>null</code> ���򷵻� <code>null</code>
+     * @return 用于显示的直观类名，如果原始类为 <code>null</code> ，则返回 <code>null</code>
      */
     public static String getClassName(Class clazz) {
         if (clazz == null) {
@@ -111,10 +111,10 @@ public class ClassUtil {
     }
 
     /**
-     * ȡ��ֱ�۵�����
+     * 取得直观的类名。
      * 
      * <p>
-     * <code>className</code> �����Ǵ� <code>clazz.getName()</code> ��صĺϷ�����÷����ø�ֱ�۵ķ�ʽ��ʾ�������͡� ���磺
+     * <code>className</code> 必须是从 <code>clazz.getName()</code> 所返回的合法类名。该方法用更直观的方式显示数组类型。 例如：
      * <pre>
      *  int[].class.getName() = "[I" ClassUtil.getClassName(int[].class) = "int[]"
      * 
@@ -123,28 +123,28 @@ public class ClassUtil {
      * </p>
      * 
      * <p>
-     * ���ڷ���������ͣ��÷�����Ч�� <code>Class.getName()</code> ������
+     * 对于非数组的类型，该方法等效于 <code>Class.getName()</code> 方法。
      * </p>
      * 
      * <p>
-     * ע�⣬�÷�����ص���������ֻ��������ʾ���˿����������� <code>Class.forName</code> ������
+     * 注意，该方法所返回的数组类名只能用于显示给人看，不能用于 <code>Class.forName</code> 操作。
      * </p>
      *
-     * @param className Ҫ��ʾ������
+     * @param className 要显示的类名
      *
-     * @return ������ʾ��ֱ���������ԭ����Ϊ <code>null</code> ���򷵻� <code>null</code> �����ԭ�����ǷǷ��ģ��򷵻�ԭ����
+     * @return 用于显示的直观类名，如果原类名为 <code>null</code> ，则返回 <code>null</code> ，如果原类名是非法的，则返回原类名
      */
     public static String getClassName(String className) {
         return getClassName(className, true);
     }
 
     /**
-     * ȡ��ֱ�۵�����
+     * 取得直观的类名。
      *
-     * @param className ����
-     * @param processInnerClass �Ƿ�������ָ��� <code>'$'</code> ת���� <code>'.'</code>
+     * @param className 类名
+     * @param processInnerClass 是否将内联类分隔符 <code>'$'</code> 转换成 <code>'.'</code>
      *
-     * @return ֱ�۵������ <code>null</code>
+     * @return 直观的类名，或 <code>null</code>
      */
     private static String getClassName(String className, boolean processInnerClass) {
         if (StringUtil.isEmpty(className)) {
@@ -158,24 +158,24 @@ public class ClassUtil {
         int length = className.length();
         int dimension = 0;
 
-        // ȡ�������ά����������飬ά��Ϊ0
+        // 取得数组的维数，如果不是数组，维数为0
         for (int i = 0; i < length; i++, dimension++) {
             if (className.charAt(i) != '[') {
                 break;
             }
         }
 
-        // ��������飬��ֱ�ӷ���
+        // 如果不是数组，则直接返回
         if (dimension == 0) {
             return className;
         }
 
-        // ȷ������Ϸ�
+        // 确保类名合法
         if (length <= dimension) {
-            return className; // �Ƿ�����
+            return className; // 非法类名
         }
 
-        // ��������
+        // 处理数组
         StringBuffer componentTypeName = new StringBuffer();
 
         switch (className.charAt(dimension)) {
@@ -214,14 +214,14 @@ public class ClassUtil {
             case 'L':
 
                 if ((className.charAt(length - 1) != ';') || (length <= (dimension + 2))) {
-                    return className; // �Ƿ�����
+                    return className; // 非法类名
                 }
 
                 componentTypeName.append(className.substring(dimension + 1, length - 1));
                 break;
 
             default:
-                return className; // �Ƿ�����
+                return className; // 非法类名
         }
 
         for (int i = 0; i < dimension; i++) {
@@ -232,22 +232,22 @@ public class ClassUtil {
     }
 
     /**
-     * ȡ��ָ��������������Ķ���������package��
+     * 取得指定对象所属的类的短类名，不包括package名。
      * 
      * <p>
-     * �˷���������ȷ��ʾ��������������ơ�
+     * 此方法可以正确显示数组和内联类的名称。
      * </p>
      * 
      * <p>
-     * ���磺
+     * 例如：
      * <pre>
      *  ClassUtil.getShortClassNameForObject(Boolean.TRUE) = "Boolean" ClassUtil.getShortClassNameForObject(new Boolean[10]) = "Boolean[]" ClassUtil.getShortClassNameForObject(new int[1][2]) = "int[][]"
      *  </pre>
      * </p>
      *
-     * @param object Ҫ�鿴�Ķ���
+     * @param object 要查看的对象
      *
-     * @return ������������Ϊ <code>null</code> ���򷵻� <code>null</code>
+     * @return 短类名，如果对象为 <code>null</code> ，则返回 <code>null</code>
      */
     public static String getShortClassNameForObject(Object object) {
         if (object == null) {
@@ -258,22 +258,22 @@ public class ClassUtil {
     }
 
     /**
-     * ȡ�ö���������package��
+     * 取得短类名，不包括package名。
      * 
      * <p>
-     * �˷���������ȷ��ʾ��������������ơ�
+     * 此方法可以正确显示数组和内联类的名称。
      * </p>
      * 
      * <p>
-     * ���磺
+     * 例如：
      * <pre>
      *  ClassUtil.getShortClassName(Boolean.class) = "Boolean" ClassUtil.getShortClassName(Boolean[].class) = "Boolean[]" ClassUtil.getShortClassName(int[][].class) = "int[][]" ClassUtil.getShortClassName(Map.Entry.class) = "Map.Entry"
      *  </pre>
      * </p>
      *
-     * @param clazz Ҫ�鿴����
+     * @param clazz 要查看的类
      *
-     * @return �����������Ϊ <code>null</code> ���򷵻� <code>null</code>
+     * @return 短类名，如果类为 <code>null</code> ，则返回 <code>null</code>
      */
     public static String getShortClassName(Class clazz) {
         if (clazz == null) {
@@ -284,29 +284,29 @@ public class ClassUtil {
     }
 
     /**
-     * ȡ����������package��
+     * 取得类名，不包括package名。
      * 
      * <p>
-     * �˷���������ȷ��ʾ��������������ơ�
+     * 此方法可以正确显示数组和内联类的名称。
      * </p>
      * 
      * <p>
-     * ���磺
+     * 例如：
      * <pre>
      *  ClassUtil.getShortClassName(Boolean.class.getName()) = "Boolean" ClassUtil.getShortClassName(Boolean[].class.getName()) = "Boolean[]" ClassUtil.getShortClassName(int[][].class.getName()) = "int[][]" ClassUtil.getShortClassName(Map.Entry.class.getName()) = "Map.Entry"
      *  </pre>
      * </p>
      *
-     * @param className Ҫ�鿴������
+     * @param className 要查看的类名
      *
-     * @return �������������Ϊ�գ��򷵻� <code>null</code>
+     * @return 短类名，如果类名为空，则返回 <code>null</code>
      */
     public static String getShortClassName(String className) {
         if (StringUtil.isEmpty(className)) {
             return className;
         }
 
-        // ת����ֱ�۵�����
+        // 转换成直观的类名
         className = getClassName(className, false);
 
         char[] chars = className.toCharArray();
@@ -324,15 +324,15 @@ public class ClassUtil {
     }
 
     /**
-     * ȡ��ָ���������������package��
+     * 取得指定对象所属的类的package名。
      * 
      * <p>
-     * �������飬�˷������ص�������Ԫ�����͵�package��
+     * 对于数组，此方法返回的是数组元素类型的package名。
      * </p>
      *
-     * @param object Ҫ�鿴�Ķ���
+     * @param object 要查看的对象
      *
-     * @return package��������Ϊ <code>null</code> ���򷵻� <code>null</code>
+     * @return package名，如果对象为 <code>null</code> ，则返回 <code>null</code>
      */
     public static String getPackageNameForObject(Object object) {
         if (object == null) {
@@ -343,15 +343,15 @@ public class ClassUtil {
     }
 
     /**
-     * ȡ��ָ�����package��
+     * 取得指定类的package名。
      * 
      * <p>
-     * �������飬�˷������ص�������Ԫ�����͵�package��
+     * 对于数组，此方法返回的是数组元素类型的package名。
      * </p>
      *
-     * @param clazz Ҫ�鿴����
+     * @param clazz 要查看的类
      *
-     * @return package�������Ϊ <code>null</code> ���򷵻� <code>null</code>
+     * @return package名，如果类为 <code>null</code> ，则返回 <code>null</code>
      */
     public static String getPackageName(Class clazz) {
         if (clazz == null) {
@@ -362,22 +362,22 @@ public class ClassUtil {
     }
 
     /**
-     * ȡ��ָ�������package��
+     * 取得指定类名的package名。
      * 
      * <p>
-     * �������飬�˷������ص�������Ԫ�����͵�package��
+     * 对于数组，此方法返回的是数组元素类型的package名。
      * </p>
      *
-     * @param className Ҫ�鿴������
+     * @param className 要查看的类名
      *
-     * @return package���������Ϊ�գ��򷵻� <code>null</code>
+     * @return package名，如果类名为空，则返回 <code>null</code>
      */
     public static String getPackageName(String className) {
         if (StringUtil.isEmpty(className)) {
             return null;
         }
 
-        // ת����ֱ�۵�����
+        // 转换成直观的类名
         className = getClassName(className, false);
 
         int i = className.lastIndexOf(PACKAGE_SEPARATOR_CHAR);
@@ -390,27 +390,27 @@ public class ClassUtil {
     }
 
     /* ============================================================================ */
-    /* ȡ�������package���resource��ķ�����                                      */
+    /* 取得类名和package名的resource名的方法。                                      */
     /*                                                                              */
-    /* ������package��ͬ���ǣ�resource�����ļ�������淶�����磺              */
+    /* 和类名、package名不同的是，resource名符合文件名命名规范，例如：              */
     /*  java/lang/String.class                                                      */
     /*  com/alibaba/commons/lang                                                    */
     /*  etc.                                                                        */
     /* ============================================================================ */
 
     /**
-     * ȡ�ö��������������Դ��
+     * 取得对象所属的类的资源名。
      * 
      * <p>
-     * ���磺
+     * 例如：
      * <pre>
      * ClassUtil.getClassNameForObjectAsResource("This is a string")    = "java/lang/String.class"
      * </pre>
      * </p>
      *
-     * @param object Ҫ��ʾ����Ķ���
+     * @param object 要显示类名的对象
      *
-     * @return ָ���������������Դ��������Ϊ�գ��򷵻�<code>null</code>
+     * @return 指定对象所属类的资源名，如果对象为空，则返回<code>null</code>
      */
     public static String getClassNameForObjectAsResource(Object object) {
         if (object == null) {
@@ -422,18 +422,18 @@ public class ClassUtil {
     }
 
     /**
-     * ȡ��ָ�������Դ��
+     * 取得指定类的资源名。
      * 
      * <p>
-     * ���磺
+     * 例如：
      * <pre>
      * ClassUtil.getClassNameAsResource(String.class)   = "java/lang/String.class"
      * </pre>
      * </p>
      *
-     * @param clazz Ҫ��ʾ�������
+     * @param clazz 要显示类名的类
      *
-     * @return ָ�������Դ�����ָ����Ϊ�գ��򷵻�<code>null</code>
+     * @return 指定类的资源名，如果指定类为空，则返回<code>null</code>
      */
     public static String getClassNameAsResource(Class clazz) {
         if (clazz == null) {
@@ -444,18 +444,18 @@ public class ClassUtil {
     }
 
     /**
-     * ȡ��ָ�������Դ��
+     * 取得指定类的资源名。
      * 
      * <p>
-     * ���磺
+     * 例如：
      * <pre>
      * ClassUtil.getClassNameAsResource("java.lang.String") = "java/lang/String.class"
      * </pre>
      * </p>
      *
-     * @param className Ҫ��ʾ������
+     * @param className 要显示的类名
      *
-     * @return ָ�������Ӧ����Դ�����ָ������Ϊ�գ��򷵻�<code>null</code>
+     * @return 指定类名对应的资源名，如果指定类名为空，则返回<code>null</code>
      */
     public static String getClassNameAsResource(String className) {
         if (className == null) {
@@ -466,15 +466,15 @@ public class ClassUtil {
     }
 
     /**
-     * ȡ��ָ���������������package�����Դ��
+     * 取得指定对象所属的类的package名的资源名。
      * 
      * <p>
-     * �������飬�˷������ص�������Ԫ�����͵�package��
+     * 对于数组，此方法返回的是数组元素类型的package名。
      * </p>
      *
-     * @param object Ҫ�鿴�Ķ���
+     * @param object 要查看的对象
      *
-     * @return package��������Ϊ <code>null</code> ���򷵻� <code>null</code>
+     * @return package名，如果对象为 <code>null</code> ，则返回 <code>null</code>
      */
     public static String getPackageNameForObjectAsResource(Object object) {
         if (object == null) {
@@ -486,15 +486,15 @@ public class ClassUtil {
     }
 
     /**
-     * ȡ��ָ�����package�����Դ��
+     * 取得指定类的package名的资源名。
      * 
      * <p>
-     * �������飬�˷������ص�������Ԫ�����͵�package��
+     * 对于数组，此方法返回的是数组元素类型的package名。
      * </p>
      *
-     * @param clazz Ҫ�鿴����
+     * @param clazz 要查看的类
      *
-     * @return package�������Ϊ <code>null</code> ���򷵻� <code>null</code>
+     * @return package名，如果类为 <code>null</code> ，则返回 <code>null</code>
      */
     public static String getPackageNameAsResource(Class clazz) {
         if (clazz == null) {
@@ -505,15 +505,15 @@ public class ClassUtil {
     }
 
     /**
-     * ȡ��ָ�������package�����Դ��
+     * 取得指定类名的package名的资源名。
      * 
      * <p>
-     * �������飬�˷������ص�������Ԫ�����͵�package��
+     * 对于数组，此方法返回的是数组元素类型的package名。
      * </p>
      *
-     * @param className Ҫ�鿴������
+     * @param className 要查看的类名
      *
-     * @return package���������Ϊ�գ��򷵻� <code>null</code>
+     * @return package名，如果类名为空，则返回 <code>null</code>
      */
     public static String getPackageNameAsResource(String className) {
         if (className == null) {
@@ -524,16 +524,16 @@ public class ClassUtil {
     }
 
     /* ============================================================================ */
-    /* ȡ�������Ϣ���縸��, �ӿ�, �����ά��ȡ�                                   */
+    /* 取得类的信息，如父类, 接口, 数组的维数等。                                   */
     /* ============================================================================ */
 
     /**
-     * ȡ��ָ��ά��� <code>Array</code>��.
+     * 取得指定维数的 <code>Array</code>类.
      *
-     * @param componentType ����Ļ���
-     * @param dimension ά�����С�� <code>0</code> ���� <code>0</code>
+     * @param componentType 数组的基类
+     * @param dimension 维数，如果小于 <code>0</code> 则看作 <code>0</code>
      *
-     * @return ���ά��Ϊ0, �򷵻ػ��౾��, ���򷵻������࣬�������Ļ���Ϊ <code>null</code> ���򷵻� <code>null</code>
+     * @return 如果维数为0, 则返回基类本身, 否则返回数组类，如果数组的基类为 <code>null</code> ，则返回 <code>null</code>
      */
     public static Class getArrayClass(Class componentType, int dimension) {
         if (dimension <= 0) {
@@ -548,11 +548,11 @@ public class ClassUtil {
     }
 
     /**
-     * ȡ������Ԫ�ص����͡�
+     * 取得数组元素的类型。
      *
-     * @param type Ҫ���ҵ���
+     * @param type 要查找的类
      *
-     * @return ���������, �򷵻�����Ԫ�ص�����, ���򷵻� <code>null</code>
+     * @return 如果是数组, 则返回数组元素的类型, 否则返回 <code>null</code>
      */
     public static Class getArrayComponentType(Class type) {
         if (type == null) {
@@ -563,11 +563,11 @@ public class ClassUtil {
     }
 
     /**
-     * ȡ�������ά��
+     * 取得数组的维数。
      *
-     * @param clazz Ҫ���ҵ���
+     * @param clazz 要查找的类
      *
-     * @return �����ά��. ���������, �򷵻� <code>0</code> ���������Ϊ <code>null</code> ���Ƿ��� <code>-1</code>
+     * @return 数组的维数. 如果不是数组, 则返回 <code>0</code> ，如果数组为 <code>null</code> ，是返回 <code>-1</code>
      */
     public static int getArrayDimension(Class clazz) {
         if (clazz == null) {
@@ -578,14 +578,14 @@ public class ClassUtil {
     }
 
     /**
-     * ȡ��ָ��������и��ࡣ
+     * 取得指定类的所有父类。
      * 
      * <p>
-     * ����һ�� <code>Class</code> ʵ��������ǽӿڣ�Ҳ�������飬�˷��������г��Ӹ���ĸ��࿪ʼֱ�� <code>Object</code> �������ࡣ
+     * 对于一个 <code>Class</code> 实例，如果它不是接口，也不是数组，此方法依次列出从该类的父类开始直到 <code>Object</code> 的所有类。
      * </p>
      * 
      * <p>
-     * ���� <code>ClassUtil.getSuperclasses(java.util.ArrayList.class)</code> ���������б?
+     * 例如 <code>ClassUtil.getSuperclasses(java.util.ArrayList.class)</code> 返回以下列表：
      * 
      * <ol>
      * <li>
@@ -601,16 +601,16 @@ public class ClassUtil {
      * </p>
      * 
      * <p>
-     * ����һ���ӿڣ��˷�������һ�����б?
+     * 对于一个接口，此方法返回一个空列表。
      * </p>
      * 
      * <p>
-     * ����<code>ClassUtil.getSuperclasses(java.util.List.class)</code>������һ�����б?
+     * 例如<code>ClassUtil.getSuperclasses(java.util.List.class)</code>将返回一个空列表。
      * </p>
      * 
      * <p>
-     * ����һ�����飬�˷�������һ���б?�г�����component���͵ĸ������ͬά����������͡� ���磺
-     * <code>ClassUtil.getSuperclasses(java.util.ArrayList[][].class)</code> ���������б?
+     * 对于一个数组，此方法返回一个列表，列出所有component类型的父类的相同维数的数组类型。 例如：
+     * <code>ClassUtil.getSuperclasses(java.util.ArrayList[][].class)</code> 返回以下列表：
      * 
      * <ol>
      * <li>
@@ -630,8 +630,8 @@ public class ClassUtil {
      * </li>
      * </ol>
      * 
-     * ע�⣬ԭ�����ͼ������飬����ת������Ӧ�İ�װ�������? ���磺 <code>ClassUtil.getSuperclasses(int[][].class)</code>
-     * ���������б?
+     * 注意，原子类型及其数组，将被转换成相应的包装类来处理。 例如： <code>ClassUtil.getSuperclasses(int[][].class)</code>
+     * 返回以下列表：
      * 
      * <ol>
      * <li>
@@ -649,9 +649,9 @@ public class ClassUtil {
      * </ol>
      * </p>
      *
-     * @param clazz Ҫ���ҵ���
+     * @param clazz 要查找的类
      *
-     * @return ���и�����б?���ָ����Ϊ <code>null</code> ���򷵻� <code>null</code>
+     * @return 所有父类的列表，如果指定类为 <code>null</code> ，则返回 <code>null</code>
      */
     public static List getSuperclasses(Class clazz) {
         if (clazz == null) {
@@ -662,14 +662,14 @@ public class ClassUtil {
     }
 
     /**
-     * ȡ��ָ��������нӿڡ�
+     * 取得指定类的所有接口。
      * 
      * <p>
-     * ����һ�� <code>Class</code> ʵ��������ǽӿڣ�Ҳ�������飬�˷��������г��Ӹ���ĸ��࿪ʼֱ�� <code>Object</code> �������ࡣ
+     * 对于一个 <code>Class</code> 实例，如果它不是接口，也不是数组，此方法依次列出从该类的父类开始直到 <code>Object</code> 的所有类。
      * </p>
      * 
      * <p>
-     * ���� <code>ClassUtil.getInterfaces(java.util.ArrayList.class)</code> ���������б?
+     * 例如 <code>ClassUtil.getInterfaces(java.util.ArrayList.class)</code> 返回以下列表：
      * 
      * <ol>
      * <li>
@@ -691,8 +691,8 @@ public class ClassUtil {
      * </p>
      * 
      * <p>
-     * ����һ�����飬�˷�������һ���б?�г�����component���͵Ľӿڵ���ͬά����������͡� ���磺
-     * <code>ClassUtil.getInterfaces(java.util.ArrayList[][].class)</code> ���������б?
+     * 对于一个数组，此方法返回一个列表，列出所有component类型的接口的相同维数的数组类型。 例如：
+     * <code>ClassUtil.getInterfaces(java.util.ArrayList[][].class)</code> 返回以下列表：
      * 
      * <ol>
      * <li>
@@ -714,7 +714,7 @@ public class ClassUtil {
      * </p>
      * 
      * <p>
-     * ע�⣬ԭ�����ͼ������飬����ת������Ӧ�İ�װ�������? ���磺 <code>ClassUtil.getInterfaces(int[][].class)</code> ���������б?
+     * 注意，原子类型及其数组，将被转换成相应的包装类来处理。 例如： <code>ClassUtil.getInterfaces(int[][].class)</code> 返回以下列表：
      * 
      * <ol>
      * <li>
@@ -726,9 +726,9 @@ public class ClassUtil {
      * </ol>
      * </p>
      *
-     * @param clazz Ҫ���ҵ���
+     * @param clazz 要查找的类
      *
-     * @return ���нӿڵ��б?���ָ����Ϊ <code>null</code> ���򷵻� <code>null</code>
+     * @return 所有接口的列表，如果指定类为 <code>null</code> ，则返回 <code>null</code>
      */
     public static List getInterfaces(Class clazz) {
         if (clazz == null) {
@@ -739,11 +739,11 @@ public class ClassUtil {
     }
 
     /**
-     * �ж�ָ�����Ƿ�Ϊ�����ࡣ
+     * 判断指定类是否为内联类。
      *
-     * @param clazz Ҫ���ҵ���
+     * @param clazz 要查找的类
      *
-     * @return ����ǣ��򷵻� <code>true</code>
+     * @return 如果是，则返回 <code>true</code>
      */
     public static boolean isInnerClass(Class clazz) {
         if (clazz == null) {
@@ -754,49 +754,49 @@ public class ClassUtil {
     }
 
     /**
-     * ���һ��ָ������ <code>fromClasses</code> �Ķ����Ƿ���Ը�ֵ����һ������ <code>classes</code>��
+     * 检查一组指定类型 <code>fromClasses</code> 的对象是否可以赋值给另一组类型 <code>classes</code>。
      * 
      * <p>
-     * �˷�����������ȷ��ָ�����͵Ĳ��� <code>object1, object2, ...</code> �Ƿ������������ȷ����������Ϊ <code>class1, class2,
-     * ...</code> �ķ�����
+     * 此方法可以用来确定指定类型的参数 <code>object1, object2, ...</code> 是否可以用来调用确定参数类型为 <code>class1, class2,
+     * ...</code> 的方法。
      * </p>
      * 
      * <p>
-     * ���� <code>fromClasses</code> ��ÿ��Ԫ�� <code>fromClass</code> �� <code>classes</code> ��ÿ��Ԫ��
-     * <code>clazz</code>�� �������¹���
+     * 对于 <code>fromClasses</code> 的每个元素 <code>fromClass</code> 和 <code>classes</code> 的每个元素
+     * <code>clazz</code>， 按照如下规则：
      * 
      * <ol>
      * <li>
-     * ���Ŀ���� <code>clazz</code> Ϊ <code>null</code> �����Ƿ��� <code>false</code>��
+     * 如果目标类 <code>clazz</code> 为 <code>null</code> ，总是返回 <code>false</code>。
      * </li>
      * <li>
-     * ���������� <code>fromClass</code> Ϊ <code>null</code> ������Ŀ������ <code>clazz</code> Ϊ��ԭ�����ͣ��򷵻�
-     * <code>true</code>�� ��Ϊ <code>null</code> ���Ա������κ��������͡�
+     * 如果参数类型 <code>fromClass</code> 为 <code>null</code> ，并且目标类型 <code>clazz</code> 为非原子类型，则返回
+     * <code>true</code>。 因为 <code>null</code> 可以被赋给任何引用类型。
      * </li>
      * <li>
-     * ���� <code>Class.isAssignableFrom</code> ������ȷ��Ŀ���� <code>clazz</code> �Ƿ�Ͳ�����
-     * <code>fromClass</code> ��ͬ�����丸�ࡢ�ӿڣ�����ǣ��򷵻� <code>true</code>��
+     * 调用 <code>Class.isAssignableFrom</code> 方法来确定目标类 <code>clazz</code> 是否和参数类
+     * <code>fromClass</code> 相同或是其父类、接口，如果是，则返回 <code>true</code>。
      * </li>
      * <li>
-     * ���Ŀ������ <code>clazz</code> Ϊԭ�����ͣ���ô��� <a href="http://java.sun.com/docs/books/jls/">The Java
-     * Language Specification</a> ��sections 5.1.1, 5.1.2, 5.1.4�����Widening Primitive
-     * Conversion���򣬲������� <code>fromClass</code> �������κ�����չ�ɸ�Ŀ�����͵�ԭ�����ͼ����װ�ࡣ ���磬 <code>clazz</code> Ϊ
-     * <code>long</code> ����ô�������Ϳ����� <code>byte</code>��
-     * <code>short</code>��<code>int</code>��<code>long</code>��<code>char</code> �����װ��
-     * <code>java.lang.Byte</code>��<code>java.lang.Short</code>��<code>java.lang.Integer</code>��
-     * <code>java.lang.Long</code> �� <code>java.lang.Character</code> �������������������򷵻�
-     * <code>true</code>��
+     * 如果目标类型 <code>clazz</code> 为原子类型，那么根据 <a href="http://java.sun.com/docs/books/jls/">The Java
+     * Language Specification</a> ，sections 5.1.1, 5.1.2, 5.1.4定义的Widening Primitive
+     * Conversion规则，参数类型 <code>fromClass</code> 可以是任何能扩展成该目标类型的原子类型及其包装类。 例如， <code>clazz</code> 为
+     * <code>long</code> ，那么参数类型可以是 <code>byte</code>、
+     * <code>short</code>、<code>int</code>、<code>long</code>、<code>char</code> 及其包装类
+     * <code>java.lang.Byte</code>、<code>java.lang.Short</code>、<code>java.lang.Integer</code>、
+     * <code>java.lang.Long</code> 和 <code>java.lang.Character</code> 。如果满足这个条件，则返回
+     * <code>true</code>。
      * </li>
      * <li>
-     * ���������������������򷵻� <code>false</code>��
+     * 不满足上述所有条件，则返回 <code>false</code>。
      * </li>
      * </ol>
      * </p>
      *
-     * @param classes Ŀ�������б?����� <code>null</code> ���Ƿ��� <code>false</code>
-     * @param fromClasses ���������б? <code>null</code> ��ʾ�ɸ�ֵ�������ԭ������
+     * @param classes 目标类型列表，如果是 <code>null</code> 总是返回 <code>false</code>
+     * @param fromClasses 参数类型列表， <code>null</code> 表示可赋值给任意非原子类型
      *
-     * @return �����Ա���ֵ���򷵻� <code>true</code>
+     * @return 如果可以被赋值，则返回 <code>true</code>
      */
     public static boolean isAssignable(Class[] classes, Class[] fromClasses) {
         if (!ArrayUtil.isSameLength(fromClasses, classes)) {
@@ -821,89 +821,89 @@ public class ClassUtil {
     }
 
     /**
-     * ���ָ������ <code>fromClass</code> �Ķ����Ƿ���Ը�ֵ����һ������ <code>clazz</code>��
+     * 检查指定类型 <code>fromClass</code> 的对象是否可以赋值给另一种类型 <code>clazz</code>。
      * 
      * <p>
-     * �˷�����������ȷ��ָ�����͵Ĳ��� <code>object1, object2, ...</code> �Ƿ������������ȷ���������� <code>class1, class2,
-     * ...</code> �ķ�����
+     * 此方法可以用来确定指定类型的参数 <code>object1, object2, ...</code> 是否可以用来调用确定参数类型 <code>class1, class2,
+     * ...</code> 的方法。
      * </p>
      * 
      * <p>
-     * �������¹���
+     * 按照如下规则：
      * 
      * <ol>
      * <li>
-     * ���Ŀ���� <code>clazz</code> Ϊ <code>null</code> �����Ƿ��� <code>false</code>��
+     * 如果目标类 <code>clazz</code> 为 <code>null</code> ，总是返回 <code>false</code>。
      * </li>
      * <li>
-     * ���������� <code>fromClass</code> Ϊ <code>null</code> ������Ŀ������ <code>clazz</code> Ϊ��ԭ�����ͣ��򷵻�
-     * <code>true</code>�� ��Ϊ <code>null</code> ���Ա������κ��������͡�
+     * 如果参数类型 <code>fromClass</code> 为 <code>null</code> ，并且目标类型 <code>clazz</code> 为非原子类型，则返回
+     * <code>true</code>。 因为 <code>null</code> 可以被赋给任何引用类型。
      * </li>
      * <li>
-     * ���� <code>Class.isAssignableFrom</code> ������ȷ��Ŀ���� <code>clazz</code> �Ƿ�Ͳ�����
-     * <code>fromClass</code> ��ͬ�����丸�ࡢ�ӿڣ�����ǣ��򷵻� <code>true</code>��
+     * 调用 <code>Class.isAssignableFrom</code> 方法来确定目标类 <code>clazz</code> 是否和参数类
+     * <code>fromClass</code> 相同或是其父类、接口，如果是，则返回 <code>true</code>。
      * </li>
      * <li>
-     * ���Ŀ������ <code>clazz</code> Ϊԭ�����ͣ���ô��� <a href="http://java.sun.com/docs/books/jls/">The Java
-     * Language Specification</a> ��sections 5.1.1, 5.1.2, 5.1.4�����Widening Primitive
-     * Conversion���򣬲������� <code>fromClass</code> �������κ�����չ�ɸ�Ŀ�����͵�ԭ�����ͼ����װ�ࡣ ���磬 <code>clazz</code> Ϊ
-     * <code>long</code> ����ô�������Ϳ����� <code>byte</code>��
-     * <code>short</code>��<code>int</code>��<code>long</code>��<code>char</code> �����װ��
-     * <code>java.lang.Byte</code>��<code>java.lang.Short</code>��<code>java.lang.Integer</code>��
-     * <code>java.lang.Long</code> �� <code>java.lang.Character</code> �������������������򷵻�
-     * <code>true</code>��
+     * 如果目标类型 <code>clazz</code> 为原子类型，那么根据 <a href="http://java.sun.com/docs/books/jls/">The Java
+     * Language Specification</a> ，sections 5.1.1, 5.1.2, 5.1.4定义的Widening Primitive
+     * Conversion规则，参数类型 <code>fromClass</code> 可以是任何能扩展成该目标类型的原子类型及其包装类。 例如， <code>clazz</code> 为
+     * <code>long</code> ，那么参数类型可以是 <code>byte</code>、
+     * <code>short</code>、<code>int</code>、<code>long</code>、<code>char</code> 及其包装类
+     * <code>java.lang.Byte</code>、<code>java.lang.Short</code>、<code>java.lang.Integer</code>、
+     * <code>java.lang.Long</code> 和 <code>java.lang.Character</code> 。如果满足这个条件，则返回
+     * <code>true</code>。
      * </li>
      * <li>
-     * ���������������������򷵻� <code>false</code>��
+     * 不满足上述所有条件，则返回 <code>false</code>。
      * </li>
      * </ol>
      * </p>
      *
-     * @param clazz Ŀ�����ͣ������ <code>null</code> ���Ƿ��� <code>false</code>
-     * @param fromClass �������ͣ� <code>null</code> ��ʾ�ɸ�ֵ�������ԭ������
+     * @param clazz 目标类型，如果是 <code>null</code> 总是返回 <code>false</code>
+     * @param fromClass 参数类型， <code>null</code> 表示可赋值给任意非原子类型
      *
-     * @return �����Ա���ֵ���򷵻� <code>null</code>
+     * @return 如果可以被赋值，则返回 <code>null</code>
      */
     public static boolean isAssignable(Class clazz, Class fromClass) {
         if (clazz == null) {
             return false;
         }
 
-        // ���fromClass��null��ֻҪclazz����ԭ��������int����һ�����Ը�ֵ
+        // 如果fromClass是null，只要clazz不是原子类型如int，就一定可以赋值
         if (fromClass == null) {
             return !clazz.isPrimitive();
         }
 
-        // �������ͬ���и��ӹ�ϵ����Ȼ���Ը�ֵ
+        // 如果类相同或有父子关系，当然可以赋值
         if (clazz.isAssignableFrom(fromClass)) {
             return true;
         }
 
-        // ����ԭ�����ͣ����JLS�Ĺ��������չ
-        // Ŀ��classΪԭ������ʱ��fromClass����Ϊԭ�����ͺ�ԭ�����͵İ�װ���͡�
+        // 对于原子类型，根据JLS的规则进行扩展
+        // 目标class为原子类型时，fromClass可以为原子类型和原子类型的包装类型。
         if (clazz.isPrimitive()) {
-            // boolean���Խ��ܣ�boolean
+            // boolean可以接受：boolean
             if (Boolean.TYPE.equals(clazz)) {
                 return Boolean.class.equals(fromClass);
             }
 
-            // byte���Խ��ܣ�byte
+            // byte可以接受：byte
             if (Byte.TYPE.equals(clazz)) {
                 return Byte.class.equals(fromClass);
             }
 
-            // char���Խ��ܣ�char
+            // char可以接受：char
             if (Character.TYPE.equals(clazz)) {
                 return Character.class.equals(fromClass);
             }
 
-            // short���Խ��ܣ�short, byte
+            // short可以接受：short, byte
             if (Short.TYPE.equals(clazz)) {
                 return Short.class.equals(fromClass) || Byte.TYPE.equals(fromClass)
                        || Byte.class.equals(fromClass);
             }
 
-            // int���Խ��ܣ�int��byte��short��char
+            // int可以接受：int、byte、short、char
             if (Integer.TYPE.equals(clazz)) {
                 return Integer.class.equals(fromClass) || Byte.TYPE.equals(fromClass)
                        || Byte.class.equals(fromClass) || Short.TYPE.equals(fromClass)
@@ -911,7 +911,7 @@ public class ClassUtil {
                        || Character.class.equals((fromClass));
             }
 
-            // long���Խ��ܣ�long��int��byte��short��char
+            // long可以接受：long、int、byte、short、char
             if (Long.TYPE.equals(clazz)) {
                 return Long.class.equals(fromClass) || Integer.TYPE.equals(fromClass)
                        || Integer.class.equals(fromClass) || Byte.TYPE.equals(fromClass)
@@ -920,7 +920,7 @@ public class ClassUtil {
                        || Character.class.equals((fromClass));
             }
 
-            // float���Խ��ܣ�float, long, int, byte, short, char
+            // float可以接受：float, long, int, byte, short, char
             if (Float.TYPE.equals(clazz)) {
                 return Float.class.equals(fromClass) || Long.TYPE.equals(fromClass)
                        || Long.class.equals(fromClass) || Integer.TYPE.equals(fromClass)
@@ -930,7 +930,7 @@ public class ClassUtil {
                        || Character.class.equals((fromClass));
             }
 
-            // double���Խ��ܣ�double, float, long, int, byte, short, char
+            // double可以接受：double, float, long, int, byte, short, char
             if (Double.TYPE.equals(clazz)) {
                 return Double.class.equals(fromClass) || Float.TYPE.equals(fromClass)
                        || Float.class.equals(fromClass) || Long.TYPE.equals(fromClass)
@@ -946,11 +946,11 @@ public class ClassUtil {
     }
 
     /**
-     * ȡ��ָ����� <code>TypeInfo</code>��
+     * 取得指定类的 <code>TypeInfo</code>。
      *
-     * @param type ָ�����ӿ�
+     * @param type 指定类或接口
      *
-     * @return <code>TypeInfo</code> ����.
+     * @return <code>TypeInfo</code> 对象.
      */
     protected static TypeInfo getTypeInfo(Class type) {
         if (type == null) {
@@ -970,7 +970,7 @@ public class ClassUtil {
     }
 
     /**
-     * ���һ�������Ϣ, ��������, �ӿ�, �����ά���.
+     * 代表一个类的信息, 包括父类, 接口, 数组的维数等.
      */
     protected static class TypeInfo {
         private Class type;
@@ -980,14 +980,14 @@ public class ClassUtil {
         private List  interfaces   = new ArrayList(2);
 
         /**
-         * ���� <code>TypeInfo</code>��
+         * 创建 <code>TypeInfo</code>。
          *
-         * @param type ����ָ����� <code>TypeInfo</code>
+         * @param type 创建指定类的 <code>TypeInfo</code>
          */
         private TypeInfo(Class type) {
             this.type = type;
 
-            // �����array, ����componentType��dimension
+            // 如果是array, 设置componentType和dimension
             Class componentType = null;
 
             if (type.isArray()) {
@@ -1001,14 +1001,14 @@ public class ClassUtil {
 
             this.componentType = componentType;
 
-            // ȡ������superclass
+            // 取得所有superclass
             if (dimension > 0) {
-                // ��primitive����ת���ɶ�Ӧ�İ�װ��
+                // 将primitive类型转换成对应的包装类
                 componentType = getNonPrimitiveType(componentType);
 
                 Class superComponentType = componentType.getSuperclass();
 
-                // �����primitive, interface, �����������ΪObject.
+                // 如果是primitive, interface, 则设置其基类为Object.
                 if ((superComponentType == null) && !Object.class.equals(componentType)) {
                     superComponentType = Object.class;
                 }
@@ -1024,7 +1024,7 @@ public class ClassUtil {
                     }
                 }
             } else {
-                // ��primitive����ת���ɶ�Ӧ�İ�װ��
+                // 将primitive类型转换成对应的包装类
                 type = getNonPrimitiveType(type);
 
                 Class superclass = type.getSuperclass();
@@ -1035,7 +1035,7 @@ public class ClassUtil {
                 }
             }
 
-            // ȡ������interface
+            // 取得所有interface
             if (dimension == 0) {
                 Class[] typeInterfaces = type.getInterfaces();
                 List set = new ArrayList();
@@ -1070,11 +1070,11 @@ public class ClassUtil {
         }
 
         /**
-         * �����е�ԭ������ת���ɶ�Ӧ�İ�װ�࣬�������Ͳ��䡣
+         * 将所有的原子类型转换成对应的包装类，其它类型不变。
          *
-         * @param type Ҫת��������
+         * @param type 要转换的类型
          *
-         * @return ��ԭ������
+         * @return 非原子类型
          */
         private Class getNonPrimitiveType(Class type) {
             if (type.isPrimitive()) {
@@ -1101,45 +1101,45 @@ public class ClassUtil {
         }
 
         /**
-         * ȡ�� <code>TypeInfo</code> �����java�ࡣ
+         * 取得 <code>TypeInfo</code> 所代表的java类。
          *
-         * @return <code>TypeInfo</code> �����java��
+         * @return <code>TypeInfo</code> 所代表的java类
          */
         public Class getType() {
             return type;
         }
 
         /**
-         * ȡ������Ԫ�ص����͡�
+         * 取得数组元素的类型。
          *
-         * @return ���������, �򷵻�����Ԫ�ص�����, ���򷵻� <code>null</code>
+         * @return 如果是数组, 则返回数组元素的类型, 否则返回 <code>null</code>
          */
         public Class getArrayComponentType() {
             return componentType;
         }
 
         /**
-         * ȡ�������ά��
+         * 取得数组的维数。
          *
-         * @return �����ά��. ���������, �򷵻� <code>0</code>
+         * @return 数组的维数. 如果不是数组, 则返回 <code>0</code>
          */
         public int getArrayDimension() {
             return dimension;
         }
 
         /**
-         * ȡ�����еĸ��ࡣ
+         * 取得所有的父类。
          *
-         * @return ���еĸ���
+         * @return 所有的父类
          */
         public List getSuperclasses() {
             return Collections.unmodifiableList(superclasses);
         }
 
         /**
-         * ȡ�����еĽӿڡ�
+         * 取得所有的接口。
          *
-         * @return ���еĽӿ�
+         * @return 所有的接口
          */
         public List getInterfaces() {
             return Collections.unmodifiableList(interfaces);
@@ -1147,15 +1147,15 @@ public class ClassUtil {
     }
 
     /* ============================================================================ */
-    /* �й�primitive���͵ķ�����                                                    */
+    /* 有关primitive类型的方法。                                                    */
     /* ============================================================================ */
 
     /**
-     * ����ָ���������Ӧ��primitive���͡�
+     * 返回指定类型所对应的primitive类型。
      *
-     * @param clazz Ҫ��������
+     * @param clazz 要检查的类型
      *
-     * @return ���ָ������Ϊ<code>null</code>����primitive���͵İ�װ�࣬�򷵻�<code>null</code>�����򷵻���Ӧ��primitive���͡�
+     * @return 如果指定类型为<code>null</code>或不是primitive类型的包装类，则返回<code>null</code>，否则返回相应的primitive类型。
      */
     public static Class getPrimitiveType(Class clazz) {
         if (clazz == null) {
@@ -1202,11 +1202,11 @@ public class ClassUtil {
     }
 
     /**
-     * ����ָ���������Ӧ�ķ�primitive���͡�
+     * 返回指定类型所对应的非primitive类型。
      *
-     * @param clazz Ҫ��������
+     * @param clazz 要检查的类型
      *
-     * @return ���ָ������Ϊ<code>null</code>���򷵻�<code>null</code>�������primitive���ͣ��򷵻���Ӧ�İ�װ�࣬���򷵻�ԭʼ�����͡�
+     * @return 如果指定类型为<code>null</code>，则返回<code>null</code>，如果是primitive类型，则返回相应的包装类，否则返回原始的类型。
      */
     public static Class getNonPrimitiveType(Class clazz) {
         if (clazz == null) {

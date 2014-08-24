@@ -27,12 +27,12 @@ import java.util.Set;
  * @author zhangsen
  * @version $Id: QueryPage.java 2011-1-6 上午10:18:10 zhangsen $
  */
-public class QueryPage extends QueryBase implements QueryGetParameters {
+public class QueryPage extends QueryBase implements QueryParameters {
     
     /**
     * Logger for this class
     */
-    private static final Logger logger           = LoggerFactory.getLogger(QueryPage.class);
+    private static final Logger _log           = LoggerFactory.getLogger(QueryPage.class);
     
     /**
      * 序列值 
@@ -60,7 +60,7 @@ public class QueryPage extends QueryBase implements QueryGetParameters {
     
 
     /**
-     * @see com.hundsun.network.common.query.QueryGetParameters#getParameters()
+     * @see com.QueryParameters.network.common.query.QueryGetParameters#getParameters()
      */
     @SuppressWarnings("unchecked")
     public Map<String, String> getParameters() {
@@ -72,8 +72,8 @@ public class QueryPage extends QueryBase implements QueryGetParameters {
             getClass(clazz, map, obj);
             resMap =convertHashMap(map);
         } catch (Exception e) {     
-            if(logger.isErrorEnabled()){
-                logger.error("{}",e);
+            if(_log.isErrorEnabled()){
+                _log.error("{}",e);
             }
         }
         return resMap;
@@ -96,7 +96,6 @@ public class QueryPage extends QueryBase implements QueryGetParameters {
                 }
                 Object value = fields[i].get(obj);
                 map.put(name, value);
-
             }
         }
         Class superClzz = clazz.getSuperclass();

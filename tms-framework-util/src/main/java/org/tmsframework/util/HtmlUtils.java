@@ -7,8 +7,8 @@ import java.io.StringReader;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.tmsframework.util.html.parse.HTMLParser;
 
 /**
@@ -17,7 +17,7 @@ import org.tmsframework.util.html.parse.HTMLParser;
  */
 public final class HtmlUtils {
 
-	private static final Log logger = LogFactory.getLog(HtmlUtils.class);
+	private static final Logger logger = LoggerFactory.getLogger(HtmlUtils.class);
 
 	private static final Pattern scriptTag = Pattern
 			.compile("(?i)(?s)(<script.+?</script>)|(on.+?=)");
@@ -25,7 +25,7 @@ public final class HtmlUtils {
 	private static final String emptyString = "";
 
 	/**
-	 * ȥ����ֹ�����html��ǩ,����˵script��
+	 * 去掉禁止输入的html标签,比如说script等
 	 * 
 	 * @param s
 	 * @return
@@ -35,7 +35,7 @@ public final class HtmlUtils {
 	}
 
 	/**
-	 * ȥ����ֹ�����script��ǩ,�Լ� onclick����ĺ���
+	 * 去掉禁止输入的script标签,以及 onclick这样的函数
 	 * 
 	 * @param s
 	 * @return
@@ -49,7 +49,7 @@ public final class HtmlUtils {
 	}
 
 	/**
-	 * �õ�ȥ��html��ǩ�������
+	 * 得到去除html标签后的文字
 	 * 
 	 * @param s
 	 * @return
@@ -74,11 +74,11 @@ public final class HtmlUtils {
 	}
 
 	/**
-	 * �õ�ȥ��html��ǩ�������
+	 * 得到去除html标签后的文字
 	 * 
 	 * @param s
 	 * @param maxLength
-	 *            ��󳤶�,
+	 *            最大长度,
 	 * @return s.length <= maxLength
 	 */
 	public static final String parseHtml(String s, int maxLength) {

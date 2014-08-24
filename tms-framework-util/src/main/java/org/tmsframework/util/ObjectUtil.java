@@ -4,29 +4,31 @@ import java.io.Serializable;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
+import org.tmsframework.util.exception.CloneNotSupportedException;
+
 /**
- * �й�<code>Object</code>����Ĺ����ࡣ
+ * 有关<code>Object</code>处理的工具类。
  * 
  * <p>
- * ������е�ÿ�����������ԡ���ȫ���ش���<code>null</code>������׳�<code>NullPointerException</code>��
+ * 这个类中的每个方法都可以“安全”地处理<code>null</code>，而不会抛出<code>NullPointerException</code>。
  * </p>
  *
  */
 public class ObjectUtil {
     /* ============================================================================ */
-    /*  ������singleton��                                                           */
+    /*  常量和singleton。                                                           */
     /* ============================================================================ */
 
     /**
-     * ���ڱ�ʾ<code>null</code>�ĳ�����
+     * 用于表示<code>null</code>的常量。
      * 
      * <p>
-     * ���磬<code>HashMap.get(Object)</code>��������<code>null</code>�����ֿ��ܣ�
-     * ֵ�����ڻ�ֵΪ<code>null</code>�������singleton������������������Ρ�
+     * 例如，<code>HashMap.get(Object)</code>方法返回<code>null</code>有两种可能：
+     * 值不存在或值为<code>null</code>。而这个singleton可用来区别这两种情形。
      * </p>
      * 
      * <p>
-     * ��һ�������ǣ�<code>Hashtable</code>��ֵ����Ϊ<code>null</code>��
+     * 另一个例子是，<code>Hashtable</code>的值不能为<code>null</code>。
      * </p>
      */
     public static final Object NULL = new Serializable() {
@@ -38,13 +40,13 @@ public class ObjectUtil {
                                     };
 
     /* ============================================================================ */
-    /*  Ĭ��ֵ����                                                                */
+    /*  默认值函数。                                                                */
     /*                                                                              */
-    /*  ������Ϊnullʱ��������ת����ָ����Ĭ�϶���                                */
+    /*  当对象为null时，将对象转换成指定的默认对象。                                */
     /* ============================================================================ */
 
     /**
-     * ������Ϊ<code>null</code>���򷵻�ָ��Ĭ�϶��󣬷��򷵻ض����?
+     * 如果对象为<code>null</code>，则返回指定默认对象，否则返回对象本身。
      * <pre>
      * ObjectUtil.defaultIfNull(null, null)      = null
      * ObjectUtil.defaultIfNull(null, "")        = ""
@@ -53,26 +55,26 @@ public class ObjectUtil {
      * ObjectUtil.defaultIfNull(Boolean.TRUE, *) = Boolean.TRUE
      * </pre>
      *
-     * @param object Ҫ���ԵĶ���
-     * @param defaultValue Ĭ��ֵ
+     * @param object 要测试的对象
+     * @param defaultValue 默认值
      *
-     * @return �������Ĭ�϶���
+     * @return 对象本身或默认对象
      */
     public static Object defaultIfNull(Object object, Object defaultValue) {
         return (object != null) ? object : defaultValue;
     }
 
     /* ============================================================================ */
-    /*  �ȽϺ���                                                                  */
+    /*  比较函数。                                                                  */
     /*                                                                              */
-    /*  ���·��������Ƚ����������Ƿ���ͬ��                                          */
+    /*  以下方法用来比较两个对象是否相同。                                          */
     /* ============================================================================ */
 
     /**
-     * �Ƚ����������Ƿ���ȫ��ȡ�
+     * 比较两个对象是否完全相等。
      * 
      * <p>
-     * �˷���������ȷ�رȽ϶�ά���顣
+     * 此方法可以正确地比较多维数组。
      * <pre>
      * ObjectUtil.equals(null, null)                  = true
      * ObjectUtil.equals(null, "")                    = false
@@ -85,57 +87,57 @@ public class ObjectUtil {
      * </pre>
      * </p>
      *
-     * @param object1 ����1
-     * @param object2 ����2
+     * @param object1 对象1
+     * @param object2 对象2
      *
-     * @return ������, �򷵻�<code>true</code>
+     * @return 如果相等, 则返回<code>true</code>
      */
     public static boolean equals(Object object1, Object object2) {
         return ArrayUtil.equals(object1, object2);
     }
 
     /* ============================================================================ */
-    /*  Hashcode����                                                              */
+    /*  Hashcode函数。                                                              */
     /*                                                                              */
-    /*  ���·�������ȡ�ö����hash code��                                           */
+    /*  以下方法用来取得对象的hash code。                                           */
     /* ============================================================================ */
 
     /**
-     * ȡ�ö����hashֵ, ������Ϊ<code>null</code>, �򷵻�<code>0</code>��
+     * 取得对象的hash值, 如果对象为<code>null</code>, 则返回<code>0</code>。
      * 
      * <p>
-     * �˷���������ȷ�ش����ά���顣
+     * 此方法可以正确地处理多维数组。
      * </p>
      *
-     * @param object ����
+     * @param object 对象
      *
-     * @return hashֵ
+     * @return hash值
      */
     public static int hashCode(Object object) {
         return ArrayUtil.hashCode(object);
     }
 
     /**
-     * ȡ�ö����ԭʼ��hashֵ, ������Ϊ<code>null</code>, �򷵻�<code>0</code>��
+     * 取得对象的原始的hash值, 如果对象为<code>null</code>, 则返回<code>0</code>。
      * 
      * <p>
-     * �÷���ʹ��<code>System.identityHashCode</code>��ȡ��hashֵ����ֵ���ܶ������<code>hashCode</code>������Ӱ�졣
+     * 该方法使用<code>System.identityHashCode</code>来取得hash值，该值不受对象本身的<code>hashCode</code>方法的影响。
      * </p>
      *
-     * @param object ����
+     * @param object 对象
      *
-     * @return hashֵ
+     * @return hash值
      */
     public static int identityHashCode(Object object) {
         return (object == null) ? 0 : System.identityHashCode(object);
     }
 
     /* ============================================================================ */
-    /*  ȡ�ö����identity��                                                        */
+    /*  取得对象的identity。                                                        */
     /* ============================================================================ */
 
     /**
-     * ȡ�ö��������identity����ͬ����û�и���<code>toString()</code>����ʱ��<code>Object.toString()</code>��ԭʼ�����
+     * 取得对象自身的identity，如同对象没有覆盖<code>toString()</code>方法时，<code>Object.toString()</code>的原始输出。
      * <pre>
      * ObjectUtil.identityToString(null)          = null
      * ObjectUtil.identityToString("")            = "java.lang.String@1e23"
@@ -144,9 +146,9 @@ public class ObjectUtil {
      * ObjectUtil.identityToString(new Object[0]) = "java.lang.Object[]@7fa"
      * </pre>
      *
-     * @param object ����
+     * @param object 对象
      *
-     * @return �����identity����������<code>null</code>���򷵻�<code>null</code>
+     * @return 对象的identity，如果对象是<code>null</code>，则返回<code>null</code>
      */
     public static String identityToString(Object object) {
         if (object == null) {
@@ -157,7 +159,7 @@ public class ObjectUtil {
     }
 
     /**
-     * ȡ�ö��������identity����ͬ����û�и���<code>toString()</code>����ʱ��<code>Object.toString()</code>��ԭʼ�����
+     * 取得对象自身的identity，如同对象没有覆盖<code>toString()</code>方法时，<code>Object.toString()</code>的原始输出。
      * <pre>
      * ObjectUtil.identityToString(null, "NULL")            = "NULL"
      * ObjectUtil.identityToString("", "NULL")              = "java.lang.String@1e23"
@@ -166,10 +168,10 @@ public class ObjectUtil {
      * ObjectUtil.identityToString(new Object[0], "NULL")   = "java.lang.Object[]@7fa"
      * </pre>
      *
-     * @param object ����
-     * @param nullStr ������Ϊ<code>null</code>���򷵻ظ��ַ�
+     * @param object 对象
+     * @param nullStr 如果对象为<code>null</code>，则返回该字符串
      *
-     * @return �����identity����������<code>null</code>���򷵻�ָ���ַ�
+     * @return 对象的identity，如果对象是<code>null</code>，则返回指定字符串
      */
     public static String identityToString(Object object, String nullStr) {
         if (object == null) {
@@ -180,7 +182,7 @@ public class ObjectUtil {
     }
 
     /**
-     * �����������identity������ͬ����û�и���<code>toString()</code>����ʱ��<code>Object.toString()</code>��ԭʼ�������׷�ӵ�<code>StringBuffer</code>�С�
+     * 将对象自身的identity——如同对象没有覆盖<code>toString()</code>方法时，<code>Object.toString()</code>的原始输出——追加到<code>StringBuffer</code>中。
      * <pre>
      * ObjectUtil.appendIdentityToString(*, null)            = null
      * ObjectUtil.appendIdentityToString(null, "")           = "java.lang.String@1e23"
@@ -190,10 +192,10 @@ public class ObjectUtil {
      * ObjectUtil.appendIdentityToString(buf, new Object[0]) = buf.append("java.lang.Object[]@7fa")
      * </pre>
      *
-     * @param buffer <code>StringBuffer</code>���������<code>null</code>���򴴽��µ�
-     * @param object ����
+     * @param buffer <code>StringBuffer</code>对象，如果是<code>null</code>，则创建新的
+     * @param object 对象
      *
-     * @return <code>StringBuffer</code>����������Ϊ<code>null</code>���򷵻�<code>null</code>
+     * @return <code>StringBuffer</code>对象，如果对象为<code>null</code>，则返回<code>null</code>
      */
     public static StringBuffer appendIdentityToString(StringBuffer buffer, Object object) {
         if (object == null) {
@@ -210,28 +212,28 @@ public class ObjectUtil {
     }
 
     /* ============================================================================ */
-    /*  Clone����                                                                 */
+    /*  Clone函数。                                                                 */
     /*                                                                              */
-    /*  ���·�������Object.clone������Ĭ���ǡ�ǳ���ơ���shallow copy����            */
+    /*  以下方法调用Object.clone方法，默认是“浅复制”（shallow copy）。            */
     /* ============================================================================ */
 
     /**
-     * ����һ������������Ϊ<code>null</code>���򷵻�<code>null</code>��
+     * 复制一个对象。如果对象为<code>null</code>，则返回<code>null</code>。
      * 
      * <p>
-     * �˷�������<code>Object.clone</code>������Ĭ��ֻ���С�ǳ���ơ��� �������飬����<code>ArrayUtil.clone</code>�������Ч��
+     * 此方法调用<code>Object.clone</code>方法，默认只进行“浅复制”。 对于数组，调用<code>ArrayUtil.clone</code>方法更高效。
      * </p>
      *
-     * @param array Ҫ���Ƶ�����
+     * @param array 要复制的数组
      *
-     * @return ����ĸ��������ԭʼ����Ϊ<code>null</code>���򷵻�<code>null</code>
+     * @return 数组的复本，如果原始数组为<code>null</code>，则返回<code>null</code>
      */
     public static Object clone(Object array) {
         if (array == null) {
             return null;
         }
 
-        // ���������⴦��
+        // 对数组特殊处理
         if (array instanceof Object[]) {
             return ArrayUtil.clone((Object[]) array);
         }
@@ -274,7 +276,7 @@ public class ObjectUtil {
                                                  + " is not Cloneable");
         }
 
-        // ��reflection����clone����
+        // 用reflection调用clone方法
         Class clazz = array.getClass();
 
         try {
@@ -293,16 +295,16 @@ public class ObjectUtil {
     }
 
     /* ============================================================================ */
-    /*  �Ƚ϶�������͡�                                                            */
+    /*  比较对象的类型。                                                            */
     /* ============================================================================ */
 
     /**
-     * ������������Ƿ�������ͬ���͡�<code>null</code>���������������͡�
+     * 检查两个对象是否属于相同类型。<code>null</code>将被看作任意类型。
      *
-     * @param object1 ����1
-     * @param object2 ����2
+     * @param object1 对象1
+     * @param object2 对象2
      *
-     * @return ���������������ͬ�����ͣ��򷵻�<code>true</code>
+     * @return 如果两个对象有相同的类型，则返回<code>true</code>
      */
     public static boolean isSameType(Object object1, Object object2) {
         if ((object1 == null) || (object2 == null)) {
@@ -313,11 +315,11 @@ public class ObjectUtil {
     }
 
     /* ============================================================================ */
-    /*  toString������                                                              */
+    /*  toString方法。                                                              */
     /* ============================================================================ */
 
     /**
-     * ȡ�ö����<code>toString()</code>��ֵ��������Ϊ<code>null</code>���򷵻ؿ��ַ�<code>""</code>��
+     * 取得对象的<code>toString()</code>的值，如果对象为<code>null</code>，则返回空字符串<code>""</code>。
      * <pre>
      * ObjectUtil.toString(null)         = ""
      * ObjectUtil.toString("")           = ""
@@ -326,9 +328,9 @@ public class ObjectUtil {
      * ObjectUtil.toString([1, 2, 3])    = "[1, 2, 3]"
      * </pre>
      *
-     * @param object ����
+     * @param object 对象
      *
-     * @return �����<code>toString()</code>�ķ���ֵ������ַ�<code>""</code>
+     * @return 对象的<code>toString()</code>的返回值，或空字符串<code>""</code>
      */
     public static String toString(Object object) {
         return (object == null) ? StringUtil.EMPTY_STRING
@@ -336,7 +338,7 @@ public class ObjectUtil {
     }
 
     /**
-     * ȡ�ö����<code>toString()</code>��ֵ��������Ϊ<code>null</code>���򷵻�ָ���ַ�
+     * 取得对象的<code>toString()</code>的值，如果对象为<code>null</code>，则返回指定字符串。
      * <pre>
      * ObjectUtil.toString(null, null)           = null
      * ObjectUtil.toString(null, "null")         = "null"
@@ -346,10 +348,10 @@ public class ObjectUtil {
      * ObjectUtil.toString([1, 2, 3], "null")    = "[1, 2, 3]"
      * </pre>
      *
-     * @param object ����
-     * @param nullStr ������Ϊ<code>null</code>���򷵻ظ��ַ�
+     * @param object 对象
+     * @param nullStr 如果对象为<code>null</code>，则返回该字符串
      *
-     * @return �����<code>toString()</code>�ķ���ֵ����ָ���ַ�
+     * @return 对象的<code>toString()</code>的返回值，或指定字符串
      */
     public static String toString(Object object, String nullStr) {
         return (object == null) ? nullStr : (object.getClass().isArray() ? ArrayUtil

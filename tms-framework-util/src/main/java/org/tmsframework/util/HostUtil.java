@@ -11,18 +11,18 @@ import java.util.Enumeration;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
- * ��ñ����������,ip�Ĺ�����
+ * 获得本服务器名称,ip的工具类
  * 
  * @author sam.zhang
  * 
  */
 public class HostUtil {
 
-	private static final Log logger = LogFactory.getLog(HostUtil.class);
+	private static final Logger _log = LoggerFactory.getLogger(HostUtil.class);
 
 	private static final HostInfo hostInfo = new HostInfo();
 
@@ -49,7 +49,7 @@ public class HostUtil {
 				hostName = localhost.getHostName();
 				hostAddress = localhost.getHostAddress();
 			} catch (UnknownHostException e) {
-				logger.error("error then get host info", e);
+				_log.error("error then get host info", e);
 				hostName = "localhost";
 				hostAddress = "127.0.0.1";
 			}
@@ -88,13 +88,13 @@ public class HostUtil {
 					}
 				}
 			} catch (SocketException e) {
-				logger.error("error then getNetworkInterfaces.", e);
+				_log.error("error then getNetworkInterfaces.", e);
 			}
 			address = Collections.unmodifiableSet(as);
 		}
 
 		/**
-		 * �õ��������õ�����ipv4��ַ
+		 * 得到本机配置的所有ipv4地址
 		 * 
 		 * @return
 		 */
@@ -103,7 +103,7 @@ public class HostUtil {
 		}
 
 		/**
-		 * �õ�ipv4��ַ�еĵ�һ��
+		 * 得到ipv4地址中的第一个
 		 * 
 		 * @return
 		 */
@@ -115,7 +115,7 @@ public class HostUtil {
 		}
 
 		/**
-		 * �ж��Ƿ񱾷�������ip
+		 * 判断是否本服务器的ip
 		 * 
 		 * @param ip
 		 * @return

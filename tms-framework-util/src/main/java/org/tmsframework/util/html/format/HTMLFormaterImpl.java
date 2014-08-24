@@ -6,12 +6,12 @@ import java.util.Set;
 
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.StringUtils;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.apache.xerces.xni.parser.XMLDocumentFilter;
 import org.apache.xerces.xni.parser.XMLInputSource;
 import org.apache.xerces.xni.parser.XMLParserConfiguration;
 import org.cyberneko.html.HTMLConfiguration;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * 
@@ -77,22 +77,22 @@ public class HTMLFormaterImpl implements HTMLFormater {
 
 	private static class NekoFormater {
 		//
-		private static Log log = LogFactory.getLog(NekoFormater.class);
+		private static Logger log = LoggerFactory.getLogger(NekoFormater.class);
 
 		private String encoding;
 
-		// ���?�������󳤶�16k
+		// 处理缓冲区的最大长度16k
 		private static int MAX_BUFFER_LENGTH = 1024 * 16;
 
-		// ������
+		// 过滤器
 		private XMLParserConfiguration parser;
 
-		// ������������
+		// 数据输出缓冲区
 		private ByteArrayOutputStream outputBuffer = new ByteArrayOutputStream(
 				MAX_BUFFER_LENGTH);
 
 		/**
-		 * ���캯��
+		 * 构造函数
 		 * 
 		 * @param acceptElements
 		 * @param removeElements
@@ -103,10 +103,10 @@ public class HTMLFormaterImpl implements HTMLFormater {
 				String encoding) {
 			this.encoding = encoding;
 			try {
-				// ��ʼ��������
+				// 初始化过滤器
 				ElementRemover remover = new ElementRemover();
 
-				// ��ʼ����Ҫ���ܵı�ǩ
+				// 初始化需要接受的标签
 				for (String accept : acceptElements) {
 					//
 					String[] ret = accept.split(",");
@@ -118,18 +118,18 @@ public class HTMLFormaterImpl implements HTMLFormater {
 					remover.acceptElement(ret[0], attrs);
 				}
 
-				// ��ʼ����Ҫ���˵ı�ǩ
+				// 初始化需要过滤的标签
 				for (String remove : removeElements) {
 					remover.removeElement(remove);
 				}
 
-				// ��ʼ����������ʽ�����Լ����
+				// 初始化用正则表达式的属性检查器
 				for (String item : attributeMatchers) {
 					String[] ret = item.split(",", 3);
 					remover.acceptElementAttribute(ret[0], ret[1], ret[2]);
 				}
 
-				// ��ʼ��html���ö���
+				// 初始化html配置对象
 				parser = new HTMLConfiguration();
 
 				// create writer filter
@@ -169,16 +169,16 @@ public class HTMLFormaterImpl implements HTMLFormater {
 		}
 
 		/**
-		 * ����һ��ԭʼ��HTML
+		 * 过滤一段原始的HTML
 		 * 
 		 * @param origHtml
 		 * @return
 		 */
 		private String filter(String origHtml) {
 			try {
-				// ������������
+				// 清空输出缓冲区
 				outputBuffer.reset();
-				// �ǳ���֣��ַ��� &* ��β��ʱ�򣬽��������
+				// 非常奇怪，字符串以 &* 结尾的时候，解析会出错
 				origHtml = origHtml + ' ';
 				XMLInputSource is = new XMLInputSource(null, null, null,
 						new StringReader(origHtml), encoding);
@@ -193,3 +193,4 @@ public class HTMLFormaterImpl implements HTMLFormater {
 	}
 
 }
+

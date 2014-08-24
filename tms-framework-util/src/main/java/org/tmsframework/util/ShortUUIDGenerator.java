@@ -3,7 +3,7 @@ package org.tmsframework.util;
 import java.util.UUID;
 
 /**
- * ����϶�UUID,����36���Ƶ�128λuuid
+ * 产生较短UUID,返回36进制的128位uuid
  * 
  * @author sam.zhang
  * 
@@ -33,13 +33,13 @@ public final class ShortUUIDGenerator {
 	private static String UUIDtoString(UUID u) {
 		long mostSigBits = u.getMostSignificantBits();
 		long leastSigBits = u.getLeastSignificantBits();
-		return (digits(mostSigBits >> 32, 8) + digits(mostSigBits >> 16, 4)
-				+ digits(mostSigBits, 4) + digits(leastSigBits >> 48, 4) + digits(
-				leastSigBits, 12));
+		return (digits(mostSigBits >> 32) + digits(mostSigBits)
+				+ digits(leastSigBits >> 32) + digits(
+				leastSigBits));
+
 	}
 
-	private static String digits(long val, int digits) {
-		long hi = 1L << (digits * 4);
-		return Long.toString(hi | (val & (hi - 1)), 36).substring(1);
+	private static String digits(long val) {
+		return Long.toString((val & 4294967295L), 36);
 	}
 }
