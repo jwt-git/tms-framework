@@ -1,5 +1,8 @@
 package org.tmsframework.mvc.web.cookyjar;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import javax.servlet.http.Cookie;
 
 import org.apache.commons.lang.RandomStringUtils;
@@ -22,23 +25,32 @@ public class CookieConfigure {
 
 	private Integer lifeTime = -1;
 
-	// ���Ϊnull,��Ϊ������
+	// 如果为null,则为不加密
 	private Crypto crypto;
 
-	// �ַ���룬ȱʡΪutf8
+	// 字符编码，缺省为utf8
 	private String encoding = "UTF-8";
 
-	// ��ֵǰ�����Ӷ���������֣���� <= 0 ,���ʾ������
+	// 在值前面增加多少随机数字，如果 <= 0 ,则表示不增加
 	private Integer randomChar = 0;
 
 	private String domain;
-	
-	//domain�Ƿ�����,���domain == "localhost" ���ͬ��δ����
+
+	// domain是否设置,如果domain == "localhost" 则等同于未设置
 	private boolean isDomainSet = false;
+	
+	private int sessionTimeout = -1;
 
-	private Class<? extends SelfDependence> selfDependenceClass;
+	private Class<? extends SelfSerializable> selfSerializableClass;
 
-	// ���ͻ��˵�cookieֵ�������
+	/**
+	 * servlet3.0新增加的 httpOnly,注意，此配置不能用缺省配置来设置，只能每个CookieConfigure分别设置
+	 */
+	private boolean httpOnly = false;
+	
+	private boolean secure = false;
+
+	// 将客户端的cookie值翻译过来
 	public String getRealValue(String value) {
 		if (StringUtils.isBlank(value)) {
 			return null;
@@ -60,7 +72,7 @@ public class CookieConfigure {
 
 	}
 
-	// ����ʵֵ����ɿͻ���cookie�洢ֵ
+	// 将真实值翻译成客户端cookie存储值
 	public String getClientValue(String value) {
 		if (StringUtils.isBlank(value)) {
 			return "";
@@ -84,17 +96,23 @@ public class CookieConfigure {
 
 	public Cookie getCookie(String value, String contextPath, Integer expiry) {
 		Cookie c = new Cookie(getClientName(), getClientValue(value));
-		if(this.isDomainSet){
+		if (this.isDomainSet) {
 			c.setDomain(domain);
 		}
 		c.setPath(contextPath + getPath());
 		c.setMaxAge(expiry != null ? expiry : DefaultLifeTime);
+		if(this.httpOnly){
+			c.setHttpOnly(true);
+		}
+		if(this.secure){
+			c.setSecure(true);
+		}
 		return c;
 	}
 
-	// �õ�ɾ��һ��cookie��cookie
+	// 得到删除一个cookie的cookie
 	public Cookie getDeleteCookie(String contextPath) {
-		return this.getCookie("", contextPath, 0);// ������ʱ������Ϊ0��Ϊɾ��һ��cookie
+		return this.getCookie("", contextPath, 0);// 将过期时间设置为0即为删除一个cookie
 	}
 
 	@Override
@@ -195,20 +213,58 @@ public class CookieConfigure {
 
 	public void setDomain(String domain) {
 		this.domain = domain;
-		if(domain.equals("localhost") || domain.equals(".localhost")){
+		domainSet();
+	}
+
+	private static final Pattern Ipv4Pattern = Pattern
+			.compile("^\\.?((25[0-5]|2[0-4]\\d|1\\d{2}|[1-9]\\d|\\d)\\.){3}(25[0-5]|2[0-4]\\d|1\\d{2}|[1-9]\\d|\\d)$");
+
+	private void domainSet() {
+		if (domain.equals("localhost") || domain.equals(".localhost")) {
+			// localhost
 			this.isDomainSet = false;
+			return;
 		}
-		else{
-			this.isDomainSet = true;
+		//一般配置ip都用的ipv4,以后等ipv6大规模应用了再配上ipv6地址吧
+		Matcher m = Ipv4Pattern.matcher(domain);
+		if (m.find()) {
+			this.isDomainSet = false;
+			return;
 		}
+		this.isDomainSet = true;
 	}
 
-	public Class<? extends SelfDependence> getSelfDependenceClass() {
-		return selfDependenceClass;
+	public boolean isHttpOnly() {
+		return httpOnly;
 	}
 
-	public void setSelfDependenceClass(
-			Class<? extends SelfDependence> selfDependenceClass) {
-		this.selfDependenceClass = selfDependenceClass;
+	public void setHttpOnly(boolean httpOnly) {
+		this.httpOnly = httpOnly;
 	}
+
+	public boolean isSecure() {
+		return secure;
+	}
+
+	public void setSecure(boolean secure) {
+		this.secure = secure;
+	}
+
+	public int getSessionTimeout() {
+		return sessionTimeout * 60;
+	}
+
+	public void setSessionTimeout(int sessionTimeout) {
+		this.sessionTimeout = sessionTimeout;
+	}
+
+	public Class<? extends SelfSerializable> getSelfSerializableClass() {
+		return selfSerializableClass;
+	}
+
+	public void setSelfSerializableClass(
+			Class<? extends SelfSerializable> selfSerializableClass) {
+		this.selfSerializableClass = selfSerializableClass;
+	}
+	
 }

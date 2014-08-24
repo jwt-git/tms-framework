@@ -6,6 +6,9 @@ import org.springframework.web.context.request.NativeWebRequest;
 import org.springframework.web.context.request.RequestAttributes;
 
 /**
+ * cookyjar解析器
+ * 	
+ * 		如果方法中带有cookyjar参数，则自动将request中的cookyjar置入
  * 
  * @author sam.zhang
  *

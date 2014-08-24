@@ -1,3 +1,6 @@
+/**
+ * 
+ */
 package org.tmsframework.mvc.web.cookyjar;
 
 import java.util.HashMap;
@@ -12,14 +15,15 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 /**
- * 
- * @author sam.zhang
- * 
+ * @author sunz
+ *
  */
-public class CookyjarSimpleImpl implements Cookyjar {
+public class CookyjarSessionImpl implements Cookyjar {
 
-	private static final Log logger = LogFactory
-			.getLog(CookyjarSimpleImpl.class);
+	private static final Log logger = LogFactory.getLog(CookyjarSessionImpl.class);
+	
+	private  static final String cookyjarCrumbs = "crumbs";
+	
 	// name -> cookieValue
 	private Map<String, CookieValue> cookieMap = new HashMap<String, CookieValue>();
 
@@ -27,20 +31,17 @@ public class CookyjarSimpleImpl implements Cookyjar {
 
 	private HttpServletRequest httpRequest;
 
-	public CookyjarSimpleImpl(HttpServletRequest httpRequest,
-			CookyjarConfigure cookyjarConfigure) {
+	public CookyjarSessionImpl(HttpServletRequest httpRequest, CookyjarConfigure cookyjarConfigure) {
 		this.httpRequest = httpRequest;
 		this.cookyjarConfigure = cookyjarConfigure;
 		Cookie[] cookies = httpRequest.getCookies();
 		if (cookies != null && cookies.length > 0) {
 			for (Cookie ck : cookies) {
 				String name = ck.getName();
-				CookieConfigure cfg = this.cookyjarConfigure
-						.getConfByClientName(name);
+				CookieConfigure cfg = this.cookyjarConfigure.getConfByClientName(name);
 				if (cfg == null) {
 					if (logger.isDebugEnabled()) {
-						logger.debug("get a unknow cookie name[" + name
-								+ "]value[" + ck.getValue() + "]");
+						logger.debug("get a unknow cookie name[" + name + "]value[" + ck.getValue() + "]");
 					}
 					continue;
 				}
@@ -53,45 +54,35 @@ public class CookyjarSimpleImpl implements Cookyjar {
 	}
 
 	public void commit(HttpServletResponse httpResponse) {
-		if (!valueModified()) {
-			// ֵδ�޸Ĺ�,����Ҫ����
-			if (logger.isDebugEnabled()) {
-				logger.debug("cookyjar not modified.");
-			}
-			return;
-		}
 		if (httpResponse.isCommitted()) {
-			logger
-					.error("HttpServletResponse is commited,so cookie can't write to reponse.");
+			logger.error("HttpServletResponse is commited,so cookie can't write to reponse.");
 			return;
 		}
 		String contextPath = httpRequest.getContextPath();
-		for (CookieValue cv : cookieMap.values()) {
-			if (cv.modified) {
-				Cookie cookie = null;
-				if (cv.unencrypt == null) {
-					cookie = cv.cfg.getDeleteCookie(contextPath);
-				} else {
-					cookie = cv.cfg.getCookie(cv.unencrypt, contextPath,
-							cv.expiredTime);
-				}
-				cv.modified = false;
-				if (logger.isDebugEnabled()) {
-					logger.debug("add a cookie:[" + getCookieString(cookie)
-							+ "] to http response.");
-				}
-				httpResponse.addCookie(cookie);
-			}
+		if(cookieMap.get(cookyjarCrumbs)==null){
+			CookieValue newCV = new CookieValue();
+			newCV.expiredTime=-1;
+			newCV.unencrypt=System.currentTimeMillis()+"";
+			
 		}
-	}
-
-	private boolean valueModified() {
 		for (CookieValue cv : cookieMap.values()) {
-			if (cv.modified) {
-				return true;
+			Cookie cookie = null;
+			if (cv.unencrypt == null) {
+				cookie = cv.cfg.getDeleteCookie(contextPath);
+			} else {
+				Integer expiredTime;
+				if(cv.cfg.getSessionTimeout()<=0){
+					expiredTime = cv.expiredTime;
+				}else{
+					expiredTime = cv.cfg.getSessionTimeout();
+				}
+				cookie = cv.cfg.getCookie(cv.unencrypt, contextPath, expiredTime);
 			}
+			if (logger.isDebugEnabled()) {
+				logger.debug("add a cookie:[" + getCookieString(cookie) + "] to http response.");
+			}
+			httpResponse.addCookie(cookie);
 		}
-		return false;
 	}
 
 	public void clean() {
@@ -223,7 +214,7 @@ public class CookyjarSimpleImpl implements Cookyjar {
 		Class<? extends SelfSerializable> clazz = conf.getSelfSerializableClass();
 		if (clazz == null) {
 //			throw new IllegalArgumentException("cookie with key:" + key
-//					+ " not configured with SelfDependenceClass class");
+//					+ " not configured with SelfSerializableClass class");
 			return null;
 		}
 		return getObject(key, clazz);
@@ -303,5 +294,15 @@ public class CookyjarSimpleImpl implements Cookyjar {
 		sb.append("]");
 		return sb.toString();
 	}
+
+	public CookyjarConfigure getCookyjarConfigure() {
+		return cookyjarConfigure;
+	}
+
+	public void setCookyjarConfigure(CookyjarConfigure cookyjarConfigure) {
+		this.cookyjarConfigure = cookyjarConfigure;
+	}
+	
+	
 
 }

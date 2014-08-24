@@ -3,16 +3,16 @@ package org.tmsframework.mvc.web.cookyjar;
 import java.util.Map;
 
 /**
- * ��http�е�cookie�İ�װ,�õ�����: request.getAttrubute(Cookyjar.CookyjarInRequest)
- * ע��,���keyû�������������ù�,����Ϊ��Ч������ʹ��Filter,����spring��interceptor������ʹ��
+ * 对http中的cookie的包装,得到方法: request.getAttrubute(Cookyjar.CookyjarInRequest)
+ * 注意,如果key没有在配置中设置过,则视为无效。可以使用Filter,或者spring的interceptor来配置使用
  * 
- * @author sam.zhang
+ * @author zhangsen
  */
 public interface Cookyjar {
 	public static final String CookyjarInRequest = "cookyjar";
 
 	/**
-	 * ����һ��ֵ,����Ѵ���,�򸲸�,���value=null,���൱�� remove(key)
+	 * 设置一个值,如果已存在,则覆盖,如果value=null,则相当于 remove(key)
 	 * 
 	 * @param key
 	 * @param value
@@ -21,21 +21,21 @@ public interface Cookyjar {
 
 	public void set(String key, Long value);
 
-	public void set(String key, SelfDependence object);
+	public void set(String key, SelfSerializable object);
 
-	public void set(String key, SelfDependence object, int expiry);
+	public void set(String key, SelfSerializable object, int expiry);
 
 	/**
-	 * �־û�һ�������л��Ķ���,ע��,ʹ�ô˷���,���صĽ��ǵ�һ�����õĴ�class����
+	 * 持久化一个可序列化的对象,注意,使用此方法,返回的将是第一个配置的此class对象
 	 * 
 	 * @param object
 	 */
-	public void set(SelfDependence object);
+	public void set(SelfSerializable object);
 
-	public void set(SelfDependence object, int expiry);
+	public void set(SelfSerializable object, int expiry);
 
 	/**
-	 * ����һ��ֵ,����Ѵ���,�򸲸�,���value=null,���൱�� remove(key)
+	 * 设置一个值,如果已存在,则覆盖,如果value=null,则相当于 remove(key)
 	 * 
 	 * @param key
 	 * @param value
@@ -49,7 +49,7 @@ public interface Cookyjar {
 	public void set(String key, Long value, int expiry);
 
 	/**
-	 * �õ�һ��ֵ
+	 * 得到一个值
 	 * 
 	 * @param key
 	 * @return
@@ -57,51 +57,51 @@ public interface Cookyjar {
 	public String get(String key);
 
 	/**
-	 * ��cookie�и��key�õ�һ�������л��Ķ���
+	 * 从cookie中根据key得到一个反序列化的对象
 	 * 
 	 * @param key
 	 * @return
 	 */
-	public SelfDependence getObject(String key);
+	public SelfSerializable getObject(String key);
 
 	/**
-	 * ��cookie�и����õ�һ�������л��Ķ���
+	 * 从cookie中根据类得到一个反序列化的对象
 	 * 
 	 * @param key
 	 * @return
 	 */
-	public SelfDependence getObject(Class<? extends SelfDependence> objectType);
+	public SelfSerializable getObject(Class<? extends SelfSerializable> objectType);
 
 	/**
-	 * ��cookie�и��key�Ͷ�����õ�һ�������л�����
+	 * 从cookie中根据key和对象类得到一个反序列化对象
 	 * 
 	 * @param key
 	 * @param objectType
 	 * @return
 	 */
-	public SelfDependence getObject(String key,
-			Class<? extends SelfDependence> objectType);
+	public SelfSerializable getObject(String key,
+			Class<? extends SelfSerializable> objectType);
 
 	/**
-	 * �õ����е�ֵ��
+	 * 得到所有的值对
 	 * 
 	 * @return
 	 */
 	public Map<String, String> getAll();
 
 	/**
-	 * ɾ��һ��ֵ
+	 * 删除一个值
 	 * 
 	 * @param key
 	 * @return
 	 */
 	public String remove(String key);
 
-	public void remove(Class<? extends SelfDependence> objectType);
+	public void remove(Class<? extends SelfSerializable> objectType);
 
 	/**
 	 * 
-	 * ������ֵ�����
+	 * 将所有值都清除
 	 */
 	public void clean();
 }
